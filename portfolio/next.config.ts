@@ -1,7 +1,10 @@
-import type { NextConfig } from "next";
+/** next.config.ts */
+import { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  /* config options here */
-};
+  experimental: {
+    appDir: true,    // <— permet à Next de reconnaître src/app/
+  },
+}
 
-export default nextConfig;
+export default nextConfig
