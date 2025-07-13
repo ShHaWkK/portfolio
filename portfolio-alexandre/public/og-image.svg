@@ -1,0 +1,37 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#0D1117"/>
+  
+  <!-- Background elements -->
+  <circle cx="200" cy="500" r="300" fill="url(#blue-gradient)" opacity="0.1"/>
+  <circle cx="1000" cy="100" r="250" fill="url(#purple-gradient)" opacity="0.1"/>
+  
+  <!-- Logo -->
+  <g transform="translate(150, 215) scale(3)">
+    <path d="M16 6L6 12V20L16 26L26 20V12L16 6Z" stroke="#00E5FF" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M16 14L11 11V17L16 20L21 17V11L16 14Z" fill="#9A4DFF" stroke="#9A4DFF" stroke-width="0.5" stroke-linejoin="round"/>
+    <path d="M16 6V14" stroke="#00E5FF" stroke-width="2"/>
+    <path d="M26 12L21 17" stroke="#00E5FF" stroke-width="2"/>
+    <path d="M6 12L11 17" stroke="#00E5FF" stroke-width="2"/>
+    <path d="M16 26V20" stroke="#00E5FF" stroke-width="2"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="350" y="250" font-family="'Poppins', sans-serif" font-size="72" font-weight="700" fill="#FFFFFF">Alexandre UZAN</text>
+  <text x="350" y="330" font-family="'Inter', sans-serif" font-size="36" font-weight="500" fill="#00E5FF">Administrateur Systèmes, Réseaux &amp; Sécurité</text>
+  <text x="350" y="390" font-family="'Inter', sans-serif" font-size="28" font-weight="400" fill="#EAECEF">« Faire rimer innovation, performance et sécurité »</text>
+  
+  <!-- Decorative line -->
+  <line x1="350" y1="290" x2="850" y2="290" stroke="#9A4DFF" stroke-width="4"/>
+  
+  <!-- Gradients -->
+  <defs>
+    <linearGradient id="blue-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#00E5FF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="purple-gradient" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#9A4DFF" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#9A4DFF" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+</svg>

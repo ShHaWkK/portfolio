@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0D1117;
+  --neon-blue: #00E5FF;
+  --neon-purple: #9A4DFF;
+  --text-primary: #EAECEF;
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply bg-background text-text-primary font-inter;
+    position: relative;
+    overflow-x: hidden;
+  }
+  
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/backgrounds/circuit-pattern.svg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.05;
+    z-index: -1;
+    pointer-events: none;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-poppins font-bold;
+  }
+  
+  code, .font-code {
+    font-family: 'Fira Code', monospace;
+  }
+  
+  .cyber-text {
+    color: var(--neon-blue);
+    text-shadow: 0 0 5px rgba(0, 229, 255, 0.5), 0 0 10px rgba(0, 229, 255, 0.3);
+  }
+  
+  .matrix-text {
+    color: var(--matrix-green);
+    text-shadow: 0 0 5px rgba(0, 255, 65, 0.5), 0 0 10px rgba(0, 255, 65, 0.3);
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .section {
+    @apply py-16 md:py-24;
+    position: relative;
+  }
+  
+  .section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--neon-blue), transparent);
+    opacity: 0.3;
+  }
+  
+  .btn {
+    @apply px-6 py-3 font-medium transition-all duration-300;
+    border-radius: 0;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+  }
+  
+  .btn-primary {
+    @apply bg-neon-blue text-background;
+  }
+  
+  .btn-primary:hover {
+    background-color: transparent;
+    color: var(--neon-blue);
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.5);
+    border: 1px solid var(--neon-blue);
+  }
+  
+  .btn-secondary {
+    @apply bg-neon-purple text-background;
+    clip-path: polygon(5% 0, 95% 0, 100% 100%, 0% 100%);
+  }
+  
+  .btn-secondary:hover {
+    background-color: transparent;
+    color: var(--neon-purple);
+    box-shadow: 0 0 15px rgba(154, 77, 255, 0.5);
+    border: 1px solid var(--neon-purple);
+  }
+  
+  .btn-outline {
+    @apply border-2 border-neon-blue text-neon-blue;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .btn-outline::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    background: linear-gradient(45deg, var(--neon-blue), transparent, var(--neon-blue));
+    z-index: -1;
+    animation: border-rotate 3s linear infinite;
+  }
+  
+  @keyframes border-rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .btn-outline:hover {
+    @apply bg-neon-blue text-background;
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.5);
+  }
+  
+  .card {
+    @apply bg-background bg-opacity-50 backdrop-blur-sm border border-gray-800 p-6 transition-all duration-300 hover:border-neon-blue;
+    border-radius: 0;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 97% 100%, 3% 100%);
+  }
+  
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(0, 229, 255, 0.03), transparent);
+    pointer-events: none;
+  }
+  
+  .cyber-card {
+    background-color: var(--background-alt);
+    border: 1px solid var(--neon-blue);
+    padding: 1.5rem;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 97% 97%, 3% 100%);
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  .terminal-card {
+    background-color: var(--dark-blue);
+    border: 1px solid var(--terminal-green);
+    padding: 1.5rem;
+    font-family: 'Fira Code', monospace;
+    position: relative;
+  }
+}

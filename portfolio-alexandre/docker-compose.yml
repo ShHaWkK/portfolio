@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  portfolio:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: portfolio-alexandre
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    # Volumes pour le développement (décommenter si nécessaire)
+    # volumes:
+    #   - ./src:/app/src
+    #   - ./public:/app/public
+    environment:
+      - NODE_ENV=production
+    networks:
+      - portfolio-network
+
+networks:
+  portfolio-network:
+    driver: bridge

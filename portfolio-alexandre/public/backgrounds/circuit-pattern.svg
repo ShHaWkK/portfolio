@@ -1,0 +1,66 @@
+<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(0, 229, 255, 0.1)" stroke-width="1"/>
+    </pattern>
+    
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  
+  <!-- Background grid -->
+  <rect width="100%" height="100%" fill="url(#grid)" />
+  
+  <!-- Circuit lines -->
+  <g stroke="rgba(0, 229, 255, 0.2)" stroke-width="1.5" fill="none" filter="url(#glow)">
+    <!-- Horizontal lines -->
+    <path d="M 0 100 L 300 100 L 320 120 L 500 120 L 520 100 L 800 100" />
+    <path d="M 0 200 L 200 200 L 220 220 L 400 220 L 420 200 L 800 200" />
+    <path d="M 0 300 L 100 300 L 120 320 L 300 320 L 320 300 L 800 300" />
+    <path d="M 0 400 L 400 400 L 420 420 L 600 420 L 620 400 L 800 400" />
+    <path d="M 0 500 L 500 500 L 520 520 L 700 520 L 720 500 L 800 500" />
+    <path d="M 0 600 L 600 600 L 620 620 L 700 620 L 720 600 L 800 600" />
+    <path d="M 0 700 L 700 700 L 720 720 L 750 720 L 770 700 L 800 700" />
+    
+    <!-- Vertical lines -->
+    <path d="M 100 0 L 100 300 L 120 320 L 120 500 L 100 520 L 100 800" />
+    <path d="M 200 0 L 200 200 L 220 220 L 220 400 L 200 420 L 200 800" />
+    <path d="M 300 0 L 300 100 L 320 120 L 320 300 L 300 320 L 300 800" />
+    <path d="M 400 0 L 400 220 L 420 240 L 420 400 L 400 420 L 400 800" />
+    <path d="M 500 0 L 500 120 L 520 140 L 520 500 L 500 520 L 500 800" />
+    <path d="M 600 0 L 600 420 L 620 440 L 620 600 L 600 620 L 600 800" />
+    <path d="M 700 0 L 700 520 L 720 540 L 720 700 L 700 720 L 700 800" />
+  </g>
+  
+  <!-- Circuit nodes -->
+  <g fill="rgba(0, 229, 255, 0.4)" filter="url(#glow)">
+    <circle cx="100" cy="100" r="3" />
+    <circle cx="200" cy="200" r="3" />
+    <circle cx="300" cy="300" r="3" />
+    <circle cx="400" cy="400" r="3" />
+    <circle cx="500" cy="500" r="3" />
+    <circle cx="600" cy="600" r="3" />
+    <circle cx="700" cy="700" r="3" />
+    
+    <circle cx="120" cy="320" r="3" />
+    <circle cx="220" cy="220" r="3" />
+    <circle cx="320" cy="120" r="3" />
+    <circle cx="420" cy="420" r="3" />
+    <circle cx="520" cy="520" r="3" />
+    <circle cx="620" cy="620" r="3" />
+    <circle cx="720" cy="720" r="3" />
+  </g>
+  
+  <!-- Larger circuit components -->
+  <g stroke="rgba(0, 229, 255, 0.3)" stroke-width="1" fill="none" filter="url(#glow)">
+    <rect x="150" y="150" width="50" height="50" rx="2" />
+    <rect x="350" y="350" width="50" height="50" rx="2" />
+    <rect x="550" y="550" width="50" height="50" rx="2" />
+    
+    <circle cx="250" cy="250" r="25" />
+    <circle cx="450" cy="450" r="25" />
+    <circle cx="650" cy="650" r="25" />
+  </g>
+</svg>

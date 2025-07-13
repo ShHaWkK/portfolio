@@ -1,0 +1,29 @@
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="400" fill="#1a1a2e" />
+  
+  <!-- Cybersecurity-themed decorative elements -->
+  <circle cx="200" cy="200" r="150" fill="none" stroke="#4d5bf9" stroke-width="2" />
+  <circle cx="200" cy="200" r="120" fill="none" stroke="#8a2be2" stroke-width="2" />
+  
+  <!-- Placeholder silhouette -->
+  <circle cx="200" cy="160" r="60" fill="#4d5bf9" />
+  <rect x="140" y="220" width="120" height="100" fill="#4d5bf9" />
+  
+  <!-- Binary code background pattern -->
+  <text x="20" y="30" fill="#0cce6b" font-family="monospace" font-size="10">01001000 01100101 01101100 01101100 01101111</text>
+  <text x="20" y="50" fill="#0cce6b" font-family="monospace" font-size="10">01010111 01101111 01110010 01101100 01100100</text>
+  <text x="20" y="380" fill="#0cce6b" font-family="monospace" font-size="10">01001000 01100001 01100011 01101011 01100101 01110010</text>
+  
+  <!-- Decorative circuit lines -->
+  <path d="M50,200 L100,200" stroke="#0cce6b" stroke-width="2" />
+  <path d="M300,200 L350,200" stroke="#0cce6b" stroke-width="2" />
+  <path d="M200,50 L200,100" stroke="#0cce6b" stroke-width="2" />
+  <path d="M200,300 L200,350" stroke="#0cce6b" stroke-width="2" />
+  
+  <!-- Connection nodes -->
+  <circle cx="100" cy="200" r="5" fill="#8a2be2" />
+  <circle cx="300" cy="200" r="5" fill="#8a2be2" />
+  <circle cx="200" cy="100" r="5" fill="#8a2be2" />
+  <circle cx="200" cy="300" r="5" fill="#8a2be2" />
+</svg>

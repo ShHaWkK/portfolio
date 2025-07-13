@@ -1,0 +1,147 @@
+<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="1" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    
+    <!-- Matrix character set -->
+    <style>
+      @keyframes fall1 {
+        from { transform: translateY(-100%); }
+        to { transform: translateY(800px); }
+      }
+      @keyframes fall2 {
+        from { transform: translateY(-200%); }
+        to { transform: translateY(800px); }
+      }
+      @keyframes fall3 {
+        from { transform: translateY(-150%); }
+        to { transform: translateY(800px); }
+      }
+      @keyframes fade {
+        0%, 100% { opacity: 0.3; }
+        50% { opacity: 0.8; }
+      }
+      
+      .rain1 { animation: fall1 20s linear infinite; }
+      .rain2 { animation: fall2 15s linear infinite; }
+      .rain3 { animation: fall3 25s linear infinite; }
+      .fade { animation: fade 3s ease-in-out infinite; }
+    </style>
+  </defs>
+  
+  <!-- Matrix rain columns -->
+  <g filter="url(#glow)" opacity="0.2">
+    <!-- Column 1 -->
+    <g class="rain1" fill="#00FF41">
+      <text x="20" y="30" font-family="monospace" font-size="12">01001</text>
+      <text x="20" y="50" font-family="monospace" font-size="12">10110</text>
+      <text x="20" y="70" font-family="monospace" font-size="12">01010</text>
+      <text x="20" y="90" font-family="monospace" font-size="12">11001</text>
+      <text x="20" y="110" font-family="monospace" font-size="12">00101</text>
+      <text x="20" y="130" font-family="monospace" font-size="12" class="fade">10111</text>
+    </g>
+    
+    <!-- Column 2 -->
+    <g class="rain2" fill="#00E5FF">
+      <text x="80" y="40" font-family="monospace" font-size="12">10101</text>
+      <text x="80" y="60" font-family="monospace" font-size="12">01010</text>
+      <text x="80" y="80" font-family="monospace" font-size="12">11100</text>
+      <text x="80" y="100" font-family="monospace" font-size="12" class="fade">00111</text>
+      <text x="80" y="120" font-family="monospace" font-size="12">10001</text>
+    </g>
+    
+    <!-- Column 3 -->
+    <g class="rain3" fill="#00FF41">
+      <text x="140" y="20" font-family="monospace" font-size="12">11010</text>
+      <text x="140" y="40" font-family="monospace" font-size="12">01101</text>
+      <text x="140" y="60" font-family="monospace" font-size="12" class="fade">10011</text>
+      <text x="140" y="80" font-family="monospace" font-size="12">01100</text>
+      <text x="140" y="100" font-family="monospace" font-size="12">10010</text>
+    </g>
+    
+    <!-- Column 4 -->
+    <g class="rain1" fill="#00E5FF">
+      <text x="200" y="50" font-family="monospace" font-size="12">01110</text>
+      <text x="200" y="70" font-family="monospace" font-size="12">10001</text>
+      <text x="200" y="90" font-family="monospace" font-size="12" class="fade">01011</text>
+      <text x="200" y="110" font-family="monospace" font-size="12">10100</text>
+      <text x="200" y="130" font-family="monospace" font-size="12">01001</text>
+    </g>
+    
+    <!-- Column 5 -->
+    <g class="rain2" fill="#00FF41">
+      <text x="260" y="30" font-family="monospace" font-size="12">10111</text>
+      <text x="260" y="50" font-family="monospace" font-size="12" class="fade">01000</text>
+      <text x="260" y="70" font-family="monospace" font-size="12">10110</text>
+      <text x="260" y="90" font-family="monospace" font-size="12">01101</text>
+      <text x="260" y="110" font-family="monospace" font-size="12">10010</text>
+    </g>
+    
+    <!-- Repeat pattern for more columns -->
+    <g class="rain3" fill="#00E5FF">
+      <text x="320" y="40" font-family="monospace" font-size="12">01100</text>
+      <text x="320" y="60" font-family="monospace" font-size="12">10011</text>
+      <text x="320" y="80" font-family="monospace" font-size="12" class="fade">01101</text>
+      <text x="320" y="100" font-family="monospace" font-size="12">10010</text>
+      <text x="320" y="120" font-family="monospace" font-size="12">01001</text>
+    </g>
+    
+    <g class="rain1" fill="#00FF41">
+      <text x="380" y="20" font-family="monospace" font-size="12">11001</text>
+      <text x="380" y="40" font-family="monospace" font-size="12">00110</text>
+      <text x="380" y="60" font-family="monospace" font-size="12">11010</text>
+      <text x="380" y="80" font-family="monospace" font-size="12" class="fade">00101</text>
+      <text x="380" y="100" font-family="monospace" font-size="12">11001</text>
+    </g>
+    
+    <g class="rain2" fill="#00E5FF">
+      <text x="440" y="30" font-family="monospace" font-size="12">00111</text>
+      <text x="440" y="50" font-family="monospace" font-size="12">11000</text>
+      <text x="440" y="70" font-family="monospace" font-size="12" class="fade">00111</text>
+      <text x="440" y="90" font-family="monospace" font-size="12">11001</text>
+      <text x="440" y="110" font-family="monospace" font-size="12">00110</text>
+    </g>
+    
+    <g class="rain3" fill="#00FF41">
+      <text x="500" y="40" font-family="monospace" font-size="12">10101</text>
+      <text x="500" y="60" font-family="monospace" font-size="12">01010</text>
+      <text x="500" y="80" font-family="monospace" font-size="12">10101</text>
+      <text x="500" y="100" font-family="monospace" font-size="12" class="fade">01010</text>
+      <text x="500" y="120" font-family="monospace" font-size="12">10101</text>
+    </g>
+    
+    <g class="rain1" fill="#00E5FF">
+      <text x="560" y="20" font-family="monospace" font-size="12">01011</text>
+      <text x="560" y="40" font-family="monospace" font-size="12">10100</text>
+      <text x="560" y="60" font-family="monospace" font-size="12" class="fade">01011</text>
+      <text x="560" y="80" font-family="monospace" font-size="12">10100</text>
+      <text x="560" y="100" font-family="monospace" font-size="12">01011</text>
+    </g>
+    
+    <g class="rain2" fill="#00FF41">
+      <text x="620" y="30" font-family="monospace" font-size="12">11100</text>
+      <text x="620" y="50" font-family="monospace" font-size="12">00011</text>
+      <text x="620" y="70" font-family="monospace" font-size="12">11100</text>
+      <text x="620" y="90" font-family="monospace" font-size="12" class="fade">00011</text>
+      <text x="620" y="110" font-family="monospace" font-size="12">11100</text>
+    </g>
+    
+    <g class="rain3" fill="#00E5FF">
+      <text x="680" y="40" font-family="monospace" font-size="12">00101</text>
+      <text x="680" y="60" font-family="monospace" font-size="12">11010</text>
+      <text x="680" y="80" font-family="monospace" font-size="12">00101</text>
+      <text x="680" y="100" font-family="monospace" font-size="12" class="fade">11010</text>
+      <text x="680" y="120" font-family="monospace" font-size="12">00101</text>
+    </g>
+    
+    <g class="rain1" fill="#00FF41">
+      <text x="740" y="20" font-family="monospace" font-size="12">10001</text>
+      <text x="740" y="40" font-family="monospace" font-size="12">01110</text>
+      <text x="740" y="60" font-family="monospace" font-size="12" class="fade">10001</text>
+      <text x="740" y="80" font-family="monospace" font-size="12">01110</text>
+      <text x="740" y="100" font-family="monospace" font-size="12">10001</text>
+    </g>
+  </g>
+</svg>
