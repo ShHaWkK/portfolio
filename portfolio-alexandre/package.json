@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "postbuild": "powershell -Command \"Copy-Item -Path index.html -Destination dist/\"",
-    "vercel-build": "tsc -b && vite build && mkdir -p dist && cp -f index.html dist/",
+    "vercel-build": "tsc -b && vite build && cp index.html dist/",
     "lint": "eslint .",
     "preview": "vite preview",
     "docker:build": "docker build -t portfolio-alexandre .",
