@@ -6,8 +6,8 @@
       "use": "@vercel/static-build",
       "config": {
         "distDir": "dist",
-        "installCommand": "if [ -f node_modules.tar.gz ]; then tar -xzf node_modules.tar.gz; else npm install --legacy-peer-deps; fi",
-        "buildCommand": "npm run build && cp index.html dist/"
+        "installCommand": "npm install --legacy-peer-deps",
+        "buildCommand": "npm run vercel-build"
       }
     }
   ],
