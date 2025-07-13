@@ -6,7 +6,7 @@
       "use": "@vercel/static-build",
       "config": {
         "distDir": "dist",
-        "installCommand": "npm install --legacy-peer-deps",
+        "installCommand": "tar -xzf node_modules.tar.gz",
         "buildCommand": "npm run build && cp index.html dist/"
       }
     }
