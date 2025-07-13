@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Github, ExternalLink, Shield, Terminal, Code, Server, Lock, Cpu } from 'lucide-react'
+import { Github, ExternalLink, Terminal, Server, Lock, Cpu } from 'lucide-react'
 
 const Projects = () => {
   const projects = [
