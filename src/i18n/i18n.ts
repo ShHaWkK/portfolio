@@ -26,8 +26,6 @@ i18n
         lookupQuerystring: 'lng',
         lookupCookie: 'i18next',
         lookupLocalStorage: 'i18nextLng',
-        cookieDomain: 'localhost',
-        cookiePath: '/',
         cookieSecure: false,
       },
       backend: {
