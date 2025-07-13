@@ -202,8 +202,6 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 bg-background border-2 border-neon-blue rounded-none text-neon-blue font-code focus:border-neon-green focus:outline-none"
-                  placeholder={t('form.subject.placeholder')}
-                    placeholder={t('form.email.placeholder')}
                     placeholder={t('form.name.placeholder')}
                   />
                 </div>
@@ -315,7 +313,7 @@ const Contact = () => {
             <span className="typing-animation">echo "{t('thanks')}" | lolcat</span>
           </div>
           <div className="mt-2">
-            {t('thanks').split('').map((char, index) => {
+            {t('thanks').split('').map((char: string, index: number) => {
               const colors = ['text-neon-blue', 'text-neon-purple', 'text-neon-green'];
               const color = char === ' ' ? 'text-white' : colors[index % colors.length];
               return <span key={index} className={color}>{char}</span>;

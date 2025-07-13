@@ -26,6 +26,8 @@ function App() {
     return savedTheme || 'dark'
   })
 
+  const { t } = useTranslation(['common'])
+
   useEffect(() => {
     // Update localStorage when theme changes
     localStorage.setItem('theme', theme)
@@ -52,7 +54,7 @@ function App() {
       <button 
         onClick={toggleTheme} 
         className="fixed top-5 right-5 z-50 p-2 rounded-full bg-background border border-gray-700 hover:border-neon-blue transition-all duration-300"
-        aria-label={theme === 'dark' ? 'Activer le mode clair' : 'Activer le mode sombre'}
+        aria-label={theme === 'dark' ? t('theme.light') : t('theme.dark')}
       >
         {theme === 'dark' ? (
           <Sun className="w-6 h-6 text-neon-blue" />
