@@ -12,7 +12,6 @@ const Contact = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitSuccess, setSubmitSuccess] = useState(false)
-  const [submitError, setSubmitError] = useState(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -269,19 +268,6 @@ const Contact = () => {
                 </motion.div>
               )}
               
-              {submitError && (
-                <motion.div 
-                  className="p-4 bg-red-500 bg-opacity-10 border-2 border-red-500 text-red-500 font-code"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <div className="flex items-center">
-                    <span className="text-red-500 mr-2">!</span>
-                    <span>ERROR: Connection failed. Please try again later.</span>
-                  </div>
-                </motion.div>
-              )}
               
               <div className="mt-4 p-3 border border-neon-green bg-background font-code text-xs">
                 <div className="flex items-center text-neon-green">

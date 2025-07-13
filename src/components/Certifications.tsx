@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Award, Shield, Lock, Server, CheckCircle, Cpu, Code, Database } from 'lucide-react'
+import { Award, Shield, Lock, CheckCircle, Cpu, Database } from 'lucide-react'
 
 const Certifications = () => {
   const certifications = [
