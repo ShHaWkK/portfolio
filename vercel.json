@@ -9,9 +9,14 @@
         "installCommand": "npm install --legacy-peer-deps",
         "buildCommand": "npm run vercel-build"
       }
+    },
+    {
+      "src": "api/send-email.js",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
+    { "src": "/api/(.*)", "dest": "/api/$1" },
     { "handle": "filesystem" },
     { "src": "/.*", "dest": "/index.html" }
   ]
