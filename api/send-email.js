@@ -23,7 +23,7 @@ export default async function handler(req, res) {
     }
 
     // Créer un transporteur SMTP réutilisable
-    const transporter = nodemailer.createTransporter({
+    const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
       port: Number(process.env.SMTP_PORT),
       secure: process.env.SMTP_SECURE === 'true',

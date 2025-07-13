@@ -1,0 +1,32 @@
+{
+  "title": "Projets sélectionnés",
+  "subtitle": "Découvrez mes réalisations",
+  "categories": {
+    "all": "Tous",
+    "cybersecurity": "Cybersécurité",
+    "web": "Développement Web",
+    "tools": "Outils"
+  },
+  "items": {
+    "honeypot": {
+      "title": "Honeypot SSH",
+      "description": "Système de piège pour analyser les techniques d'attaque SSH et collecter des données sur les tentatives d'intrusion.",
+      "tech": ["Python", "SSH", "Logging", "Analysis"]
+    },
+    "portfolio": {
+      "title": "Portfolio Personnel",
+      "description": "Site web personnel développé avec React et TypeScript, incluant un système de contact et du multilinguisme.",
+      "tech": ["React", "TypeScript", "Tailwind CSS", "Framer Motion"]
+    },
+    "ctf": {
+      "title": "CTF Tools",
+      "description": "Collection d'outils développés pour les compétitions CTF, incluant des scripts d'exploitation et d'analyse.",
+      "tech": ["Python", "Bash", "Exploitation", "Reverse Engineering"]
+    }
+  },
+  "status": {
+    "inProgress": "En cours",
+    "completed": "Terminé",
+    "archived": "Archivé"
+  }
+}

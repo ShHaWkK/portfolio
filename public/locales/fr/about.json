@@ -1,0 +1,61 @@
+{
+  "title": "À propos de moi",
+  "subtitle": "Mon parcours et mes compétences",
+  "profile": {
+    "name": "Alexandre UZAN",
+    "role": "Étudiant en Cybersécurité",
+    "focus": "Sécurité Offensive, Honeypots, Analyse de Malware",
+    "status": "À la recherche de nouveaux défis et opportunités"
+  },
+  "skills": {
+    "title": "Compétences Techniques",
+    "categories": {
+      "security": {
+        "title": "Sécurité Offensive",
+        "items": ["Pentesting", "Audit de sécurité", "Exploitation", "OSINT", "Forensics", "Reverse Engineering", "Analyse de Malware", "Sécurité Web", "Défis CTF"]
+      },
+      "network": {
+        "title": "Réseaux & Infrastructure",
+        "items": ["Firewall (PfSense)", "VPN (OpenVPN, WireGuard)", "VLAN", "Routage", "DNS", "DHCP", "Active Directory", "Honeypots", "IDS/IPS"]
+      },
+      "tools": {
+        "title": "Outils & Techniques",
+        "items": ["Kali Linux", "Metasploit", "Burp Suite", "Wireshark", "Nmap", "John the Ripper", "Hashcat", "Ghidra", "pwn.college"]
+      },
+      "development": {
+        "title": "Développement",
+        "items": ["Python", "Bash", "PowerShell", "C/C++", "Assembleur", "Docker", "Git", "CI/CD", "Monitoring"]
+      }
+    }
+  },
+  "experience": {
+    "title": "Expériences professionnelles",
+    "items": [
+      {
+        "period": "09/2024 - Présent",
+        "title": "Administrateur Systèmes & Réseaux",
+        "company": "BSIO MEDIA",
+        "description": "Gestion d'infrastructures, administration système, mise en place de solutions de sécurité"
+      },
+      {
+        "period": "06/2024 - 08/2024",
+        "title": "Développeur Web & Maintenance",
+        "company": "First Conseil",
+        "description": "Développement web, maintenance et sécurisation d'applications"
+      },
+      {
+        "period": "01/2023 - 07/2023",
+        "title": "Développeur Web & Analyste",
+        "company": "Freelance",
+        "description": "Développement web, création de honeypots, participation aux CTFs"
+      }
+    ]
+  },
+  "education": {
+    "title": "Formation",
+    "current": "Master 1 : Cybersécurité",
+    "university": "Université Paris 8",
+    "period": "2023 - Présent",
+    "specialization": "Spécialisation en sécurité des systèmes d'information, cryptographie, analyse de vulnérabilités"
+  }
+}

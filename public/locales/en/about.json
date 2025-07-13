@@ -1,0 +1,61 @@
+{
+  "title": "About me",
+  "subtitle": "My journey and skills",
+  "profile": {
+    "name": "Alexandre UZAN",
+    "role": "Cybersecurity Student",
+    "focus": "Offensive Security, Honeypots, Malware Analysis",
+    "status": "Seeking new challenges and opportunities"
+  },
+  "skills": {
+    "title": "Technical Skills",
+    "categories": {
+      "security": {
+        "title": "Offensive Security",
+        "items": ["Pentesting", "Security Audit", "Exploitation", "OSINT", "Forensics", "Reverse Engineering", "Malware Analysis", "Web Security", "CTF Challenges"]
+      },
+      "network": {
+        "title": "Networks & Infrastructure",
+        "items": ["Firewall (PfSense)", "VPN (OpenVPN, WireGuard)", "VLAN", "Routing", "DNS", "DHCP", "Active Directory", "Honeypots", "IDS/IPS"]
+      },
+      "tools": {
+        "title": "Tools & Techniques",
+        "items": ["Kali Linux", "Metasploit", "Burp Suite", "Wireshark", "Nmap", "John the Ripper", "Hashcat", "Ghidra", "pwn.college"]
+      },
+      "development": {
+        "title": "Development",
+        "items": ["Python", "Bash", "PowerShell", "C/C++", "Assembly", "Docker", "Git", "CI/CD", "Monitoring"]
+      }
+    }
+  },
+  "experience": {
+    "title": "Professional Experience",
+    "items": [
+      {
+        "period": "09/2024 - Present",
+        "title": "Systems & Network Administrator",
+        "company": "BSIO MEDIA",
+        "description": "Infrastructure management, system administration, security solutions implementation"
+      },
+      {
+        "period": "06/2024 - 08/2024",
+        "title": "Web Developer & Maintenance",
+        "company": "First Conseil",
+        "description": "Web development, application maintenance and security"
+      },
+      {
+        "period": "01/2023 - 07/2023",
+        "title": "Web Developer & Analyst",
+        "company": "Freelance",
+        "description": "Web development, honeypot creation, CTF participation"
+      }
+    ]
+  },
+  "education": {
+    "title": "Education",
+    "current": "Master 1: Cybersecurity",
+    "university": "Paris 8 University",
+    "period": "2023 - Present",
+    "specialization": "Specialization in information systems security, cryptography, vulnerability analysis"
+  }
+}

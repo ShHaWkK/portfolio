@@ -1,0 +1,22 @@
+{
+  "hero": {
+    "greeting": "Salut, je suis",
+    "name": "Alexandre UZAN",
+    "title": "Étudiant en Cybersécurité & Passionné de CTF",
+    "description": "Spécialisé en sécurité offensive, développement de honeypots et analyse de malware. Actif sur les plateformes CTF comme pwn.college.",
+    "cta": "Découvrir mon travail",
+    "terminal": {
+      "whoami": "Étudiant en Cybersécurité & Passionné de CTF",
+      "echo": "La sécurité n'est pas un produit, mais un processus"
+    }
+  },
+  "about": {
+    "title": "À propos de moi",
+    "description": "Étudiant passionné en cybersécurité, je me spécialise dans la sécurité offensive et la protection des infrastructures. Mon parcours est marqué par une curiosité insatiable pour comprendre les vulnérabilités des systèmes et développer des solutions de protection efficaces.",
+    "highlights": {
+      "ctf": "CTF Enthusiast",
+      "honeypot": "Honeypot Developer",
+      "research": "Security Researcher"
+    }
+  }
+}

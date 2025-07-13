@@ -1,0 +1,22 @@
+{
+  "hero": {
+    "greeting": "Hi, I'm",
+    "name": "Alexandre UZAN",
+    "title": "Cybersecurity Student & CTF Enthusiast",
+    "description": "Specialized in offensive security, honeypot development and malware analysis. Active on CTF platforms like pwn.college.",
+    "cta": "Discover my work",
+    "terminal": {
+      "whoami": "Cybersecurity Student & CTF Enthusiast",
+      "echo": "Security is not a product, but a process"
+    }
+  },
+  "about": {
+    "title": "About me",
+    "description": "Passionate cybersecurity student, I specialize in offensive security and infrastructure protection. My journey is marked by an insatiable curiosity to understand system vulnerabilities and develop effective protection solutions.",
+    "highlights": {
+      "ctf": "CTF Enthusiast",
+      "honeypot": "Honeypot Developer",
+      "research": "Security Researcher"
+    }
+  }
+}
