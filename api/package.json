@@ -1,0 +1,9 @@
+{
+  "name": "portfolio-api",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "nodemailer": "^7.0.5",
+    "@types/nodemailer": "^6.4.17"
+  }
+}
