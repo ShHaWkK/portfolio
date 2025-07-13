@@ -1,0 +1,23 @@
+{
+  "navigation": {
+    "home": "Accueil",
+    "about": "À propos",
+    "projects": "Projets",
+    "contact": "Contact"
+  },
+  "language": {
+    "fr": "Français",
+    "en": "Anglais"
+  },
+  "buttons": {
+    "readMore": "Lire plus",
+    "viewProject": "Voir le projet",
+    "viewCode": "Voir le code",
+    "send": "Envoyer",
+    "download": "Télécharger"
+  },
+  "footer": {
+    "copyright": "© {{year}} Alexandre Uzan. Tous droits réservés.",
+    "madeWith": "Fait avec ❤️ et React"
+  }
+}

@@ -1,8 +1,12 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Mail, MapPin, Phone, Send, Terminal, Shield, Wifi } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
+import sendEmail from '../services/emailService'
 
 const Contact = () => {
+  const { t } = useTranslation(['contact'])
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -12,6 +16,7 @@ const Contact = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitSuccess, setSubmitSuccess] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -21,26 +26,36 @@ const Contact = () => {
     }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setErrorMessage('')
     
-    // Simuler un envoi de formulaire
-    setTimeout(() => {
-      setIsSubmitting(false)
-      setSubmitSuccess(true)
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-      })
+    try {
+      // Envoi de l'email via le service
+      const result = await sendEmail(formData)
       
-      // Réinitialiser le message de succès après 5 secondes
-      setTimeout(() => {
-        setSubmitSuccess(false)
-      }, 5000)
-    }, 1500)
+      if (result.success) {
+        setSubmitSuccess(true)
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        })
+        
+        // Réinitialiser le message de succès après 5 secondes
+        setTimeout(() => {
+          setSubmitSuccess(false)
+        }, 5000)
+      } else {
+        setErrorMessage(result.message)
+      }
+    } catch (error) {
+      setErrorMessage(error instanceof Error ? error.message : 'Une erreur est survenue')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -70,7 +85,7 @@ const Contact = () => {
             <span className="font-code text-sm text-neon-green">~/contact</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-2 text-white cyber-text">
-            Établir une connexion
+            {t('title')}
           </h2>
           <div className="w-32 h-1 bg-neon-green mx-auto relative">
             <div className="absolute -top-1 left-0 w-2 h-3 bg-neon-green"></div>
@@ -99,8 +114,7 @@ const Contact = () => {
             
             <h3 className="text-2xl font-bold mb-6 text-white font-code">Canaux de communication</h3>
             <p className="text-gray-300 mb-8 border-l-2 border-neon-green pl-4">
-              N'hésitez pas à me contacter pour discuter de vos projets, opportunités de collaboration 
-              ou simplement pour échanger sur des sujets liés à la cybersécurité et aux réseaux.
+              {t('description')}
             </p>
             
             <div className="space-y-4">
@@ -110,7 +124,7 @@ const Contact = () => {
                     <Mail className="w-5 h-5 text-neon-green" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-medium text-white font-code">Email</h4>
+                    <h4 className="text-lg font-medium text-white font-code">{t('info.email')}</h4>
                     <a href="mailto:contact@alexandre-uzan.fr" className="text-gray-400 hover:text-neon-green transition-colors duration-300 font-code">
                       contact@alexandre-uzan.fr
                     </a>
@@ -124,7 +138,7 @@ const Contact = () => {
                     <Phone className="w-5 h-5 text-neon-blue" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-medium text-white font-code">Téléphone</h4>
+                    <h4 className="text-lg font-medium text-white font-code">{t('info.phone')}</h4>
                     <a href="tel:+33600000000" className="text-gray-400 hover:text-neon-blue transition-colors duration-300 font-code">
                       +33 6 00 00 00 00
                     </a>
@@ -138,7 +152,7 @@ const Contact = () => {
                     <MapPin className="w-5 h-5 text-neon-purple" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-medium text-white font-code">Localisation</h4>
+                    <h4 className="text-lg font-medium text-white font-code">{t('info.location')}</h4>
                     <p className="text-gray-400 font-code">Paris, France</p>
                   </div>
                 </div>
@@ -179,7 +193,7 @@ const Contact = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-400 mb-2 font-code">USER:</label>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-400 mb-2 font-code">{t('form.name.label')}:</label>
                   <input
                     type="text"
                     id="name"
@@ -188,10 +202,13 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 bg-background border-2 border-neon-blue rounded-none text-neon-blue font-code focus:border-neon-green focus:outline-none"
+                  placeholder={t('form.subject.placeholder')}
+                    placeholder={t('form.email.placeholder')}
+                    placeholder={t('form.name.placeholder')}
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-400 mb-2 font-code">EMAIL:</label>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-400 mb-2 font-code">{t('form.email.label')}:</label>
                   <input
                     type="email"
                     id="email"
@@ -205,7 +222,7 @@ const Contact = () => {
               </div>
               
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-400 mb-2 font-code">SUBJECT:</label>
+                <label htmlFor="subject" className="block text-sm font-medium text-gray-400 mb-2 font-code">{t('form.subject.label')}:</label>
                 <input
                   type="text"
                   id="subject"
@@ -218,7 +235,7 @@ const Contact = () => {
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-400 mb-2 font-code">MESSAGE:</label>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-400 mb-2 font-code">{t('form.message.label')}:</label>
                 <textarea
                   id="message"
                   name="message"
@@ -227,6 +244,7 @@ const Contact = () => {
                   required
                   rows={5}
                   className="w-full px-4 py-3 bg-background border-2 border-neon-blue rounded-none text-neon-blue font-code focus:border-neon-green focus:outline-none resize-none"
+                  placeholder={t('form.message.placeholder')}
                 ></textarea>
               </div>
               
@@ -243,13 +261,13 @@ const Contact = () => {
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
-                    PROCESSING...
+                    {t('form.sending')}
                   </span>
                 ) : (
                   <span className="flex items-center font-code">
                     <span className="mr-2">$</span>
                     <Send className="w-4 h-4 mr-2" />
-                    SEND_MESSAGE
+                    {t('buttons.send', { ns: 'common' })}
                   </span>
                 )}
               </motion.button>
@@ -263,7 +281,7 @@ const Contact = () => {
                 >
                   <div className="flex items-center">
                     <span className="text-neon-green mr-2">$</span>
-                    <span>Message sent successfully. Connection established.</span>
+                    <span>{t('form.success')}</span>
                   </div>
                 </motion.div>
               )}
@@ -275,7 +293,7 @@ const Contact = () => {
                   <span>message --status</span>
                 </div>
                 <div className="mt-2 text-gray-400">
-                  <div>Status: <span className="text-neon-green">Ready to send</span></div>
+                  <div>Status: <span className="text-neon-green">{isSubmitting ? t('terminal.status.sending') : submitSuccess ? t('terminal.status.success') : errorMessage ? t('terminal.status.error', { message: errorMessage }) : t('terminal.status.idle')}</span></div>
                   <div>Encryption: <span className="text-neon-blue">AES-256</span></div>
                   <div>Channel: <span className="text-neon-purple">Secure</span></div>
                 </div>
@@ -294,44 +312,14 @@ const Contact = () => {
         >
           <div className="flex items-center text-neon-green">
             <span className="mr-2">$</span>
-            <span className="typing-animation">echo "Merci pour votre visite. À bientôt!" | lolcat</span>
+            <span className="typing-animation">echo "{t('thanks')}" | lolcat</span>
           </div>
           <div className="mt-2">
-            <span className="text-neon-blue">M</span>
-            <span className="text-neon-purple">e</span>
-            <span className="text-neon-green">r</span>
-            <span className="text-neon-blue">c</span>
-            <span className="text-neon-purple">i</span>
-            <span className="text-white"> </span>
-            <span className="text-neon-green">p</span>
-            <span className="text-neon-blue">o</span>
-            <span className="text-neon-purple">u</span>
-            <span className="text-neon-green">r</span>
-            <span className="text-white"> </span>
-            <span className="text-neon-blue">v</span>
-            <span className="text-neon-purple">o</span>
-            <span className="text-neon-green">t</span>
-            <span className="text-neon-blue">r</span>
-            <span className="text-neon-purple">e</span>
-            <span className="text-white"> </span>
-            <span className="text-neon-green">v</span>
-            <span className="text-neon-blue">i</span>
-            <span className="text-neon-purple">s</span>
-            <span className="text-neon-green">i</span>
-            <span className="text-neon-blue">t</span>
-            <span className="text-neon-purple">e</span>
-            <span className="text-neon-green">.</span>
-            <span className="text-white"> </span>
-            <span className="text-neon-blue">À</span>
-            <span className="text-white"> </span>
-            <span className="text-neon-purple">b</span>
-            <span className="text-neon-green">i</span>
-            <span className="text-neon-blue">e</span>
-            <span className="text-neon-purple">n</span>
-            <span className="text-neon-green">t</span>
-            <span className="text-neon-blue">ô</span>
-            <span className="text-neon-purple">t</span>
-            <span className="text-neon-green">!</span>
+            {t('thanks').split('').map((char, index) => {
+              const colors = ['text-neon-blue', 'text-neon-purple', 'text-neon-green'];
+              const color = char === ' ' ? 'text-white' : colors[index % colors.length];
+              return <span key={index} className={color}>{char}</span>;
+            })}
           </div>
         </motion.div>
       </div>

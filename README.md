@@ -10,6 +10,8 @@ Portfolio professionnel moderne et réactif pour présenter mes compétences en 
 - **Animations** avec Framer Motion pour une expérience utilisateur engageante
 - **Accessibilité** avec attributs ARIA et navigation au clavier
 - **SEO optimisé** avec métadonnées et balises Open Graph
+- **Multilinguisme** avec support pour le français et l'anglais
+- **Formulaire de contact** avec envoi d'emails via SMTP
 
 ## 🛠️ Technologies utilisées
 
@@ -19,6 +21,8 @@ Portfolio professionnel moderne et réactif pour présenter mes compétences en 
 - **Tailwind CSS** - Framework CSS utilitaire
 - **Framer Motion** - Bibliothèque d'animations
 - **Lucide React** - Icônes SVG
+- **i18next** - Internationalisation
+- **Nodemailer** - Envoi d'emails
 
 ## 📋 Sections
 
@@ -50,6 +54,10 @@ npm install
 # ou
 yarn install
 
+# Configurer les variables d'environnement
+cp .env.example .env.local
+# Puis modifiez .env.local avec vos informations SMTP
+
 # Démarrer le serveur de développement
 npm run dev
 # ou
@@ -57,6 +65,25 @@ yarn dev
 ```
 
 L'application sera disponible à l'adresse [http://localhost:5173](http://localhost:5173).
+
+### Configuration SMTP pour le formulaire de contact
+
+Pour que le formulaire de contact fonctionne, vous devez configurer les variables d'environnement SMTP dans le fichier `.env.local` :
+
+```
+# Configuration SMTP pour le formulaire de contact
+VITE_SMTP_USER=votre-email@gmail.com
+VITE_SMTP_PASSWORD=votre-mot-de-passe-app
+VITE_SMTP_HOST=smtp.gmail.com
+VITE_SMTP_PORT=587
+VITE_SMTP_SECURE=false
+VITE_SMTP_TO=email-destinataire@gmail.com
+
+# Configuration de langue par défaut
+VITE_DEFAULT_LANGUAGE=fr
+```
+
+> **Note**: Pour Gmail, vous devez utiliser un "mot de passe d'application" et non votre mot de passe principal. Vous pouvez en créer un dans les paramètres de sécurité de votre compte Google.
 
 ### Build pour la production
 
@@ -87,6 +114,17 @@ Vous pouvez personnaliser le portfolio en modifiant les fichiers suivants :
 - `src/components/*.tsx` - Composants React pour chaque section
 - `tailwind.config.js` - Configuration des couleurs, polices et thèmes
 - `public/` - Ressources statiques (favicon, images, etc.)
+- `public/locales/` - Fichiers de traduction pour le multilinguisme
+
+### Multilinguisme
+
+Le projet supporte le français et l'anglais. Les fichiers de traduction se trouvent dans le dossier `public/locales/`.
+
+Pour ajouter une nouvelle langue :
+
+1. Créez un nouveau dossier dans `public/locales/` avec le code de la langue (ex: `de` pour l'allemand)
+2. Copiez les fichiers JSON depuis le dossier `fr` ou `en` et traduisez-les
+3. Ajoutez la nouvelle langue dans le composant `src/components/LanguageSwitcher.tsx`
 
 ## 📄 Licence
 

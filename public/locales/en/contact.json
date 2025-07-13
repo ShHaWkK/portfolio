@@ -1,0 +1,46 @@
+{
+  "title": "Contact Me",
+  "subtitle": "Let's discuss your project",
+  "description": "Do you have a project in mind or a question? Feel free to contact me. I'm always open to discussing new ideas and opportunities.",
+  "info": {
+    "email": "Email",
+    "phone": "Phone",
+    "location": "Location"
+  },
+  "form": {
+    "name": {
+      "label": "Name",
+      "placeholder": "Your name",
+      "error": "Please enter your name"
+    },
+    "email": {
+      "label": "Email",
+      "placeholder": "Your email",
+      "error": "Please enter a valid email"
+    },
+    "subject": {
+      "label": "Subject",
+      "placeholder": "Subject of your message",
+      "error": "Please enter a subject"
+    },
+    "message": {
+      "label": "Message",
+      "placeholder": "Your message",
+      "error": "Please enter your message"
+    },
+    "sending": "Sending...",
+    "success": "Message sent successfully!",
+    "error": "An error occurred. Please try again."
+  },
+  "terminal": {
+    "title": "Message",
+    "status": {
+      "idle": "Waiting for input...",
+      "typing": "Typing...",
+      "sending": "Sending...",
+      "success": "Message sent successfully!",
+      "error": "Error: {{message}}"
+    }
+  },
+  "thanks": "Thank you for your message! I will get back to you as soon as possible."
+}

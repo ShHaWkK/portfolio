@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react'
 import { Moon, Sun } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import './App.css'
+
+// Import du sélecteur de langue
+import LanguageSwitcher from './components/LanguageSwitcher'
 
 // Components
 import Hero from './components/Hero'
@@ -39,6 +43,12 @@ function App() {
 
   return (
     <div className="min-h-screen bg-background transition-colors duration-300">
+      {/* Sélecteur de langue */}
+      <div className="fixed top-5 right-20 z-50">
+        <LanguageSwitcher />
+      </div>
+      
+      {/* Bouton de thème */}
       <button 
         onClick={toggleTheme} 
         className="fixed top-5 right-5 z-50 p-2 rounded-full bg-background border border-gray-700 hover:border-neon-blue transition-all duration-300"

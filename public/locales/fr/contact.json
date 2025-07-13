@@ -1,0 +1,46 @@
+{
+  "title": "Contactez-moi",
+  "subtitle": "Discutons de votre projet",
+  "description": "Vous avez un projet en tête ou une question ? N'hésitez pas à me contacter. Je suis toujours ouvert à discuter de nouvelles idées et opportunités.",
+  "info": {
+    "email": "Email",
+    "phone": "Téléphone",
+    "location": "Localisation"
+  },
+  "form": {
+    "name": {
+      "label": "Nom",
+      "placeholder": "Votre nom",
+      "error": "Veuillez entrer votre nom"
+    },
+    "email": {
+      "label": "Email",
+      "placeholder": "Votre email",
+      "error": "Veuillez entrer un email valide"
+    },
+    "subject": {
+      "label": "Sujet",
+      "placeholder": "Sujet de votre message",
+      "error": "Veuillez entrer un sujet"
+    },
+    "message": {
+      "label": "Message",
+      "placeholder": "Votre message",
+      "error": "Veuillez entrer votre message"
+    },
+    "sending": "Envoi en cours...",
+    "success": "Message envoyé avec succès !",
+    "error": "Une erreur est survenue. Veuillez réessayer."
+  },
+  "terminal": {
+    "title": "Message",
+    "status": {
+      "idle": "En attente de saisie...",
+      "typing": "Saisie en cours...",
+      "sending": "Envoi en cours...",
+      "success": "Message envoyé avec succès !",
+      "error": "Erreur: {{message}}"
+    }
+  },
+  "thanks": "Merci pour votre message ! Je vous répondrai dès que possible."
+}
