@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Shield, Code, Server, Terminal, Lock, Cpu, Wifi, Database, Bug, FileCode, Network, HardDrive } from 'lucide-react'
+import { Shield, Terminal, Lock, Wifi, Bug, FileCode, Network, HardDrive } from 'lucide-react'
 
 const Skills = () => {
   const skillCategories = [
@@ -72,17 +72,6 @@ const Skills = () => {
       secondaryIcon: <Terminal className="w-4 h-4" />
     }
   ]
-
-  // Variants for framer-motion animations
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  }
 
   const skillVariants = {
     hidden: { opacity: 0, y: 20 },

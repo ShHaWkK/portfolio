@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { BookOpen, FileText, Terminal, Shield, Lock, Cpu, ExternalLink, AlertTriangle } from 'lucide-react'
+import { Shield, Lock, Cpu, ExternalLink, AlertTriangle } from 'lucide-react'
 
 const Publications = () => {
   const publications = [

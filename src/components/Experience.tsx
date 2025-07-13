@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Terminal, Shield, Server, Code, Lock, Cpu, Wifi, Database } from 'lucide-react'
+import { Server, Code, Lock, Database } from 'lucide-react'
 
 const Experience = () => {
   const experiences = [
@@ -189,3 +189,4 @@ const Experience = () => {
 }
 
 export default Experience
+

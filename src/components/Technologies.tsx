@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Code, Terminal, Server, Database, Cpu, Monitor, Laptop } from 'lucide-react'
+import { Code, Terminal, Server, Database, Cpu, Laptop } from 'lucide-react'
 
 const Technologies = () => {
   const programmingLanguages = [
