@@ -10,7 +10,14 @@ COPY tsconfig*.json ./
 COPY vite.config.ts ./
 
 # Installer les dépendances
-RUN npm ci
+COPY node_modules.tar.gz ./
+
+# Installer les dépendances à partir du cache si disponible
+RUN if [ -f node_modules.tar.gz ]; then \
+      tar -xzf node_modules.tar.gz; \
+    else \
+      npm ci; \
+    fi
 
 # Copier le reste des fichiers
 COPY . .
