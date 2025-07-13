@@ -27,7 +27,6 @@ i18n
         lookupCookie: 'i18next',
         lookupLocalStorage: 'i18nextLng',
         cookieDomain: 'localhost',
-        cookieExpirationDate: new Date(Date.now() + 1000 * 60 * 60 * 24 * 365),
         cookiePath: '/',
         cookieSecure: false,
       },
@@ -35,7 +34,6 @@ i18n
         loadPath: '/locales/{{lng}}/{{ns}}.json',
       },
       react: {
-        wait: true,
         useSuspense: true,
       },
     } satisfies InitOptions,
