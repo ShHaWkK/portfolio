@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion'
 import { Github, Linkedin, Twitter, Terminal, Shield, Cpu, Code, Server } from 'lucide-react'
+import { useIntlayer } from 'react-intlayer'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
+  const content = useIntlayer("common")
   
   return (
     <footer className="bg-background py-12 border-t border-gray-800 relative">
@@ -158,13 +160,14 @@ const Footer = () => {
               <span>whoami</span>
             </div>
             <p className="text-gray-500">
-              <span className="text-neon-blue">root@alexandre-uzan</span>:<span className="text-neon-purple">~</span>$ {currentYear} | All rights reserved
+              <span className="text-neon-blue">root@alexandre-uzan</span>:<span className="text-neon-purple">~</span>$ {content.footer.copyright(currentYear)}
             </p>
           </div>
           
           <div className="flex space-x-6">
-            <a href="#" className="text-gray-500 hover:text-neon-green text-sm transition-colors duration-300 font-code">LEGAL_NOTICE</a>
-            <a href="#" className="text-gray-500 hover:text-neon-green text-sm transition-colors duration-300 font-code">PRIVACY_POLICY</a>
+            <a href="#" className="text-gray-500 hover:text-neon-green text-sm transition-colors duration-300 font-code">{content.footer.legalNotice}</a>
+            <a href="#" className="text-gray-500 hover:text-neon-green text-sm transition-colors duration-300 font-code">{content.footer.privacyPolicy}</a>
+            <div className="text-gray-500 text-sm font-code">{content.footer.madeWith}</div>
           </div>
         </motion.div>
       </div>

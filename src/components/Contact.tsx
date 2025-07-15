@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Mail, MapPin, Phone, Send, Terminal, Shield, Wifi } from 'lucide-react'
-import { useTranslation } from 'react-i18next'
+import { useIntlayer } from 'react-intlayer'
 import sendEmail from '../services/emailService'
 
 const Contact = () => {
-  const { t } = useTranslation(['contact'])
+  const content = useIntlayer('contact')
+  const commonContent = useIntlayer('common')
 
   const [formData, setFormData] = useState({
     name: '',
@@ -85,7 +86,7 @@ const Contact = () => {
             <span className="font-code text-sm text-neon-green">~/contact</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-2 text-white cyber-text">
-            {t('title')}
+            {content.title}
           </h2>
           <div className="w-32 h-1 bg-neon-green mx-auto relative">
             <div className="absolute -top-1 left-0 w-2 h-3 bg-neon-green"></div>
@@ -114,7 +115,7 @@ const Contact = () => {
             
             <h3 className="text-2xl font-bold mb-6 text-white font-code">Canaux de communication</h3>
             <p className="text-gray-300 mb-8 border-l-2 border-neon-green pl-4">
-              {t('description')}
+              {content.description}
             </p>
             
             <div className="space-y-4">
@@ -124,7 +125,7 @@ const Contact = () => {
                     <Mail className="w-5 h-5 text-neon-green" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-medium text-white font-code">{t('info.email')}</h4>
+                    <h4 className="text-lg font-medium text-white font-code">{content.info.email}</h4>
                     <a href="mailto:contact@alexandre-uzan.fr" className="text-gray-400 hover:text-neon-green transition-colors duration-300 font-code">
                       contact@alexandre-uzan.fr
                     </a>
@@ -138,7 +139,7 @@ const Contact = () => {
                     <Phone className="w-5 h-5 text-neon-blue" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-medium text-white font-code">{t('info.phone')}</h4>
+                    <h4 className="text-lg font-medium text-white font-code">{content.info.phone}</h4>
                     <a href="tel:+33600000000" className="text-gray-400 hover:text-neon-blue transition-colors duration-300 font-code">
                       +33 6 00 00 00 00
                     </a>
@@ -152,7 +153,7 @@ const Contact = () => {
                     <MapPin className="w-5 h-5 text-neon-purple" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-medium text-white font-code">{t('info.location')}</h4>
+                    <h4 className="text-lg font-medium text-white font-code">{content.info.location}</h4>
                     <p className="text-gray-400 font-code">Paris, France</p>
                   </div>
                 </div>
@@ -193,7 +194,7 @@ const Contact = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-400 mb-2 font-code">{t('form.name.label')}:</label>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-400 mb-2 font-code">{content.form.name.label}:</label>
                   <input
                     type="text"
                     id="name"
@@ -202,11 +203,11 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 bg-background border-2 border-neon-blue rounded-none text-neon-blue font-code focus:border-neon-green focus:outline-none"
-                    placeholder={t('form.name.placeholder')}
+                    placeholder={content.form.name.placeholder}
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-400 mb-2 font-code">{t('form.email.label')}:</label>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-400 mb-2 font-code">{content.form.email.label}:</label>
                   <input
                     type="email"
                     id="email"
@@ -220,7 +221,7 @@ const Contact = () => {
               </div>
               
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-400 mb-2 font-code">{t('form.subject.label')}:</label>
+                <label htmlFor="subject" className="block text-sm font-medium text-gray-400 mb-2 font-code">{content.form.subject.label}:</label>
                 <input
                   type="text"
                   id="subject"
@@ -233,7 +234,7 @@ const Contact = () => {
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-400 mb-2 font-code">{t('form.message.label')}:</label>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-400 mb-2 font-code">{content.form.message.label}:</label>
                 <textarea
                   id="message"
                   name="message"
@@ -242,7 +243,7 @@ const Contact = () => {
                   required
                   rows={5}
                   className="w-full px-4 py-3 bg-background border-2 border-neon-blue rounded-none text-neon-blue font-code focus:border-neon-green focus:outline-none resize-none"
-                  placeholder={t('form.message.placeholder')}
+                  placeholder={content.form.message.placeholder}
                 ></textarea>
               </div>
               
@@ -259,13 +260,13 @@ const Contact = () => {
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
-                    {t('form.sending')}
+                    {content.form.sending}
                   </span>
                 ) : (
                   <span className="flex items-center font-code">
                     <span className="mr-2">$</span>
                     <Send className="w-4 h-4 mr-2" />
-                    {t('buttons.send', { ns: 'common' })}
+                    {commonContent.buttons.sendMessage}
                   </span>
                 )}
               </motion.button>
@@ -279,7 +280,7 @@ const Contact = () => {
                 >
                   <div className="flex items-center">
                     <span className="text-neon-green mr-2">$</span>
-                    <span>{t('form.success')}</span>
+                    <span>{content.form.success}</span>
                   </div>
                 </motion.div>
               )}
@@ -291,7 +292,7 @@ const Contact = () => {
                   <span>message --status</span>
                 </div>
                 <div className="mt-2 text-gray-400">
-                  <div>Status: <span className="text-neon-green">{isSubmitting ? t('terminal.status.sending') : submitSuccess ? t('terminal.status.success') : errorMessage ? t('terminal.status.error', { message: errorMessage }) : t('terminal.status.idle')}</span></div>
+                  <div>Status: <span className="text-neon-green">{isSubmitting ? content.terminal.status.sending : submitSuccess ? content.terminal.status.success : errorMessage ? content.terminal.status.error({ message: errorMessage }) : content.terminal.status.idle}</span></div>
                   <div>Encryption: <span className="text-neon-blue">AES-256</span></div>
                   <div>Channel: <span className="text-neon-purple">Secure</span></div>
                 </div>
@@ -310,10 +311,10 @@ const Contact = () => {
         >
           <div className="flex items-center text-neon-green">
             <span className="mr-2">$</span>
-            <span className="typing-animation">echo "{t('thanks')}" | lolcat</span>
+            <span className="typing-animation">echo "{content.thanks}" | lolcat</span>
           </div>
           <div className="mt-2">
-            {t('thanks').split('').map((char: string, index: number) => {
+            {content.thanks.split('').map((char: string, index: number) => {
               const colors = ['text-neon-blue', 'text-neon-purple', 'text-neon-green'];
               const color = char === ' ' ? 'text-white' : colors[index % colors.length];
               return <span key={index} className={color}>{char}</span>;

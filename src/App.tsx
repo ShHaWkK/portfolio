@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Moon, Sun } from 'lucide-react'
-import { useTranslation } from 'react-i18next'
+import { IntlayerProviderContent, useIntlayer } from 'react-intlayer'
+import { Locales } from 'intlayer'
 import './App.css'
 
 // Import du sélecteur de langue
@@ -18,7 +19,7 @@ import Technologies from './components/Technologies'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 
-function App() {
+function AppContent() {
   const [theme, setTheme] = useState(() => {
     // Check if theme is stored in localStorage
     const savedTheme = localStorage.getItem('theme')
@@ -26,7 +27,7 @@ function App() {
     return savedTheme || 'dark'
   })
 
-  const { t } = useTranslation(['common'])
+  const content = useIntlayer("common")
 
   useEffect(() => {
     // Update localStorage when theme changes
@@ -54,7 +55,7 @@ function App() {
       <button 
         onClick={toggleTheme} 
         className="fixed top-5 right-5 z-50 p-2 rounded-full bg-background border border-gray-700 hover:border-neon-blue transition-all duration-300"
-        aria-label={theme === 'dark' ? t('theme.light') : t('theme.dark')}
+        aria-label={theme === 'dark' ? content.theme.light : content.theme.dark}
       >
         {theme === 'dark' ? (
           <Sun className="w-6 h-6 text-neon-blue" />
@@ -78,6 +79,30 @@ function App() {
       <Footer />
     </div>
   )
+}
+
+function App() {
+  // Récupérer la langue depuis l'URL si présente
+  const getInitialLocale = () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const langParam = urlParams.get('lang');
+    
+    // Convertir le paramètre de langue en valeur Locales
+    switch(langParam) {
+      case 'en': return Locales.ENGLISH;
+      case 'es': return Locales.SPANISH;
+      case 'de': return Locales.GERMAN;
+      case 'ru': return Locales.RUSSIAN;
+      case 'fr':
+      default: return Locales.FRENCH; // Défaut à français si non spécifié
+    }
+  };
+
+  return (
+    <IntlayerProviderContent defaultLocale={getInitialLocale()}>
+      <AppContent />
+    </IntlayerProviderContent>
+  );
 }
 
 export default App

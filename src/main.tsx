@@ -3,9 +3,6 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
 
-// Import i18n configuration
-import './i18n/i18n'
-
 // Composant de chargement pendant que les traductions sont chargées
 const Loading = () => (
   <div className="flex items-center justify-center h-screen w-screen bg-gray-900">
