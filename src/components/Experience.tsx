@@ -5,7 +5,7 @@ const Experience = () => {
   const experiences = [
     {
       role: "Administrateur Systèmes & Réseaux",
-      company: "BSIO MEDIA",
+      company: "BSRQ MEDIA",
       period: "09/2024 - Présent",
       icon: <Server className="w-6 h-6 text-neon-blue" />,
       color: "neon-blue",
