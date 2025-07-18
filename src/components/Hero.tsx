@@ -1,4 +1,3 @@
-import React from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight, Terminal, Shield, Code, Cpu } from 'lucide-react'
 import { useTranslation } from '../hooks/useLanguage'

@@ -7,7 +7,6 @@ import { useTranslation } from './hooks/useLanguage'
 
 // Import du sélecteur de langue
 import LanguageSwitcher from './components/LanguageSwitcher'
-import TestComponent from './components/TestComponent'
 
 // Components
 import Hero from './components/Hero'

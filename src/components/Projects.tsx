@@ -1,7 +1,6 @@
-import React from 'react'
 import { motion } from 'framer-motion'
 import { useTranslation } from '../hooks/useLanguage'
-import { Github, ExternalLink, Terminal, Server, Lock, Cpu } from 'lucide-react'
+import { ExternalLink, Github, Terminal, Lock, Server, Cpu } from 'lucide-react'
 
 const Projects = () => {
   const { t, isLoading } = useTranslation()

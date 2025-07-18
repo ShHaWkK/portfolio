@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Shield, Lock, Cpu, ExternalLink, AlertTriangle } from 'lucide-react'
 import { useTranslation } from '../hooks/useLanguage'
@@ -15,16 +14,22 @@ interface Publication {
 }
 
 const Publications = () => {
-  const { t } = useTranslation()
-  const [content, setContent] = useState<any>(null)
-
-  useEffect(() => {
-    setContent(t('publications'))
-  }, [t])
-
-  if (!content) {
-    return <div>Loading...</div>
+  const { t, isLoading } = useTranslation()
+  
+  if (isLoading) {
+    return (
+      <section id="publications" className="section bg-background-alt relative">
+        <div className="container relative z-10 flex items-center justify-center min-h-[400px]">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-neon-purple mx-auto mb-4"></div>
+            <p className="text-neon-purple font-code">Chargement des publications...</p>
+          </div>
+        </div>
+      </section>
+    )
   }
+
+  const content = t('publications')
 
   const getIcon = (index: number) => {
     const iconClass = `w-6 h-6`

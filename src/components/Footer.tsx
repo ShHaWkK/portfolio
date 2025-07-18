@@ -1,6 +1,5 @@
-import React from 'react'
 import { motion } from 'framer-motion'
-import { Github, Linkedin, Twitter, Terminal, Shield, Cpu, Code, Server } from 'lucide-react'
+import { Github, Linkedin, Terminal, Shield, Code, Twitter, Server, Cpu } from 'lucide-react'
 import { useTranslation } from '../hooks/useLanguage'
 
 const Footer = () => {

@@ -1,19 +1,24 @@
-import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Code, Terminal, Server, Database, Cpu, Laptop } from 'lucide-react'
+import { Code, Database, Terminal, Server, Cpu, Laptop } from 'lucide-react'
 import { useTranslation } from '../hooks/useLanguage'
 
 const Technologies = () => {
-  const { t } = useTranslation()
-  const [content, setContent] = useState<any>(null)
-
-  useEffect(() => {
-    setContent(t('technologies'))
-  }, [t])
-
-  if (!content) {
-    return <div>Loading...</div>
+  const { t, isLoading } = useTranslation()
+  
+  if (isLoading) {
+    return (
+      <section id="technologies" className="section bg-background-alt relative">
+        <div className="container relative z-10 flex items-center justify-center min-h-[400px]">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-neon-blue mx-auto mb-4"></div>
+            <p className="text-neon-blue font-code">Chargement des technologies...</p>
+          </div>
+        </div>
+      </section>
+    )
   }
+
+  const content = t('technologies')
 
   const getIcon = (type: string, color: string) => {
     const iconClass = `w-6 h-6 text-${color}`
