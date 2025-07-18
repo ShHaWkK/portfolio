@@ -102,14 +102,14 @@ export default {
     certifications: [
       {
         title: "Master 1 Cybersecurity",
-        issuer: "Ynov Campus",
-        date: "2023 - 2024",
+        issuer: "ESGI Paris",
+        date: "2023 - Aujourd'hui",
         description: "Advanced training in cybersecurity, penetration testing and systems security."
       },
       {
         title: "Bachelor Cybersecurity Python",
-        issuer: "Ynov Campus",
-        date: "2022 - 2023",
+        issuer: "ESGI Paris",
+        date: "2024 - 2025",
         description: "Specialization in secure Python development and vulnerability analysis."
       },
       {
@@ -149,13 +149,13 @@ export default {
       degrees: [
         {
           title: "Master 1 Cybersecurity",
-          institution: "Ynov Campus",
-          period: "2023 - 2024",
+          institution: "ESGI Paris",
+          period: "2023 -  Current",
           description: "Specialized training in cybersecurity, penetration testing, digital forensics and risk management."
         },
         {
           title: "Bachelor Cybersecurity Python",
-          institution: "Ynov Campus",
+          institution: "ESGI Paris",
           period: "2022 - 2023",
           description: "Training in secure Python development, vulnerability analysis and application security."
         },
