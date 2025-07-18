@@ -80,5 +80,128 @@ export default {
       }
     },
     thanks: "Thank you for your message! I'll get back to you soon."
+  }, 
+  ru: {
+    title: "Связаться со мной",
+    subtitle: "Обсудим ваши проекты по кибербезопасности",
+    description: "Готовы к сотрудничеству в области кибербезопасности? Свяжитесь со мной, чтобы обсудить ваши потребности в информационной безопасности, тестировании на проникновение или безопасной разработке.",
+    info: {
+      email: "Электронная почта",
+      phone: "Телефон",
+      location: "Местоположение",
+      discord: "Discord"
+    },
+    form: {
+      name: {
+        label: "Имя",
+        placeholder: "Ваше имя"
+      },
+      email: {
+        label: "Электронная почта",
+        placeholder: "your.email@example.com"
+      },
+      subject: {
+        label: "Тема",
+        placeholder: "Тема вашего сообщения"
+      },
+      message: {
+        label: "Сообщение",
+        placeholder: "Ваше сообщение..."
+      },
+      sending: "Отправка...",
+      success: "Сообщение успешно отправлено!",
+      error: "Ошибка при отправке сообщения"
+    },
+    terminal: {
+      status: {
+        idle: "Ожидание",
+        sending: "Отправка",
+        success: "Успешно отправлено",
+        error: (message: string) => `Ошибка: ${message}`
+      }
+    },
+    thanks: "Спасибо за ваше сообщение! Я скоро с вами свяжусь."
+  },
+  de: {
+    title: "Kontaktieren Sie mich",
+    subtitle: "Lassen Sie uns über Ihre Cybersecurity-Projekte sprechen",
+    description: "Bereit für eine Zusammenarbeit im Bereich Cybersicherheit? Kontaktieren Sie mich, um Ihre IT-Sicherheitsbedürfnisse, Penetrationstests oder sichere Entwicklung zu besprechen.",
+    info: {
+      email: "E-Mail",
+      phone: "Telefon",
+      location: "Standort",
+      discord: "Discord"
+    },
+    form: {
+      name: {
+        label: "Name",
+        placeholder: "Ihr Name"
+      },
+      email: {
+        label: "E-Mail",
+        placeholder: "your.email@example.com"
+      },
+      subject: {
+        label: "Betreff",
+        placeholder: "Betreff Ihrer Nachricht"
+      },
+      message: {
+        label: "Nachricht",
+        placeholder: "Ihre Nachricht..."
+      },
+      sending: "Senden...",
+      success: "Nachricht erfolgreich gesendet!",
+      error: "Fehler beim Senden der Nachricht"
+    },
+    terminal: {
+      status: {
+        idle: "Warten",
+        sending: "Senden",
+        success: "Erfolgreich gesendet",
+        error: (message: string) => `Fehler: ${message}`
+      }
+    },
+    thanks: "Danke für Ihre Nachricht! Ich melde mich bald bei Ihnen."
+  },
+  es: {
+    title: "Contáctame",
+    subtitle: "Hablemos de tus proyectos de ciberseguridad",
+    description: "¿Listo para colaborar en proyectos de ciberseguridad? Contáctame para hablar sobre tus necesidades de seguridad informática, pruebas de penetración o desarrollo seguro.",
+    info: {
+      email: "Correo electrónico",
+      phone: "Teléfono",
+      location: "Ubicación",
+      discord: "Discord"
+    },
+    form: {
+      name: {
+        label: "Nombre",
+        placeholder: "Tu nombre"
+      },
+      email: {
+        label: "Correo electrónico",
+        placeholder: "your.email@example.com"
+      },
+      subject: {
+        label: "Asunto",
+        placeholder: "Asunto de tu mensaje"
+      },
+      message: {
+        label: "Mensaje",
+        placeholder: "Tu mensaje..."
+      },
+      sending: "Enviando...",
+      success: "¡Mensaje enviado con éxito!",
+      error: "Error al enviar el mensaje"
+    },
+    terminal: {
+      status: {
+        idle: "En espera",
+        sending: "Enviando",
+        success: "Enviado con éxito",
+        error: (message: string) => `Error: ${message}`
+      }
+    },
+    thanks: "¡Gracias por tu mensaje! Me pondré en contacto contigo pronto."
   }
 };
