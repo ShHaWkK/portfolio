@@ -1,53 +1,41 @@
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Shield, Lock, Cpu, ExternalLink, AlertTriangle } from 'lucide-react'
+import { useTranslation } from '../hooks/useLanguage'
+
+interface Publication {
+  title: string
+  type: string
+  publisher: string
+  date: string
+  link: string
+  color: string
+  id: string
+  abstract: string
+}
 
 const Publications = () => {
-  const publications = [
-    {
-      title: "Analyse des vulnérabilités dans les réseaux Wi-Fi d'entreprise",
-      type: "Article",
-      publisher: "Journal de la Cybersécurité",
-      date: "2023",
-      link: "#",
-      icon: <Shield className="w-6 h-6" />,
-      color: "neon-blue",
-      id: "DOC_0x01",
-      abstract: "Étude approfondie des failles WPA2/WPA3 et méthodes d'exploitation dans les environnements professionnels."
-    },
-    {
-      title: "Techniques avancées de détection d'intrusion dans les environnements cloud",
-      type: "Conférence",
-      publisher: "SecurIT Summit",
-      date: "2022",
-      link: "#",
-      icon: <AlertTriangle className="w-6 h-6" />,
-      color: "neon-green",
-      id: "DOC_0x02",
-      abstract: "Présentation des méthodes de détection basées sur l'IA pour identifier les comportements anormaux dans les infrastructures cloud."
-    },
-    {
-      title: "Implémentation de mécanismes de défense contre les attaques par canal auxiliaire",
-      type: "Livre blanc",
-      publisher: "Tech Security Research",
-      date: "2021",
-      link: "#",
-      icon: <Lock className="w-6 h-6" />,
-      color: "neon-purple",
-      id: "DOC_0x03",
-      abstract: "Analyse des contre-mesures efficaces pour protéger les systèmes cryptographiques contre les attaques par canal auxiliaire."
-    },
-    {
-      title: "Développement d'un honeypot SSH pour l'analyse des techniques d'attaque",
-      type: "Projet",
-      publisher: "GitHub",
-      date: "2023",
-      link: "https://github.com/ShHaWkK",
-      icon: <Cpu className="w-6 h-6" />,
-      color: "cyber-yellow",
-      id: "DOC_0x04",
-      abstract: "Conception et déploiement d'un honeypot SSH haute interaction pour capturer et analyser les techniques d'attaque en temps réel."
-    }
-  ]
+  const { t } = useTranslation()
+  const [content, setContent] = useState<any>(null)
+
+  useEffect(() => {
+    setContent(t('publications'))
+  }, [t])
+
+  if (!content) {
+    return <div>Loading...</div>
+  }
+
+  const getIcon = (index: number) => {
+    const iconClass = `w-6 h-6`
+    const icons = [
+      <Shield className={iconClass} />,
+      <AlertTriangle className={iconClass} />,
+      <Lock className={iconClass} />,
+      <Cpu className={iconClass} />
+    ]
+    return icons[index % icons.length]
+  }
 
   return (
     <section id="publications" className="section bg-background-alt relative">
@@ -81,20 +69,20 @@ const Publications = () => {
             <span className="font-code text-sm text-neon-purple">~/publications</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-2 text-white cyber-text">
-            Publications & Veille
+            {content.title}
           </h2>
           <div className="w-32 h-1 bg-neon-purple mx-auto relative">
             <div className="absolute -top-1 left-0 w-2 h-3 bg-neon-purple"></div>
             <div className="absolute -top-1 right-0 w-2 h-3 bg-neon-purple"></div>
           </div>
           <div className="mt-4 font-code text-sm text-gray-400">
-            <span className="text-neon-purple">$</span> find . -name "*.research" | sort -r
+            <span className="text-neon-purple">$</span> {content.command}
           </div>
         </motion.div>
 
         <div className="max-w-4xl mx-auto">
-          {publications.map((pub, index) => (
-            <motion.div
+          {content.publications?.map((pub: Publication, index: number) => (
+              <motion.div
               key={index}
               className="mb-8 cyber-card p-6 relative"
               initial={{ opacity: 0, y: 30 }}
@@ -110,7 +98,7 @@ const Publications = () => {
               <div className="flex items-start">
                 <div className={`w-12 h-12 rounded-none border-2 border-${pub.color} flex items-center justify-center mr-4`}>
                   <div className={`text-${pub.color}`}>
-                    {pub.icon}
+                    {getIcon(index)}
                   </div>
                 </div>
                 <div className="flex-1">
@@ -132,10 +120,10 @@ const Publications = () => {
                     className={`inline-flex items-center btn-terminal text-${pub.color} hover:text-white transition-colors duration-300`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`Lire ${pub.title}`}
+                    aria-label={`${content.readLabel} ${pub.title}`}
                   >
                     <span className="mr-2">$</span>
-                    <span>cat document.txt</span>
+                    <span>{content.readCommand}</span>
                     <ExternalLink className="w-4 h-4 ml-2" />
                   </a>
                 </div>
@@ -154,13 +142,13 @@ const Publications = () => {
         >
           <div className="flex items-center text-neon-purple">
             <span className="mr-2">$</span>
-            <span className="typing-animation">research_status --active-projects</span>
+            <span className="typing-animation">{content.footer?.command}</span>
           </div>
           <div className="mt-2 text-gray-400">
-            <div>Status: <span className="text-neon-green">Active</span></div>
-            <div>Current Focus: <span className="text-neon-blue">Honeypots, Vulnerability Research, CTF</span></div>
-            <div>Latest Update: <span className="text-neon-purple">Developing SSH honeypot with advanced logging capabilities</span></div>
-            <div>GitHub: <a href="https://github.com/ShHaWkK" target="_blank" rel="noopener noreferrer" className="text-neon-blue hover:underline">github.com/ShHaWkK</a></div>
+            <div>{content.footer?.status} <span className="text-neon-green">{content.footer?.statusValue}</span></div>
+            <div>{content.footer?.currentFocus} <span className="text-neon-blue">{content.footer?.currentFocusValue}</span></div>
+            <div>{content.footer?.latestUpdate} <span className="text-neon-purple">{content.footer?.latestUpdateValue}</span></div>
+            <div>{content.footer?.github} <a href="https://github.com/ShHaWkK" target="_blank" rel="noopener noreferrer" className="text-neon-blue hover:underline">github.com/ShHaWkK</a></div>
           </div>
         </motion.div>
       </div>

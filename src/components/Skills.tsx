@@ -1,72 +1,51 @@
+import React from 'react'
 import { motion } from 'framer-motion'
 import { Shield, Terminal, Lock, Wifi, Bug, FileCode, Network, HardDrive } from 'lucide-react'
+import { useTranslation } from '../hooks/useLanguage'
 
 const Skills = () => {
+  const { t, isLoading } = useTranslation()
+
+  if (isLoading) {
+    return (
+      <section id="skills" className="section bg-background relative">
+        <div className="container relative z-10 flex items-center justify-center min-h-[400px]">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-neon-green mx-auto mb-4"></div>
+            <p className="text-neon-green font-code">Chargement des compétences...</p>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  const content = t('skills')
+
   const skillCategories = [
     {
-      title: "Sécurité Offensive",
-      skills: [
-        "Pentesting",
-        "Audit de sécurité",
-        "Exploitation",
-        "OSINT",
-        "Forensics",
-        "Reverse Engineering",
-        "Malware Analysis",
-        "Web Security",
-        "CTF Challenges"
-      ],
+      title: content?.categories?.offensive?.title || 'Offensive Security',
+      skills: content?.categories?.offensive?.skills || [],
       icon: <Shield className="w-6 h-6" />,
       color: "neon-blue",
       secondaryIcon: <Bug className="w-4 h-4" />
     },
     {
-      title: "Réseaux & Infrastructure",
-      skills: [
-        "Firewall (PfSense)",
-        "VPN (OpenVPN, WireGuard)",
-        "VLAN",
-        "Routage",
-        "DNS",
-        "DHCP",
-        "Active Directory",
-        "Honeypots",
-        "IDS/IPS"
-      ],
+      title: content?.categories?.network?.title || 'Network Security',
+      skills: content?.categories?.network?.skills || [],
       icon: <Network className="w-6 h-6" />,
       color: "neon-purple",
       secondaryIcon: <Wifi className="w-4 h-4" />
     },
     {
-      title: "Outils & Techniques",
-      skills: [
-        "Kali Linux",
-        "Metasploit",
-        "Burp Suite",
-        "Wireshark",
-        "Nmap",
-        "John the Ripper",
-        "Hashcat",
-        "Ghidra",
-        "pwn.college"
-      ],
+      title: content?.categories?.tools?.title || 'Security Tools',
+      skills: content?.categories?.tools?.skills || [],
       icon: <Lock className="w-6 h-6" />,
       color: "neon-green",
       secondaryIcon: <HardDrive className="w-4 h-4" />
     },
     {
-      title: "Développement",
-      skills: [
-        "Python",
-        "Bash",
-        "PowerShell",
-        "C/C++",
-        "Assembleur",
-        "Docker",
-        "Git",
-        "CI/CD",
-        "Monitoring"
-      ],
+      title: content?.categories?.development?.title || 'Development',
+      skills: content?.categories?.development?.skills || [],
       icon: <FileCode className="w-6 h-6" />,
       color: "neon-blue",
       secondaryIcon: <Terminal className="w-4 h-4" />
@@ -121,19 +100,19 @@ const Skills = () => {
             <span className="font-code text-sm text-neon-green">~/skills</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-2 text-white cyber-text">
-            Compétences Techniques
+            {content?.title || 'Compétences'}
           </h2>
           <div className="w-32 h-1 bg-neon-green mx-auto relative">
             <div className="absolute -top-1 left-0 w-2 h-3 bg-neon-green"></div>
             <div className="absolute -top-1 right-0 w-2 h-3 bg-neon-green"></div>
           </div>
           <p className="mt-4 text-gray-300 max-w-2xl mx-auto font-code">
-            <span className="text-neon-green">$</span> skill_scan --target="cybersecurity" --level="advanced"
+            <span className="text-neon-green">$</span> {content?.command || 'cat skills.txt'}
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {skillCategories.map((category, index) => (
+          {skillCategories.map((category: { title: string; skills: string[]; icon: JSX.Element; color: string; secondaryIcon: JSX.Element }, index: number) => (
             <motion.div
               key={index}
               className="terminal-card"
@@ -157,7 +136,7 @@ const Skills = () => {
               </div>
               
               <div className="space-y-3">
-                {category.skills.map((skill, skillIndex) => (
+                {category.skills.map((skill: string, skillIndex: number) => (
                   <motion.div
                     key={skillIndex}
                     className="flex items-center"
@@ -196,7 +175,7 @@ const Skills = () => {
         >
           <div className="flex items-center text-neon-blue">
             <span className="mr-2">$</span>
-            <span>skill_analysis --complete</span>
+            <span>{content?.terminal?.complete || 'skill_analysis --complete'}</span>
           </div>
           <div className="mt-2 text-gray-300">
             <div>Analyzing skill sets...</div>

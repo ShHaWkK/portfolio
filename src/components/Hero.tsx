@@ -1,7 +1,25 @@
+import React from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight, Terminal, Shield, Code, Cpu } from 'lucide-react'
+import { useTranslation } from '../hooks/useLanguage'
 
 const Hero = () => {
+  const { t, isLoading } = useTranslation()
+  
+  if (isLoading) {
+    return (
+      <section id="hero" className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-neon-blue mx-auto mb-4"></div>
+          <p className="text-neon-blue font-code">Initialisation du système...</p>
+        </div>
+      </section>
+    )
+  }
+
+  const content = t('hero')
+  const commonContent = t('common')
+
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Matrix-like background effect */}
@@ -21,7 +39,7 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto">
           <div className="cyber-card p-8 mb-8 flex flex-col md:flex-row items-center">
             <div className="absolute top-0 right-0 bg-neon-blue text-xs text-background px-3 py-1">
-              <span className="font-code">CYBERSECURITY STUDENT</span>
+              <span className="font-code">{content?.badge || 'CYBERSECURITY STUDENT'}</span>
             </div>
             
             {/* Profile Picture */}
@@ -52,17 +70,17 @@ const Hero = () => {
                 transition={{ duration: 1 }}
                 className="mb-2 text-neon-blue font-code text-sm"
               >
-                <span className="inline-block">$ whoami</span>
+                <span className="inline-block">{content?.whoami || '$ whoami'}</span>
               </motion.div>
               
               <motion.h1 
                 className="text-4xl md:text-6xl font-bold mb-4 glitch-effect"
-                data-text="Alexandre UZAN"
+                data-text={content?.name || 'Alexandre UZAN'}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                Alexandre UZAN
+                {content?.name || 'Alexandre UZAN'}
               </motion.h1>
               
               <motion.div 
@@ -71,7 +89,7 @@ const Hero = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
-                <span className="terminal-text">Étudiant en Cybersécurité & Passionné de CTF</span>
+                <span className="terminal-text">{content?.title || 'Cybersecurity Student & CTF Enthusiast'}</span>
               </motion.div>
               
               <motion.p 
@@ -80,7 +98,7 @@ const Hero = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
-                <span className="inline-block">$ echo "La sécurité n'est pas un produit, mais un processus"</span>
+                <span className="inline-block">{content?.quote || '$ echo "Security is not a product, but a process"'}</span>
               </motion.p>
               
               <motion.div
@@ -109,7 +127,7 @@ const Hero = () => {
                   href="#contact" 
                   className="btn btn-primary inline-flex items-center"
                 >
-                  Contact <ArrowRight className="ml-2 h-4 w-4" />
+                  {commonContent?.navigation?.contact || 'Contact'} <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
               </motion.div>
             </div>
@@ -124,22 +142,22 @@ const Hero = () => {
             <div className="cyber-card p-4 flex items-center">
               <Shield className="text-neon-blue mr-3 h-6 w-6" />
               <div>
-                <h3 className="font-code text-neon-blue">Sécurité Offensive</h3>
-                <p className="text-sm text-gray-300">Pentesting & Exploitation</p>
+                <h3 className="font-code text-neon-blue">{content?.skills?.offensive?.title || 'Offensive Security'}</h3>
+                <p className="text-sm text-gray-300">{content?.skills?.offensive?.description || 'Pentesting & Exploitation'}</p>
               </div>
             </div>
             <div className="cyber-card p-4 flex items-center">
               <Cpu className="text-neon-purple mr-3 h-6 w-6" />
               <div>
-                <h3 className="font-code text-neon-purple">Honeypots</h3>
-                <p className="text-sm text-gray-300">SSH, FTP, RDP</p>
+                <h3 className="font-code text-neon-purple">{content?.skills?.honeypots?.title || 'Honeypots'}</h3>
+                <p className="text-sm text-gray-300">{content?.skills?.honeypots?.description || 'SSH, FTP, RDP'}</p>
               </div>
             </div>
             <div className="cyber-card p-4 flex items-center">
               <Code className="text-neon-green mr-3 h-6 w-6" />
               <div>
-                <h3 className="font-code text-neon-green">Développement</h3>
-                <p className="text-sm text-gray-300">Malware & Sécurité</p>
+                <h3 className="font-code text-neon-green">{content?.skills?.development?.title || 'Development'}</h3>
+                <p className="text-sm text-gray-300">{content?.skills?.development?.description || 'Malware & Security'}</p>
               </div>
             </div>
           </motion.div>
@@ -187,21 +205,6 @@ const Hero = () => {
           repeat: Infinity,
           repeatType: "loop"
         }}
-      />
-      
-      {/* Scanning line effect */}
-      <motion.div
-        className="absolute inset-0 z-0 bg-neon-blue opacity-5 pointer-events-none"
-        animate={{
-          top: ["-100%", "100%"],
-        }}
-        transition={{
-          duration: 3,
-          repeat: Infinity,
-          repeatType: "loop",
-          ease: "linear"
-        }}
-        style={{ height: "5px" }}
       />
     </section>
   )

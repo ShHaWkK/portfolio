@@ -1,0 +1,10 @@
+export { default as common } from './common.content.tsx';
+export { default as hero } from './hero.content.tsx';
+export { default as about } from './about.content.tsx';
+export { default as skills } from './skills.content.tsx';
+export { default as experience } from './experience.content.tsx';
+export { default as projects } from './projects.content.tsx';
+export { default as contact } from './contact.content.tsx';
+export { default as certifications } from './certifications.content.tsx';
+export { default as technologies } from './technologies.content.tsx';
+export { default as publications } from './publications.content.tsx';

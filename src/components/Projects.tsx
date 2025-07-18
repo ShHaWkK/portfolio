@@ -1,41 +1,26 @@
+import React from 'react'
 import { motion } from 'framer-motion'
+import { useTranslation } from '../hooks/useLanguage'
 import { Github, ExternalLink, Terminal, Server, Lock, Cpu } from 'lucide-react'
 
 const Projects = () => {
-  const projects = [
-    {
-      title: "Malware LD_PRELOAD",
-      description: "Développement d'un malware utilisant la technique LD_PRELOAD pour intercepter les clés SSH en mémoire sur les systèmes Linux.",
-      image: "/projects/malware.jpg",
-      stack: ["C", "Linux", "SSH"],
-      github: "https://github.com/ShHaWkK/ld_preload_malware",
-      demo: ""
-    },
-    {
-      title: "Honeypot haute-interaction",
-      description: "Conception d'un honeypot avancé avec stack ELK pour la détection, l'analyse et la visualisation des tentatives d'intrusion.",
-      image: "/projects/honeypot.jpg",
-      stack: ["Docker", "ELK Stack", "Python"],
-      github: "https://github.com/ShHaWkK/honeypot-elk",
-      demo: ""
-    },
-    {
-      title: "Topologie IPv4 multi-sites",
-      description: "Simulation d'une infrastructure réseau multi-sites avec routage dynamique OSPF et sécurisation des échanges via VPN.",
-      image: "/projects/network.jpg",
-      stack: ["Packet Tracer", "OSPF", "VPN"],
-      github: "https://github.com/ShHaWkK/ipv4-topology",
-      demo: ""
-    },
-    {
-      title: "Reverse-shell asm x86-64",
-      description: "Implémentation d'un reverse shell en assembleur x86-64 optimisé pour une empreinte mémoire minimale.",
-      image: "/projects/reverse-shell.jpg",
-      stack: ["Assembleur", "x86-64", "Sécurité"],
-      github: "https://github.com/ShHaWkK/reverse-shell-asm",
-      demo: ""
-    }
-  ]
+  const { t, isLoading } = useTranslation()
+
+  if (isLoading) {
+    return (
+      <section id="projects" className="section bg-background-alt relative">
+        <div className="container relative z-10 flex items-center justify-center min-h-[400px]">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-neon-purple mx-auto mb-4"></div>
+            <p className="text-neon-purple font-code">Chargement des projets...</p>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  const content = t('projects')
+  const projects = content.projects || [];
 
   // Créer des images pour les projets avec un style cybersécurité
   const getProjectImage = (index: number) => {
@@ -68,7 +53,7 @@ const Projects = () => {
         
         {/* Project type label */}
         <div className="absolute top-3 right-3 bg-background px-2 py-1 border border-neon-blue">
-          <span className="text-xs font-code text-neon-blue">{['MALWARE', 'HONEYPOT', 'NETWORK', 'REVERSE'][index]}</span>
+          <span className="text-xs font-code text-neon-blue">{projects[index].type}</span>
         </div>
         
         {/* Icon with glow effect */}
@@ -101,19 +86,19 @@ const Projects = () => {
             <span className="font-code text-sm text-neon-blue">~/projects</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-2 text-white cyber-text">
-            Projets sélectionnés
+            {content.title}
           </h2>
           <div className="w-32 h-1 bg-neon-purple mx-auto relative">
             <div className="absolute -top-1 left-0 w-2 h-3 bg-neon-purple"></div>
             <div className="absolute -top-1 right-0 w-2 h-3 bg-neon-purple"></div>
           </div>
           <p className="mt-4 text-gray-300 max-w-2xl mx-auto">
-            <span className="font-code text-neon-green">$</span> <span className="font-code">ls -la | grep "cybersecurity"</span>
+            <span className="font-code text-neon-green">$</span> <span className="font-code">{content.command}</span>
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
+          {projects.map((project: any, index: number) => (
             <motion.div
               key={index}
               className="cyber-card overflow-hidden"
@@ -134,7 +119,7 @@ const Projects = () => {
                 <p className="text-gray-300 mb-4 border-l-2 border-neon-blue pl-3">{project.description}</p>
                 
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {project.stack.map((tech, techIndex) => (
+                  {project.stack.map((tech: any, techIndex: number) => (
                     <span 
                       key={techIndex}
                       className="px-3 py-1 text-xs font-code bg-background border-t border-b border-neon-blue text-neon-blue"
@@ -155,7 +140,7 @@ const Projects = () => {
                       aria-label={`Code source de ${project.title} sur GitHub`}
                     >
                       <Github className="w-4 h-4" />
-                      <span>View Source</span>
+                      <span>{content.buttons.viewSource}</span>
                     </a>
                   )}
                   {project.demo && (
@@ -167,7 +152,7 @@ const Projects = () => {
                       aria-label={`Démo live de ${project.title}`}
                     >
                       <ExternalLink className="w-4 h-4" />
-                      <span>Live Demo</span>
+                      <span>{content.buttons.liveDemo}</span>
                     </a>
                   )}
                 </div>
@@ -180,10 +165,10 @@ const Projects = () => {
         <div className="mt-16 p-4 border border-terminal-green bg-dark-blue font-code text-terminal-green text-sm">
           <div className="flex items-center">
             <span className="mr-2">$</span>
-            <span className="typing-animation">git clone https://github.com/ShHaWkK/cybersecurity-projects.git</span>
+            <span className="typing-animation">{content.terminal.clone}</span>
           </div>
-          <div className="mt-2">Cloning into 'cybersecurity-projects'...</div>
-          <div className="mt-1">4 repositories found. Access granted.</div>
+          <div className="mt-2">{content.terminal.cloning}</div>
+          <div className="mt-1">{content.terminal.found}</div>
         </div>
       </div>
     </section>

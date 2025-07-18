@@ -1,36 +1,63 @@
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Code, Terminal, Server, Database, Cpu, Laptop } from 'lucide-react'
+import { useTranslation } from '../hooks/useLanguage'
 
 const Technologies = () => {
-  const programmingLanguages = [
-    { name: 'Python', icon: <Code className="w-6 h-6 text-neon-blue" />, color: 'neon-blue' },
-    { name: 'JavaScript', icon: <Code className="w-6 h-6 text-cyber-yellow" />, color: 'cyber-yellow' },
-    { name: 'TypeScript', icon: <Code className="w-6 h-6 text-neon-blue" />, color: 'neon-blue' },
-    { name: 'PHP', icon: <Code className="w-6 h-6 text-neon-purple" />, color: 'neon-purple' },
-    { name: 'Go', icon: <Code className="w-6 h-6 text-neon-blue" />, color: 'neon-blue' },
-    { name: 'C/C++', icon: <Code className="w-6 h-6 text-neon-green" />, color: 'neon-green' },
-    { name: 'Bash', icon: <Terminal className="w-6 h-6 text-neon-green" />, color: 'neon-green' },
-    { name: 'SQL', icon: <Database className="w-6 h-6 text-neon-purple" />, color: 'neon-purple' },
-  ]
+  const { t } = useTranslation()
+  const [content, setContent] = useState<any>(null)
 
-  const software = [
-    { name: 'VSCode', icon: <Code className="w-6 h-6 text-neon-blue" />, color: 'neon-blue' },
-    { name: 'Docker', icon: <Server className="w-6 h-6 text-neon-blue" />, color: 'neon-blue' },
-    { name: 'Git', icon: <Terminal className="w-6 h-6 text-neon-green" />, color: 'neon-green' },
-    { name: 'Wireshark', icon: <Terminal className="w-6 h-6 text-neon-blue" />, color: 'neon-blue' },
-    { name: 'Burp Suite', icon: <Terminal className="w-6 h-6 text-neon-purple" />, color: 'neon-purple' },
-    { name: 'Metasploit', icon: <Terminal className="w-6 h-6 text-neon-red" />, color: 'neon-red' },
-    { name: 'Nmap', icon: <Terminal className="w-6 h-6 text-neon-green" />, color: 'neon-green' },
-    { name: 'Ghidra', icon: <Cpu className="w-6 h-6 text-cyber-yellow" />, color: 'cyber-yellow' },
-  ]
+  useEffect(() => {
+    setContent(t('technologies'))
+  }, [t])
 
-  const operatingSystems = [
-    { name: 'Arch Linux', icon: <Laptop className="w-6 h-6 text-neon-blue" />, color: 'neon-blue' },
-    { name: 'Fedora 42', icon: <Laptop className="w-6 h-6 text-neon-purple" />, color: 'neon-purple' },
-    { name: 'Kali Linux', icon: <Laptop className="w-6 h-6 text-neon-green" />, color: 'neon-green' },
-    { name: 'macOS', icon: <Laptop className="w-6 h-6 text-cyber-yellow" />, color: 'cyber-yellow' },
-    { name: 'Windows', icon: <Laptop className="w-6 h-6 text-neon-blue" />, color: 'neon-blue' },
-  ]
+  if (!content) {
+    return <div>Loading...</div>
+  }
+
+  const getIcon = (type: string, color: string) => {
+    const iconClass = `w-6 h-6 text-${color}`
+    switch (type) {
+      case 'code':
+        return <Code className={iconClass} />
+      case 'terminal':
+        return <Terminal className={iconClass} />
+      case 'server':
+        return <Server className={iconClass} />
+      case 'database':
+        return <Database className={iconClass} />
+      case 'cpu':
+        return <Cpu className={iconClass} />
+      case 'laptop':
+        return <Laptop className={iconClass} />
+      default:
+        return <Code className={iconClass} />
+    }
+  }
+
+  const iconMapping: Record<string, string> = {
+    'Python': 'code',
+    'JavaScript': 'code',
+    'TypeScript': 'code',
+    'PHP': 'code',
+    'Go': 'code',
+    'C/C++': 'code',
+    'Bash': 'terminal',
+    'SQL': 'database',
+    'VSCode': 'code',
+    'Docker': 'server',
+    'Git': 'terminal',
+    'Wireshark': 'terminal',
+    'Burp Suite': 'terminal',
+    'Metasploit': 'terminal',
+    'Nmap': 'terminal',
+    'Ghidra': 'cpu',
+    'Arch Linux': 'laptop',
+    'Fedora 42': 'laptop',
+    'Kali Linux': 'laptop',
+    'macOS': 'laptop',
+    'Windows': 'laptop',
+  }
 
   return (
     <section id="technologies" className="section bg-background-alt relative">
@@ -64,18 +91,17 @@ const Technologies = () => {
             <span className="font-code text-sm text-neon-blue">~/technologies</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-2 text-white cyber-text">
-            Technologies & Environnements
+            {content.title || ''}
           </h2>
           <div className="w-32 h-1 bg-neon-blue mx-auto relative">
             <div className="absolute -top-1 left-0 w-2 h-3 bg-neon-blue"></div>
             <div className="absolute -top-1 right-0 w-2 h-3 bg-neon-blue"></div>
           </div>
           <div className="mt-4 font-code text-sm text-gray-400">
-            <span className="text-neon-blue">$</span> tech_scan --verbose
+            <span className="text-neon-blue">$</span> {content.command || ''}
           </div>
         </motion.div>
 
-        {/* Programming Languages */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -84,18 +110,18 @@ const Technologies = () => {
           className="mb-16 cyber-card p-6 relative max-w-4xl mx-auto"
         >
           <div className="absolute top-0 right-0 bg-neon-blue text-xs text-background px-3 py-1">
-            <span className="font-code">LANGUAGES</span>
+            <span className="font-code">{content.sections?.languages?.label || ''}</span>
           </div>
           
           <div className="mb-6 text-neon-blue font-code text-sm">
-            <span className="inline-block">$ ls -la /usr/bin/languages</span>
+            <span className="inline-block">{content.sections?.languages?.command || ''}</span>
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {programmingLanguages.map((lang, index) => (
+            {content.sections?.languages?.items?.map((lang: { name: string; color: string }, index: number) => (
               <div key={index} className={`p-4 border-2 border-${lang.color} bg-background`}>
                 <div className="flex items-center">
-                  {lang.icon}
+                  {getIcon(iconMapping[lang.name] || 'code', lang.color)}
                   <span className={`ml-2 font-code text-${lang.color}`}>{lang.name}</span>
                 </div>
               </div>
@@ -112,18 +138,18 @@ const Technologies = () => {
           className="mb-16 cyber-card p-6 relative max-w-4xl mx-auto"
         >
           <div className="absolute top-0 right-0 bg-neon-purple text-xs text-background px-3 py-1">
-            <span className="font-code">SOFTWARE</span>
+            <span className="font-code">{content.sections?.software?.label || ''}</span>
           </div>
           
           <div className="mb-6 text-neon-purple font-code text-sm">
-            <span className="inline-block">$ dpkg -l | grep "security"</span>
+            <span className="inline-block">{content.sections?.software?.command || ''}</span>
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {software.map((sw, index) => (
+            {content.sections?.software?.items?.map((sw: { name: string; color: string }, index: number) => (
               <div key={index} className={`p-4 border-2 border-${sw.color} bg-background`}>
                 <div className="flex items-center">
-                  {sw.icon}
+                  {getIcon(iconMapping[sw.name] || 'code', sw.color)}
                   <span className={`ml-2 font-code text-${sw.color}`}>{sw.name}</span>
                 </div>
               </div>
@@ -140,18 +166,18 @@ const Technologies = () => {
           className="mb-16 cyber-card p-6 relative max-w-4xl mx-auto"
         >
           <div className="absolute top-0 right-0 bg-neon-green text-xs text-background px-3 py-1">
-            <span className="font-code">OS</span>
+            <span className="font-code">{content.sections?.os?.label || ''}</span>
           </div>
           
           <div className="mb-6 text-neon-green font-code text-sm">
-            <span className="inline-block">$ uname -a</span>
+            <span className="inline-block">{content.sections?.os?.command || ''}</span>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-            {operatingSystems.map((os, index) => (
+            {content.sections?.os?.items?.map((os: { name: string; color: string }, index: number) => (
               <div key={index} className={`p-4 border-2 border-${os.color} bg-background`}>
                 <div className="flex items-center justify-center">
-                  {os.icon}
+                  {getIcon(iconMapping[os.name] || 'laptop', os.color)}
                   <span className={`ml-2 font-code text-${os.color}`}>{os.name}</span>
                 </div>
               </div>
@@ -169,13 +195,13 @@ const Technologies = () => {
         >
           <div className="flex items-center text-neon-blue">
             <span className="mr-2">$</span>
-            <span className="typing-animation">environment_check --complete</span>
+            <span className="typing-animation">{content.footer?.command || ''}</span>
           </div>
           <div className="mt-2 text-gray-400">
-            <div>Status: <span className="text-neon-green">All systems operational</span></div>
-            <div>Primary Environment: <span className="text-neon-purple">Kali Linux + VSCode + Python</span></div>
-            <div>Focus: <span className="text-cyber-yellow">Security Tools & Development</span></div>
-            <div>GitHub: <a href="https://github.com/ShHaWkK" target="_blank" rel="noopener noreferrer" className="text-neon-blue hover:underline">github.com/ShHaWkK</a></div>
+            <div>{content.footer?.status || ''} <span className="text-neon-green">{content.footer?.statusValue || ''}</span></div>
+            <div>{content.footer?.primaryEnv || ''} <span className="text-neon-purple">{content.footer?.primaryEnvValue || ''}</span></div>
+            <div>{content.footer?.focus || ''} <span className="text-cyber-yellow">{content.footer?.focusValue || ''}</span></div>
+            <div>{content.footer?.github || ''} <a href="https://github.com/ShHaWkK" target="_blank" rel="noopener noreferrer" className="text-neon-blue hover:underline">github.com/ShHaWkK</a></div>
           </div>
         </motion.div>
       </div>

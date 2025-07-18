@@ -1,10 +1,26 @@
+import React from 'react'
 import { motion } from 'framer-motion'
 import { Github, Linkedin, Twitter, Terminal, Shield, Cpu, Code, Server } from 'lucide-react'
-import { useIntlayer } from 'react-intlayer'
+import { useTranslation } from '../hooks/useLanguage'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
-  const content = useIntlayer("common")
+  const { t, isLoading } = useTranslation()
+
+  if (isLoading) {
+    return (
+      <footer className="bg-background py-12 border-t border-gray-800 relative">
+        <div className="container relative z-10 flex items-center justify-center min-h-[200px]">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-neon-green mx-auto mb-4"></div>
+            <p className="text-neon-green font-code">Chargement du footer...</p>
+          </div>
+        </div>
+      </footer>
+    )
+  }
+
+  const content = t('common')
   
   return (
     <footer className="bg-background py-12 border-t border-gray-800 relative">

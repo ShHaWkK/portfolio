@@ -1,59 +1,50 @@
-import { useState, useEffect } from 'react';
-import { useIntlayer, useLocale } from 'react-intlayer';
-import { Locales }                from 'intlayer';
+import React, { useState, useEffect } from 'react';
+import { useLanguage, useTranslation } from '../hooks/useLanguage';
+import type { Locale } from '../hooks/useLanguage';
 
 const LanguageSwitcher: React.FC = () => {
-  const [isOpen, setIsOpen]   = useState(false);
-  const { locale, setLocale } = useLocale();
-
-  // 1) Cast away the deep instantiation error by telling TS exactly what you expect
-  const content = useIntlayer('common') as {
-    language: { fr: string; en: string; es: string; de: string; ru: string };
-  };
+  const [isOpen, setIsOpen] = useState(false);
+  const { locale, setLocale } = useLanguage();
+  const { t } = useTranslation();
+  const [content, setContent] = useState<any>(null);
 
   // Languages you actually support in the UI
   const languages = [
-    { code: Locales.FRENCH,  display: 'FR' },
-    { code: Locales.ENGLISH, display: 'EN' },
-    { code: Locales.SPANISH, display: 'ES' },
-    { code: Locales.GERMAN,  display: 'DE' },
-    { code: Locales.RUSSIAN, display: 'RU' },
+    { code: 'fr' as Locale, display: 'FR' },
+    { code: 'en' as Locale, display: 'EN' },
+    { code: 'es' as Locale, display: 'ES' },
+    { code: 'de' as Locale, display: 'DE' },
+    { code: 'ru' as Locale, display: 'RU' },
   ] as const;
 
-  // 2) Use Partial<Record<Locales,string>> so any enum member can be used as a key
-  const codeMap: Partial<Record<Locales, string>> = {
-    [Locales.FRENCH]:  'fr',
-    [Locales.ENGLISH]: 'en',
-    [Locales.SPANISH]: 'es',
-    [Locales.GERMAN]:  'de',
-    [Locales.RUSSIAN]: 'ru',
-  };
+  // Load content
+  useEffect(() => {
+    setContent(t('common'));
+  }, [t]);
 
-  const getLanguageDisplay = (lng: Locales): string => {
-    switch (lng) {
-      case Locales.FRENCH:  return content.language.fr;
-      case Locales.ENGLISH: return content.language.en;
-      case Locales.SPANISH: return content.language.es;
-      case Locales.GERMAN:  return content.language.de;
-      case Locales.RUSSIAN: return content.language.ru;
-      default:              return content.language.fr;
-    }
-  };
-
+  // Handle click outside to close dropdown
   useEffect(() => {
     if (!isOpen) return;
     const onClickOutside = () => setIsOpen(false);
     document.addEventListener('click', onClickOutside);
     return () => document.removeEventListener('click', onClickOutside);
   }, [isOpen]);
+  
+  // This conditional rendering must come after all hooks
+  if (!content) {
+    return <div>Loading...</div>;
+  }
 
-  const changeLanguage = (lng: Locales) => {
+  const getLanguageDisplay = (lng: Locale): string => {
+    return content?.languages?.[lng] || lng.toUpperCase();
+  };
+
+  const changeLanguage = (lng: Locale) => {
     setLocale(lng);
     setIsOpen(false);
 
-    const langCode = codeMap[lng] ?? 'fr';
     const url = new URL(window.location.href);
-    url.searchParams.set('lang', langCode);
+    url.searchParams.set('lang', lng);
     window.history.replaceState({}, '', url);
   };
 
@@ -61,7 +52,7 @@ const LanguageSwitcher: React.FC = () => {
     e.stopPropagation();
     setIsOpen(o => !o);
   };
-  const onSelect = (e: React.MouseEvent, lng: Locales) => {
+  const onSelect = (e: React.MouseEvent, lng: Locale) => {
     e.stopPropagation();
     changeLanguage(lng);
   };

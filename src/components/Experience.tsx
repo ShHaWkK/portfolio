@@ -1,61 +1,62 @@
+import React from 'react'
 import { motion } from 'framer-motion'
+import { useTranslation } from '../hooks/useLanguage'
 import { Server, Code, Lock, Database } from 'lucide-react'
 
 const Experience = () => {
-  const experiences = [
+  const { t, isLoading } = useTranslation()
+  const content = t('experience')
+
+  if (isLoading || !content) {
+    return (
+      <div className="section bg-background-alt flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-neon-blue mx-auto mb-4"></div>
+          <p className="text-gray-400 font-code">Chargement de l'expérience...</p>
+        </div>
+      </div>
+    )
+  }
+
+  // Make sure content.experiences exists before accessing it
+  const experiences = content.experiences ? [
     {
-      role: "Administrateur Systèmes & Réseaux",
-      company: "BSRQ MEDIA",
-      period: "09/2024 - Présent",
+      role: content.experiences[0]?.role || '',
+      company: content.experiences[0]?.company || '',
+      period: content.experiences[0]?.period || '',
       icon: <Server className="w-6 h-6 text-neon-blue" />,
       color: "neon-blue",
-      commandId: "SYS_ADMIN_01",
-      description: [
-        "Gestion d'infrastructures (Proxmox, Netgear, Aruba): sécurisation WiFi & réseau, déploiement de serveurs Linux",
-        "Administration système (Debian, CentOS): configuration de services web & mail, monitoring",
-        "Mise en place de solutions de sécurité: pare-feu, IDS/IPS, VPN, analyse de logs"
-      ]
+      commandId: content.experiences[0]?.commandId || '',
+      description: content.experiences[0]?.description || []
     },
     {
-      role: "Développeur Web & Maintenance",
-      company: "First Conseil",
-      period: "06/2024 - 08/2024",
+      role: content.experiences[1]?.role || '',
+      company: content.experiences[1]?.company || '',
+      period: content.experiences[1]?.period || '',
       icon: <Code className="w-6 h-6 text-neon-green" />,
       color: "neon-green",
-      commandId: "DEV_WEB_02",
-      description: [
-        "Développement web (React.js): gestion de projets (Jira, Salesforce), intégration continue",
-        "Maintenance et sécurisation d'applications web: audit, correction de vulnérabilités",
-        "Implémentation de mécanismes d'authentification sécurisés et chiffrement des données"
-      ]
+      commandId: content.experiences[1]?.commandId || '',
+      description: content.experiences[1]?.description || []
     },
     {
-      role: "Développeur Web & Analyste",
-      company: "Freelance",
-      period: "01/2023 - 07/2023",
+      role: content.experiences[2]?.role || '',
+      company: content.experiences[2]?.company || '',
+      period: content.experiences[2]?.period || '',
       icon: <Lock className="w-6 h-6 text-neon-purple" />,
       color: "neon-purple",
-      commandId: "SEC_DEV_03",
-      description: [
-        "Mise à jour de sites web, développement PHP, Python, bases SQL, intégration Figma",
-        "Développement d'un honeypot SSH pour analyse des techniques d'attaque",
-        "Participation à des CTFs (pwn.college): exploitation de vulnérabilités, reverse engineering"
-      ]
+      commandId: content.experiences[2]?.commandId || '',
+      description: content.experiences[2]?.description || []
     },
     {
-      role: "Assistant Gestion & Support",
-      company: "HR DIFFUSION",
-      period: "07/2020 - 06/2020",
+      role: content.experiences[3]?.role || '',
+      company: content.experiences[3]?.company || '',
+      period: content.experiences[3]?.period || '',
       icon: <Database className="w-6 h-6 text-cyber-yellow" />,
       color: "cyber-yellow",
-      commandId: "SUP_TECH_04",
-      description: [
-        "Assistance technique et support (Help Desk): analyse avec Excel",
-        "Gestion de parc informatique: maintenance, mise à jour, sécurisation",
-        "Implémentation de procédures de sécurité et formation des utilisateurs"
-      ]
+      commandId: content.experiences[3]?.commandId || '',
+      description: content.experiences[3]?.description || []
     }
-  ]
+  ] : []
 
   return (
     <section id="experience" className="section bg-background-alt relative">
@@ -89,14 +90,14 @@ const Experience = () => {
             <span className="font-code text-sm text-neon-blue">~/experience</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-2 text-white cyber-text">
-            Expériences professionnelles
+            {content?.title || 'Expérience'}
           </h2>
           <div className="w-32 h-1 bg-neon-blue mx-auto relative">
             <div className="absolute -top-1 left-0 w-2 h-3 bg-neon-blue"></div>
             <div className="absolute -top-1 right-0 w-2 h-3 bg-neon-blue"></div>
           </div>
           <div className="mt-4 font-code text-sm text-gray-400">
-            <span className="text-neon-blue">$</span> cat career_history.log | sort -r
+            <span className="text-neon-blue">$</span> {content?.command || 'cat experience.log'}
           </div>
         </motion.div>
 
@@ -104,7 +105,7 @@ const Experience = () => {
           {/* Timeline line */}
           <div className="absolute left-0 md:left-1/2 top-0 h-full w-1 bg-gradient-to-b from-neon-blue via-neon-green to-neon-purple transform -translate-x-1/2"></div>
 
-          {experiences.map((exp, index) => (
+          {experiences.map((exp: any, index: number) => (
             <motion.div 
               key={index}
               className={`relative mb-16 md:w-1/2 ${index % 2 === 0 ? 'md:ml-auto' : 'md:mr-auto'}`}
@@ -142,7 +143,7 @@ const Experience = () => {
                 </div>
                 
                 <div className="mt-6 space-y-3">
-                  {exp.description.map((item, i) => (
+                  {exp.description.map((item: string, i: number) => (
                     <div key={i} className={`pl-4 border-l-2 border-${exp.color}`}>
                       <div className="flex items-start">
                         <span className={`text-${exp.color} font-code mr-2`}>[{i+1}]</span>
@@ -174,13 +175,13 @@ const Experience = () => {
         >
           <div className="flex items-center text-neon-blue">
             <span className="mr-2">$</span>
-            <span className="typing-animation">career_analysis --complete</span>
+            <span className="typing-animation">{content?.terminal?.complete || 'experience_analysis --complete'}</span>
           </div>
           <div className="mt-2 text-gray-400">
-            <div>Status: <span className="text-neon-green">Active</span></div>
-            <div>Focus: <span className="text-neon-purple">Cybersecurity, Development, System Administration</span></div>
-            <div>CTF Platform: <a href="https://pwn.college/hacker/ShHawk" target="_blank" rel="noopener noreferrer" className="text-neon-blue hover:underline">pwn.college/hacker/ShHawk</a></div>
-            <div>GitHub Projects: <a href="https://github.com/ShHaWkK" target="_blank" rel="noopener noreferrer" className="text-neon-blue hover:underline">github.com/ShHaWkK</a></div>
+            <div>{content?.terminal?.status || 'Status:'} <span className="text-neon-green">{content?.terminal?.active || 'Active'}</span></div>
+            <div>{content?.terminal?.focus || 'Focus:'} <span className="text-neon-purple">{content?.terminal?.focusAreas || 'Cybersecurity'}</span></div>
+            <div>{content?.terminal?.ctfPlatform || 'CTF Platform:'} <a href="https://pwn.college/hacker/ShHawk" target="_blank" rel="noopener noreferrer" className="text-neon-blue hover:underline">pwn.college/hacker/ShHawk</a></div>
+            <div>{content?.terminal?.githubProjects || 'GitHub:'} <a href="https://github.com/ShHaWkK" target="_blank" rel="noopener noreferrer" className="text-neon-blue hover:underline">github.com/ShHaWkK</a></div>
           </div>
         </motion.div>
       </div>

@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react'
 import { Moon, Sun } from 'lucide-react'
-import { IntlayerProviderContent, useIntlayer } from 'react-intlayer'
-import { Locales } from 'intlayer'
 import './App.css'
+
+// Import du nouveau système de traduction
+import { useTranslation } from './hooks/useLanguage'
 
 // Import du sélecteur de langue
 import LanguageSwitcher from './components/LanguageSwitcher'
+import TestComponent from './components/TestComponent'
 
 // Components
 import Hero from './components/Hero'
@@ -27,7 +29,8 @@ function AppContent() {
     return savedTheme || 'dark'
   })
 
-  const content = useIntlayer("common")
+  const { t } = useTranslation()
+  const content = t('common') as any
 
   useEffect(() => {
     // Update localStorage when theme changes
@@ -55,7 +58,7 @@ function AppContent() {
       <button 
         onClick={toggleTheme} 
         className="fixed top-5 right-5 z-50 p-2 rounded-full bg-background border border-gray-700 hover:border-neon-blue transition-all duration-300"
-        aria-label={theme === 'dark' ? content.theme.light : content.theme.dark}
+        aria-label={theme === 'dark' ? content?.theme?.light || "Switch to light mode" : content?.theme?.dark || "Switch to dark mode"}
       >
         {theme === 'dark' ? (
           <Sun className="w-6 h-6 text-neon-blue" />
@@ -82,27 +85,7 @@ function AppContent() {
 }
 
 function App() {
-  // Récupérer la langue depuis l'URL si présente
-  const getInitialLocale = () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const langParam = urlParams.get('lang');
-    
-    // Convertir le paramètre de langue en valeur Locales
-    switch(langParam) {
-      case 'en': return Locales.ENGLISH;
-      case 'es': return Locales.SPANISH;
-      case 'de': return Locales.GERMAN;
-      case 'ru': return Locales.RUSSIAN;
-      case 'fr':
-      default: return Locales.FRENCH; // Défaut à français si non spécifié
-    }
-  };
-
-  return (
-    <IntlayerProviderContent defaultLocale={getInitialLocale()}>
-      <AppContent />
-    </IntlayerProviderContent>
-  );
+  return <AppContent />;
 }
 
 export default App

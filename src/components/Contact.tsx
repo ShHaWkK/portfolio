@@ -1,23 +1,36 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Mail, MapPin, Phone, Send, Terminal, Shield, Wifi } from 'lucide-react'
-import { useIntlayer } from 'react-intlayer'
+import { useTranslation } from '../hooks/useLanguage'
 import sendEmail from '../services/emailService'
 
 const Contact = () => {
-  const content = useIntlayer('contact')
-  const commonContent = useIntlayer('common')
-
+  const { t, isLoading } = useTranslation()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
     message: ''
   })
-
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitSuccess, setSubmitSuccess] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
+
+  if (isLoading) {
+    return (
+      <section id="contact" className="section bg-background-alt relative">
+        <div className="container relative z-10 flex items-center justify-center min-h-[400px]">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-neon-green mx-auto mb-4"></div>
+            <p className="text-neon-green font-code">Chargement du contact...</p>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  const content = t('contact')
+  const commonContent = t('common')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -126,8 +139,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="text-lg font-medium text-white font-code">{content.info.email}</h4>
-                    <a href="mailto:contact@alexandre-uzan.fr" className="text-gray-400 hover:text-neon-green transition-colors duration-300 font-code">
-                      contact@alexandre-uzan.fr
+                    <a href="mailto:shhawk9@gmail.com" className="text-gray-400 hover:text-neon-green transition-colors duration-300 font-code">
+                      shhawk9@gmail.com
                     </a>
                   </div>
                 </div>
@@ -155,6 +168,19 @@ const Contact = () => {
                   <div>
                     <h4 className="text-lg font-medium text-white font-code">{content.info.location}</h4>
                     <p className="text-gray-400 font-code">Paris, France</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="terminal-card p-4">
+                <div className="flex items-start">
+                  <div className="w-10 h-10 rounded-full bg-indigo-500 bg-opacity-10 flex items-center justify-center mr-4">
+                    <Terminal className="w-5 h-5 text-indigo-400" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-medium text-white font-code">Discord</h4>
+                    <p className="text-gray-400 font-code">shhawk</p>
+                    <p className="text-xs text-gray-500 font-code">(pour l'ajout d'ami)</p>
                   </div>
                 </div>
               </div>
@@ -266,7 +292,7 @@ const Contact = () => {
                   <span className="flex items-center font-code">
                     <span className="mr-2">$</span>
                     <Send className="w-4 h-4 mr-2" />
-                    {commonContent.buttons.sendMessage}
+                    {commonContent?.buttons?.sendMessage || 'Send Message'}
                   </span>
                 )}
               </motion.button>

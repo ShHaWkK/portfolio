@@ -2,6 +2,7 @@ import { StrictMode, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
+import { LanguageProvider } from './hooks/useLanguage'
 
 // Composant de chargement pendant que les traductions sont chargées
 const Loading = () => (
@@ -12,8 +13,10 @@ const Loading = () => (
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <Suspense fallback={<Loading />}>
-      <App />
-    </Suspense>
+    <LanguageProvider>
+      <Suspense fallback={<Loading />}>
+        <App />
+      </Suspense>
+    </LanguageProvider>
   </StrictMode>,
 )

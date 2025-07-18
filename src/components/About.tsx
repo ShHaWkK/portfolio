@@ -1,7 +1,26 @@
+import React from 'react'
 import { motion } from 'framer-motion'
 import { Terminal, Shield, Lock } from 'lucide-react'
+import { useTranslation } from '../hooks/useLanguage'
 
 const About = () => {
+  const { t, isLoading } = useTranslation()
+
+  if (isLoading) {
+    return (
+      <section id="about" className="section bg-background-alt relative">
+        <div className="container relative z-10 flex items-center justify-center min-h-[400px]">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-neon-blue mx-auto mb-4"></div>
+            <p className="text-neon-blue font-code">Chargement du profil...</p>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  const content = t('about')
+
   return (
     <section id="about" className="section bg-background-alt relative">
       {/* Background decorative elements */}
@@ -21,7 +40,7 @@ const About = () => {
             <span className="font-code text-sm text-neon-blue">~/about</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-2 text-white cyber-text">
-            À propos de moi
+            {content.title}
           </h2>
           <div className="w-32 h-1 bg-neon-blue mx-auto relative">
             <div className="absolute -top-1 left-0 w-2 h-3 bg-neon-blue"></div>
@@ -32,7 +51,7 @@ const About = () => {
         <div className="max-w-4xl mx-auto">
           <div className="cyber-card p-6 mb-8 relative">
             <div className="absolute top-0 right-0 bg-neon-blue text-xs text-background px-3 py-1">
-              <span className="font-code">PROFILE</span>
+              <span className="font-code">{content.badge}</span>
             </div>
             
             <motion.div
@@ -42,7 +61,7 @@ const About = () => {
               transition={{ duration: 0.5 }}
               className="mb-4 text-neon-blue font-code text-sm"
             >
-              <span className="inline-block">$ cat profile.txt</span>
+              <span className="inline-block">{content.catProfile || ''}</span>
             </motion.div>
             
             <motion.div
@@ -53,13 +72,28 @@ const About = () => {
               className="space-y-6 text-lg text-gray-300"
             >
               <p className="border-l-2 border-neon-blue pl-4">
-                Étudiant passionné en <span className="text-neon-blue">cybersécurité</span>, je me spécialise dans la sécurité offensive et la protection des infrastructures. Mon parcours est marqué par une curiosité insatiable pour comprendre les vulnérabilités des systèmes et développer des solutions de protection efficaces.
+                <span dangerouslySetInnerHTML={{ 
+                  __html: content.description?.paragraph1 ? content.description.paragraph1.replace(
+                    /cybersécurité|cybersecurity|ciberseguridad|cybersicherheit|кибербезопасность/gi, 
+                    '<span class="text-neon-blue">$&</span>'
+                  ) : ''
+                }} />
               </p>
               <p className="border-l-2 border-neon-purple pl-4">
-                Actif sur les plateformes de CTF comme <a href="https://pwn.college/hacker/ShHawk" target="_blank" rel="noopener noreferrer" className="text-neon-purple underline">pwn.college</a>, je relève régulièrement des défis techniques qui me permettent d'affiner mes compétences en exploitation, reverse engineering et analyse de malware.
+                <span dangerouslySetInnerHTML={{ 
+                  __html: content.description?.paragraph2 ? content.description.paragraph2.replace(
+                    /pwn\.college/gi, 
+                    '<a href="https://pwn.college/hacker/ShHawk" target="_blank" rel="noopener noreferrer" class="text-neon-purple underline">$&</a>'
+                  ) : ''
+                }} />
               </p>
               <p className="border-l-2 border-neon-green pl-4">
-                Mon portfolio GitHub (<a href="https://github.com/ShHaWkK" target="_blank" rel="noopener noreferrer" className="text-neon-green underline">ShHaWkK</a>) comprend plusieurs projets de honeypots (SSH, FTP, RDP) et d'outils de sécurité que j'ai développés pour contribuer à un environnement numérique plus sûr.
+                <span dangerouslySetInnerHTML={{ 
+                  __html: content.description?.paragraph3 ? content.description.paragraph3.replace(
+                    /ShHaWkK/gi, 
+                    '<a href="https://github.com/ShHaWkK" target="_blank" rel="noopener noreferrer" class="text-neon-green underline">$&</a>'
+                  ) : ''
+                }} />
               </p>
             </motion.div>
           </div>
@@ -73,20 +107,20 @@ const About = () => {
           >
             <div className="cyber-card p-4 flex flex-col items-center text-center">
               <Terminal className="text-neon-blue mb-4 h-8 w-8" />
-              <h3 className="text-lg font-bold mb-2 font-code text-neon-blue">CTF Enthusiast</h3>
-              <p className="text-sm text-gray-300">Résolution de challenges techniques sur pwn.college et autres plateformes</p>
+              <h3 className="text-lg font-bold mb-2 font-code text-neon-blue">{content.specialties.ctf.title}</h3>
+              <p className="text-sm text-gray-300">{content.specialties.ctf.description}</p>
             </div>
             
             <div className="cyber-card p-4 flex flex-col items-center text-center">
               <Shield className="text-neon-purple mb-4 h-8 w-8" />
-              <h3 className="text-lg font-bold mb-2 font-code text-neon-purple">Honeypot Developer</h3>
-              <p className="text-sm text-gray-300">Création de pièges pour étudier les techniques d'attaque</p>
+              <h3 className="text-lg font-bold mb-2 font-code text-neon-purple">{content.specialties.honeypot.title}</h3>
+              <p className="text-sm text-gray-300">{content.specialties.honeypot.description}</p>
             </div>
             
             <div className="cyber-card p-4 flex flex-col items-center text-center">
               <Lock className="text-neon-green mb-4 h-8 w-8" />
-              <h3 className="text-lg font-bold mb-2 font-code text-neon-green">Security Researcher</h3>
-              <p className="text-sm text-gray-300">Analyse de vulnérabilités et développement de protections</p>
+              <h3 className="text-lg font-bold mb-2 font-code text-neon-green">{content.specialties.security.title}</h3>
+              <p className="text-sm text-gray-300">{content.specialties.security.description}</p>
             </div>
           </motion.div>
           
@@ -100,13 +134,13 @@ const About = () => {
           >
             <div className="flex items-center text-neon-blue">
               <span className="mr-2">$</span>
-              <span>whoami --details</span>
+              <span>{content.terminal.command}</span>
             </div>
             <div className="mt-2 text-gray-300">
-              <div>Name: <span className="text-neon-blue">Alexandre UZAN</span></div>
-              <div>Role: <span className="text-neon-green">Cybersecurity Student</span></div>
-              <div>Focus: <span className="text-neon-purple">Offensive Security, Honeypots, Malware Analysis</span></div>
-              <div>Status: <span className="text-neon-blue">Seeking new challenges and opportunities</span></div>
+              <div>Name: <span className="text-neon-blue">{content.terminal.name}</span></div>
+              <div>Role: <span className="text-neon-green">{content.terminal.role}</span></div>
+              <div>Focus: <span className="text-neon-purple">{content.terminal.focus}</span></div>
+              <div>Status: <span className="text-neon-blue">{content.terminal.status}</span></div>
             </div>
           </motion.div>
         </div>
