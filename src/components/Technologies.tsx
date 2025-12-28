@@ -1,6 +1,36 @@
 import { motion } from 'framer-motion'
 import { Code, Database, Terminal, Server, Cpu, Laptop } from 'lucide-react'
 import { useTranslation } from '../hooks/useLanguage'
+import {
+  siPython,
+  siJavascript,
+  siTypescript,
+  siPhp,
+  siGo,
+  siCplusplus,
+  siGnubash,
+  siReact,
+  siPostgresql,
+  siMysql,
+  siSqlite,
+  siMicrosoftazure,
+  siHeroku,
+  siRender,
+  siVisualstudiocode,
+  siDocker,
+  siGit,
+  siWireshark,
+  siBurpsuite,
+  siMetasploit,
+  siHtml5,
+  siCss3,
+  siRust,
+  siArchlinux,
+  siFedora,
+  siKalilinux,
+  siApple,
+  siWindows,
+} from 'simple-icons/icons'
 
 const Technologies = () => {
   const { t, isLoading } = useTranslation()
@@ -19,6 +49,15 @@ const Technologies = () => {
   }
 
   const content = t('technologies')
+
+  const hexToRGBA = (hex: string, alpha: number) => {
+    const clean = hex.replace('#', '')
+    const bigint = parseInt(clean, 16)
+    const r = (bigint >> 16) & 255
+    const g = (bigint >> 8) & 255
+    const b = bigint & 255
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`
+  }
 
   const getIcon = (type: string, color: string) => {
     const iconClass = `w-6 h-6 text-${color}`
@@ -40,29 +79,69 @@ const Technologies = () => {
     }
   }
 
-  const iconMapping: Record<string, string> = {
-    'Python': 'code',
-    'JavaScript': 'code',
-    'TypeScript': 'code',
-    'PHP': 'code',
-    'Go': 'code',
-    'C/C++': 'code',
-    'Bash': 'terminal',
-    'SQL': 'database',
-    'VSCode': 'code',
-    'Docker': 'server',
-    'Git': 'terminal',
-    'Wireshark': 'terminal',
-    'Burp Suite': 'terminal',
-    'Metasploit': 'terminal',
-    'Nmap': 'terminal',
-    'Ghidra': 'cpu',
-    'Arch Linux': 'laptop',
-    'Fedora 42': 'laptop',
-    'Kali Linux': 'laptop',
-    'macOS': 'laptop',
-    'Windows': 'laptop',
+  const brandIcons: Record<string, { path: string; hex: string }> = {
+    Python: siPython,
+    JavaScript: siJavascript,
+    TypeScript: siTypescript,
+    PHP: siPhp,
+    Go: siGo,
+    'C/C++': siCplusplus,
+    Bash: siGnubash,
+    HTML5: siHtml5,
+    CSS3: siCss3,
+    Rust: siRust,
+    React: siReact,
+    PostgreSQL: siPostgresql,
+    MySQL: siMysql,
+    SQLite: siSqlite,
+    Azure: siMicrosoftazure,
+    Heroku: siHeroku,
+    Render: siRender,
+    VSCode: siVisualstudiocode,
+    Docker: siDocker,
+    Git: siGit,
+    Wireshark: siWireshark,
+    'Burp Suite': siBurpsuite,
+    Metasploit: siMetasploit,
+    'Arch Linux': siArchlinux,
+    'Fedora 42': siFedora,
+    'Kali Linux': siKalilinux,
+    macOS: siApple,
+    Windows: siWindows,
   }
+
+  const IconChip: React.FC<{ label: string; color: string }> = ({ label, color }) => {
+    const brand = brandIcons[label]
+    if (brand) {
+      const borderColor = `#${brand.hex}`
+      const glowColor = hexToRGBA(borderColor, 0.5)
+      return (
+        <div className="inline-flex flex-col items-center" aria-label={label} title={label}>
+          <div
+            className="group inline-flex items-center justify-center rounded-2xl w-16 h-16 tile-soft border-2 shadow-md transition-transform duration-300 ease-out hover:scale-110"
+            style={{ borderColor, boxShadow: `0 0 18px ${glowColor}` }}
+          >
+            <svg role="img" viewBox="0 0 24 24" width="32" height="32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d={brand.path} fill={borderColor} />
+            </svg>
+          </div>
+          <span className="mt-2 text-sm font-code text-gray-300">{label}</span>
+        </div>
+      )
+    }
+    return (
+      <div className="inline-flex flex-col items-center" aria-label={label} title={label}>
+        <div
+          className={`group inline-flex items-center justify-center rounded-2xl w-16 h-16 tile-soft border-2 border-${color} shadow-md transition-transform duration-300 ease-out hover:scale-110`}
+        >
+          {getIcon('code', color)}
+        </div>
+        <span className="mt-2 text-sm font-code text-gray-300">{label}</span>
+      </div>
+    )
+  }
+
+  
 
   return (
     <section id="technologies" className="section bg-background-alt relative">
@@ -122,17 +201,64 @@ const Technologies = () => {
             <span className="inline-block">{content.sections?.languages?.command || ''}</span>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
             {content.sections?.languages?.items?.map((lang: { name: string; color: string }, index: number) => (
-              <div key={index} className={`p-4 border-2 border-${lang.color} bg-background`}>
-                <div className="flex items-center">
-                  {getIcon(iconMapping[lang.name] || 'code', lang.color)}
-                  <span className={`ml-2 font-code text-${lang.color}`}>{lang.name}</span>
-                </div>
+              <div key={index} className="flex items-center justify-center">
+                <IconChip label={lang.name} color={lang.color} />
               </div>
             ))}
           </div>
         </motion.div>
+
+        {/* Frameworks */}
+        {content.sections?.frameworks && (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="mb-16 cyber-card p-6 relative max-w-4xl mx-auto"
+          >
+            <div className="absolute top-0 right-0 bg-neon-purple text-xs text-background px-3 py-1">
+              <span className="font-code">{content.sections.frameworks.label}</span>
+            </div>
+            <div className="mb-6 text-neon-purple font-code text-sm">
+              <span className="inline-block">{content.sections.frameworks.command}</span>
+            </div>
+            <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
+              {content.sections.frameworks.items?.map((fw: { name: string; color: string }, index: number) => (
+                <div key={index} className="flex items-center justify-center">
+                  <IconChip label={fw.name} color={fw.color} />
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+
+        {/* Databases */}
+        {content.sections?.databases && (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="mb-16 cyber-card p-6 relative max-w-4xl mx-auto"
+          >
+            <div className="absolute top-0 right-0 bg-cyber-yellow text-xs text-background px-3 py-1">
+              <span className="font-code">{content.sections.databases.label}</span>
+            </div>
+            <div className="mb-6 text-cyber-yellow font-code text-sm">
+              <span className="inline-block">{content.sections.databases.command}</span>
+            </div>
+            <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
+              {content.sections.databases.items?.map((db: { name: string; color: string }, index: number) => (
+                <div key={index} className="flex items-center justify-center">
+                  <IconChip label={db.name} color={db.color} />
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        )}
 
         {/* Software */}
         <motion.div
@@ -150,13 +276,10 @@ const Technologies = () => {
             <span className="inline-block">{content.sections?.software?.command || ''}</span>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
             {content.sections?.software?.items?.map((sw: { name: string; color: string }, index: number) => (
-              <div key={index} className={`p-4 border-2 border-${sw.color} bg-background`}>
-                <div className="flex items-center">
-                  {getIcon(iconMapping[sw.name] || 'code', sw.color)}
-                  <span className={`ml-2 font-code text-${sw.color}`}>{sw.name}</span>
-                </div>
+              <div key={index} className="flex items-center justify-center">
+                <IconChip label={sw.name} color={sw.color} />
               </div>
             ))}
           </div>
@@ -178,17 +301,39 @@ const Technologies = () => {
             <span className="inline-block">{content.sections?.os?.command || ''}</span>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+          <div className="grid grid-cols-3 md:grid-cols-5 gap-4">
             {content.sections?.os?.items?.map((os: { name: string; color: string }, index: number) => (
-              <div key={index} className={`p-4 border-2 border-${os.color} bg-background`}>
-                <div className="flex items-center justify-center">
-                  {getIcon(iconMapping[os.name] || 'laptop', os.color)}
-                  <span className={`ml-2 font-code text-${os.color}`}>{os.name}</span>
-                </div>
+              <div key={index} className="flex items-center justify-center">
+                <IconChip label={os.name} color={os.color} />
               </div>
             ))}
           </div>
         </motion.div>
+
+        {/* Cloud */}
+        {content.sections?.cloud && (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="mb-16 cyber-card p-6 relative max-w-4xl mx-auto"
+          >
+            <div className="absolute top-0 right-0 bg-neon-blue text-xs text-background px-3 py-1">
+              <span className="font-code">{content.sections.cloud.label}</span>
+            </div>
+            <div className="mb-6 text-neon-blue font-code text-sm">
+              <span className="inline-block">{content.sections.cloud.command}</span>
+            </div>
+            <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
+              {content.sections.cloud.items?.map((c: { name: string; color: string }, index: number) => (
+                <div key={index} className="flex items-center justify-center">
+                  <IconChip label={c.name} color={c.color} />
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        )}
         
         {/* Terminal-style footer */}
         <motion.div 

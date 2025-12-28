@@ -38,9 +38,23 @@ export default async function handler(req, res) {
       },
     });
 
+    // Vérifier la configuration SMTP minimale
+    const requiredEnv = ['SMTP_HOST', 'SMTP_PORT', 'SMTP_USER', 'SMTP_PASSWORD', 'SMTP_TO']
+    const missing = requiredEnv.filter((key) => !process.env[key])
+    if (missing.length) {
+      return res.status(500).json({
+        success: false,
+        message: `Configuration SMTP manquante: ${missing.join(', ')}`,
+      })
+    }
+
     // Configuration de l'email
+    // Important pour la délivrabilité: utiliser une adresse "from" du domaine autorisé
+    const fromAddress = process.env.SMTP_FROM || process.env.SMTP_USER
+
     const mailOptions = {
-      from: `"${name}" <${email}>`,
+      from: fromAddress,
+      replyTo: `${name} <${email}>`,
       to: process.env.SMTP_TO,
       subject: `[Portfolio] ${subject}`,
       text: message,

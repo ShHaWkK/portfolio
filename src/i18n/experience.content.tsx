@@ -4,9 +4,24 @@ export default {
     command: "ls -la ~/experience/",
     experiences: [
       {
+        role: "Alternance - Analyste SOC & Developer",
+        company: "BSRQ MEDIA",
+        period: "10/2025 - Aujourd'hui",
+        commandId: "EXP_0x00",
+        description: [
+          "Surveillance SIEM en temps réel, triage et escalade des incidents",
+          "Investigation des événements de sécurité (EDR, IDS/IPS, Firewall, logs)",
+          "Threat hunting et création de playbooks d’intervention (SOAR)",
+          "Analyse phishing/malwares et rédaction de rapports d’incident",
+          "Développement d’outils et automatisations (TSX/React, Prisma, Azure Functions)",
+          "Scripts et services orientés sécurité en Rust et Python",
+          "Pipelines de collecte et corrélation (Azure, bases de données)"
+        ]
+      },
+      {
         role: "Administrateur Système et Réseau (Alternance)",
         company: "BSRQ MEDIA",
-        period: "09/2024 - Aujourd'hui",
+        period: "09/2024 - 10/2025",
         commandId: "EXP_0x01",
         description: [
           "Gestion d'infrastructures (Proxmox, Netgate, Aruba), sécurisation WiFi & Firewall",

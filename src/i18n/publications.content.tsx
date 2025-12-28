@@ -2,6 +2,7 @@ export default {
   fr: {
     title: "Publications & Recherches",
     command: "~/publications",
+    readLabel: "Lire",
     publications: [
       {
         id: "iot-vulnerabilities",
@@ -9,7 +10,7 @@ export default {
         type: "Article de Recherche",
         publisher: "Journal de Cybersécurité",
         date: "2023",
-        link: "https://example.com/iot-vulnerabilities.pdf",
+        link: "#",
         color: "neon-blue",
         abstract: "Étude approfondie des failles de sécurité dans les objets connectés et propositions de solutions innovantes pour renforcer la sécurité des écosystèmes IoT."
       },
@@ -19,7 +20,7 @@ export default {
         type: "Mémoire",
         publisher: "Université de Cybersécurité",
         date: "2022",
-        link: "https://example.com/post-quantum-crypto.pdf",
+        link: "#",
         color: "neon-purple",
         abstract: "Analyse des défis posés par l'informatique quantique à la cryptographie actuelle et exploration des nouvelles approches cryptographiques résistantes aux attaques quantiques."
       },
@@ -29,7 +30,7 @@ export default {
         type: "Guide Technique",
         publisher: "Éditions Sécurité IT",
         date: "2021",
-        link: "https://example.com/enterprise-security.pdf",
+        link: "#",
         color: "neon-green",
         abstract: "Guide pratique pour l'implémentation de mesures de sécurité en environnement professionnel, incluant les meilleures pratiques et les outils recommandés."
       }
@@ -49,6 +50,7 @@ export default {
   en: {
     title: "Publications & Research",
     command: "~/publications",
+    readLabel: "Read",
     publications: [
       {
         id: "iot-vulnerabilities",
@@ -56,7 +58,7 @@ export default {
         type: "Research Article",
         publisher: "Cybersecurity Journal",
         date: "2023",
-        link: "https://example.com/iot-vulnerabilities.pdf",
+        link: "#",
         color: "neon-blue",
         abstract: "In-depth study of security flaws in connected objects and proposed innovative solutions to strengthen the security of IoT ecosystems."
       },
@@ -66,7 +68,7 @@ export default {
         type: "Thesis",
         publisher: "Cybersecurity University",
         date: "2022",
-        link: "https://example.com/post-quantum-crypto.pdf",
+        link: "#",
         color: "neon-purple",
         abstract: "Analysis of challenges posed by quantum computing to current cryptography and exploration of new cryptographic approaches resistant to quantum attacks."
       },
@@ -76,7 +78,7 @@ export default {
         type: "Technical Guide",
         publisher: "IT Security Publications",
         date: "2021",
-        link: "https://example.com/enterprise-security.pdf",
+        link: "#",
         color: "neon-green",
         abstract: "Practical guide for implementing security measures in professional environments, including best practices and recommended tools."
       }
@@ -96,6 +98,7 @@ export default {
   ru: {
     title: "Публикации и Исследования",
     command: "~/publications",
+    readLabel: "Читать",
     publications: [
       {
         id: "iot-vulnerabilities",
@@ -103,7 +106,7 @@ export default {
         type: "Научная статья",
         publisher: "Журнал Кибербезопасности",
         date: "2023",
-        link: "https://example.com/iot-vulnerabilities.pdf",
+        link: "#",
         color: "neon-blue",
         abstract: "Глубокое исследование уязвимостей в устройствах Интернета вещей и предложения инновационных решений для повышения безопасности IoT-экосистем."
       },
@@ -113,7 +116,7 @@ export default {
         type: "Диссертация",
         publisher: "Университет Кибербезопасности",
         date: "2022",
-        link: "https://example.com/post-quantum-crypto.pdf",
+        link: "#",
         color: "neon-purple",
         abstract: "Анализ вызовов, связанных с квантовыми вычислениями для современной криптографии, и изучение новых криптографических подходов, устойчивых к квантовым атакам."
       },
@@ -123,7 +126,7 @@ export default {
         type: "Техническое руководство",
         publisher: "Издательство IT Security",
         date: "2021",
-        link: "https://example.com/enterprise-security.pdf",
+        link: "#",
         color: "neon-green",
         abstract: "Практическое руководство по внедрению мер безопасности в профессиональной среде, включая лучшие практики и рекомендуемые инструменты."
       }
@@ -143,6 +146,7 @@ export default {
   de: {
     title: "Publikationen & Forschung",
     command: "~/publications",
+    readLabel: "Lesen",
     publications: [
       {
         id: "iot-vulnerabilities",
@@ -150,7 +154,7 @@ export default {
         type: "Fachartikel",
         publisher: "Journal für Cybersicherheit",
         date: "2023",
-        link: "https://example.com/iot-vulnerabilities.pdf",
+        link: "#",
         color: "neon-blue",
         abstract: "Tiefgehende Untersuchung von Sicherheitslücken in vernetzten Geräten und innovative Lösungsvorschläge zur Stärkung der Sicherheit von IoT-Ökosystemen."
       },
@@ -160,7 +164,7 @@ export default {
         type: "Abschlussarbeit",
         publisher: "Universität für Cybersicherheit",
         date: "2022",
-        link: "https://example.com/post-quantum-crypto.pdf",
+        link: "#",
         color: "neon-purple",
         abstract: "Analyse der Herausforderungen durch Quantencomputing für die aktuelle Kryptographie und Erforschung neuer kryptographischer Ansätze, die gegen Quantenangriffe resistent sind."
       },
@@ -170,7 +174,7 @@ export default {
         type: "Technischer Leitfaden",
         publisher: "IT Security Verlag",
         date: "2021",
-        link: "https://example.com/enterprise-security.pdf",
+        link: "#",
         color: "neon-green",
         abstract: "Praktischer Leitfaden zur Umsetzung von Sicherheitsmaßnahmen in professionellen Umgebungen, einschließlich Best Practices und empfohlener Tools."
       }
@@ -190,6 +194,7 @@ export default {
   es: {
     title: "Publicaciones e Investigación",
     command: "~/publications",
+    readLabel: "Leer",
     publications: [
       {
         id: "iot-vulnerabilities",
@@ -197,7 +202,7 @@ export default {
         type: "Artículo de Investigación",
         publisher: "Revista de Ciberseguridad",
         date: "2023",
-        link: "https://example.com/iot-vulnerabilities.pdf",
+        link: "#",
         color: "neon-blue",
         abstract: "Estudio en profundidad de las fallas de seguridad en objetos conectados y propuestas de soluciones innovadoras para fortalecer la seguridad de los ecosistemas IoT."
       },
@@ -207,7 +212,7 @@ export default {
         type: "Tesis",
         publisher: "Universidad de Ciberseguridad",
         date: "2022",
-        link: "https://example.com/post-quantum-crypto.pdf",
+        link: "#",
         color: "neon-purple",
         abstract: "Análisis de los desafíos que plantea la computación cuántica a la criptografía actual y exploración de nuevos enfoques criptográficos resistentes a ataques cuánticos."
       },
@@ -217,7 +222,7 @@ export default {
         type: "Guía Técnica",
         publisher: "Publicaciones de Seguridad IT",
         date: "2021",
-        link: "https://example.com/enterprise-security.pdf",
+        link: "#",
         color: "neon-green",
         abstract: "Guía práctica para la implementación de medidas de seguridad en entornos profesionales, incluyendo mejores prácticas y herramientas recomendadas."
       }

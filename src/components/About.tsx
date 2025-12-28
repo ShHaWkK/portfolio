@@ -94,6 +94,13 @@ const About = () => {
                   ) : ''
                 }} />
               </p>
+              {content.description?.paragraph4 && (
+                <p className="border-l-2 border-neon-red pl-4">
+                  <span dangerouslySetInnerHTML={{ 
+                    __html: content.description.paragraph4 
+                  }} />
+                </p>
+              )}
             </motion.div>
           </div>
           

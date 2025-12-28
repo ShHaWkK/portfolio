@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
-import { Github, Linkedin, Terminal, Shield, Code, Twitter, Server, Cpu } from 'lucide-react'
+import { Github, Linkedin, Terminal, Shield, Code, Server, Cpu } from 'lucide-react'
 import { useTranslation } from '../hooks/useLanguage'
+import SocialRing from './SocialRing'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
@@ -87,15 +88,7 @@ const Footer = () => {
               >
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a 
-                href="https://twitter.com/alexandre_uzan" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="terminal-card w-12 h-12 flex items-center justify-center text-neon-green hover:text-neon-blue transition-colors duration-300 hover:border-neon-blue"
-                aria-label="Twitter"
-              >
-                <Twitter className="w-5 h-5" />
-              </a>
+              
               <a 
                 href="https://pwn.college/hacker/ShHawk" 
                 target="_blank" 
@@ -106,6 +99,10 @@ const Footer = () => {
               </a>
             </motion.div>
           </div>
+        </div>
+        
+        <div className="cyber-card p-6 mb-8">
+          <SocialRing />
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">

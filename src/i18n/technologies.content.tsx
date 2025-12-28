@@ -9,12 +9,32 @@ export default {
         items: [
           { name: 'Python', color: 'neon-blue' },
           { name: 'JavaScript', color: 'cyber-yellow' },
+          { name: 'HTML5', color: 'neon-red' },
+          { name: 'CSS3', color: 'neon-blue' },
           { name: 'TypeScript', color: 'neon-blue' },
           { name: 'PHP', color: 'neon-purple' },
           { name: 'Go', color: 'neon-blue' },
+          { name: 'Rust', color: 'neon-red' },
           { name: 'C/C++', color: 'neon-green' },
           { name: 'Bash', color: 'neon-green' },
           { name: 'SQL', color: 'neon-purple' },
+          { name: 'Assembler', color: 'neon-purple' },
+        ]
+      },
+      frameworks: {
+        label: "FRAMEWORKS",
+        command: "$ npm ls --depth=0",
+        items: [
+          { name: 'React', color: 'cyber-yellow' },
+        ]
+      },
+      databases: {
+        label: "BASES DE DONNÉES",
+        command: "$ echo 'psql mysql sqlite'",
+        items: [
+          { name: 'PostgreSQL', color: 'neon-purple' },
+          { name: 'MySQL', color: 'neon-blue' },
+          { name: 'SQLite', color: 'neon-green' },
         ]
       },
       software: {
@@ -42,6 +62,16 @@ export default {
           { name: 'Windows', color: 'neon-blue' },
         ]
       }
+      ,
+      cloud: {
+        label: "CLOUD",
+        command: "$ cloudctl status",
+        items: [
+          { name: 'Azure', color: 'neon-blue' },
+          { name: 'Heroku', color: 'neon-purple' },
+          { name: 'Render', color: 'cyber-yellow' },
+        ]
+      }
     },
     footer: {
       command: "cat tech_status.log",
@@ -63,12 +93,16 @@ export default {
         items: [
           { name: 'Python', color: 'neon-blue' },
           { name: 'JavaScript', color: 'cyber-yellow' },
+          { name: 'HTML5', color: 'neon-red' },
+          { name: 'CSS3', color: 'neon-blue' },
           { name: 'TypeScript', color: 'neon-blue' },
           { name: 'PHP', color: 'neon-purple' },
           { name: 'Go', color: 'neon-blue' },
+          { name: 'Rust', color: 'neon-red' },
           { name: 'C/C++', color: 'neon-green' },
           { name: 'Bash', color: 'neon-green' },
           { name: 'SQL', color: 'neon-purple' },
+          { name: 'Assembler', color: 'neon-purple' },
         ]
       },
       software: {
@@ -117,12 +151,16 @@ export default {
         items: [
           { name: 'Python', color: 'neon-blue' },
           { name: 'JavaScript', color: 'cyber-yellow' },
+          { name: 'HTML5', color: 'neon-red' },
+          { name: 'CSS3', color: 'neon-blue' },
           { name: 'TypeScript', color: 'neon-blue' },
           { name: 'PHP', color: 'neon-purple' },
           { name: 'Go', color: 'neon-blue' },
+          { name: 'Rust', color: 'neon-red' },
           { name: 'C/C++', color: 'neon-green' },
           { name: 'Bash', color: 'neon-green' },
           { name: 'SQL', color: 'neon-purple' },
+          { name: 'Assembler', color: 'neon-purple' },
         ]
       },
       software: {
@@ -171,12 +209,16 @@ export default {
         items: [
           { name: 'Python', color: 'neon-blue' },
           { name: 'JavaScript', color: 'cyber-yellow' },
+          { name: 'HTML5', color: 'neon-red' },
+          { name: 'CSS3', color: 'neon-blue' },
           { name: 'TypeScript', color: 'neon-blue' },
           { name: 'PHP', color: 'neon-purple' },
           { name: 'Go', color: 'neon-blue' },
+          { name: 'Rust', color: 'neon-red' },
           { name: 'C/C++', color: 'neon-green' },
           { name: 'Bash', color: 'neon-green' },
           { name: 'SQL', color: 'neon-purple' },
+          { name: 'Assembler', color: 'neon-purple' },
         ]
       },
       software: {
@@ -225,12 +267,16 @@ export default {
         items: [
           { name: 'Python', color: 'neon-blue' },
           { name: 'JavaScript', color: 'cyber-yellow' },
+          { name: 'HTML5', color: 'neon-red' },
+          { name: 'CSS3', color: 'neon-blue' },
           { name: 'TypeScript', color: 'neon-blue' },
           { name: 'PHP', color: 'neon-purple' },
           { name: 'Go', color: 'neon-blue' },
+          { name: 'Rust', color: 'neon-red' },
           { name: 'C/C++', color: 'neon-green' },
           { name: 'Bash', color: 'neon-green' },
           { name: 'SQL', color: 'neon-purple' },
+          { name: 'Assembler', color: 'neon-purple' },
         ]
       },
       software: {

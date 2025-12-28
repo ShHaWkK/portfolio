@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Award, Shield, Lock, Cpu, Database, CheckCircle } from 'lucide-react'
+import { Award, Shield, Lock, Cpu, Database, CheckCircle, Clock } from 'lucide-react'
 import { useTranslation } from '../hooks/useLanguage'
 
 const Certifications = () => {
@@ -101,10 +101,14 @@ const Certifications = () => {
                 {cert.description}
               </p>
               
-              <div className="mt-4 flex items-center">
-                <CheckCircle className={`w-4 h-4 text-${certificationColors[index]} mr-2`} />
-                <span className="text-gray-400 text-sm font-code">{content.validationStatus}</span>
-              </div>
+          <div className="mt-4 flex items-center">
+            {cert.status ? (
+              <Clock className={`w-4 h-4 text-${certificationColors[index]} mr-2`} />
+            ) : (
+              <CheckCircle className={`w-4 h-4 text-${certificationColors[index]} mr-2`} />
+            )}
+            <span className="text-gray-400 text-sm font-code">{cert.status || content.validationStatus}</span>
+          </div>
             </motion.div>
           ))}
         </div>

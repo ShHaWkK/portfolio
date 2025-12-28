@@ -9,7 +9,8 @@ export default {
         title: "Master 1 Cybersécurité",
         issuer: "ESGI Paris",
         date: "2025 - Actuellement",
-        description: "Formation avancée en cybersécurité, tests d'intrusion et sécurité des systèmes."
+        status: "En attente",
+        description: "Formation avancée en cybersécurité (en cours) : tests d'intrusion, sécurité des systèmes et gestion des risques."
       },
       {
         title: "Bachelor Cybersécurité (Mention Bien)",
@@ -21,31 +22,32 @@ export default {
         title: "Assembler x86 x64",
         issuer: "Formation Technique",
         date: "2022",
-        description: "Maîtrise de l'assembleur pour l'analyse de malwares et le reverse engineering."
+        status: "En attente",
+        description: "Maîtrise de l'assembleur x86/x64 : registres, conventions d'appel (SysV/Win64), gestion de pile, shellcodes et reverse engineering (Ghidra/objdump)."
       },
       {
-        title: "Sécurité & Vulnérabilité (WEP,WPA,WPS, WPA2) / Gestion d'exploit : ROP,RTE,ASLR, pwn",
+        title: "Sécurité & Vulnérabilité (WEP, WPA, WPS, WPA2) / Gestion d'exploit : ROP, ret2libc, ASLR, pwn",
         issuer: "Formation Spécialisée",
-        date: "2024- 2025",
-        description: "Expertise en sécurité WiFi et techniques d'exploitation avancées."
+        date: "2024 - 2025",
+        description: "Audits WiFi (capture de handshakes, attaques WEP/WPA/WPA2, WPS Pixie Dust), exploitation ROP/ret2libc, contournement ASLR/DEP et pwn sur CTF."
       },
       {
         title: "Cryptographie & Chiffrement",
         issuer: "Formation Technique",
         date: "2024",
-        description: "Algorithmes de chiffrement, cryptanalyse et sécurité cryptographique."
+        description: "Primitives (AES, RSA, ECC), modes (CBC/GCM), dérivation (PBKDF2/Argon2), hash (SHA-2/3) et notions de cryptanalyse/side-channels."
       },
       {
         title: "Linux administration (Fedora, vim, bash) / Virtualisation des réseaux",
         issuer: "Formation Système",
         date: "2023 - 2025",
-        description: "Administration Linux avancée et virtualisation d'infrastructures réseau."
+        description: "Gestion utilisateurs/groupes, services systemd, réseau (iptables/nftables), scripting Bash, supervision et virtualisation réseau (Proxmox/KVM), conteneurs Docker."
       },
       {
-        title: "Cloud (Heroku, Render...) & application Web (React, JS, PHP, Angular, API REST)",
+        title: "Cloud (Azure, Heroku, Render) & application Web (React/TSX, API REST)",
         issuer: "Formation Développement",
         date: "2022 - 2023",
-        description: "Développement d'applications cloud et technologies web modernes."
+        description: "Déploiements cloud (Azure/Heroku/Render), CI/CD, API REST sécurisées, React/TSX, ORM Prisma et bases de données (PostgreSQL/MySQL)."
       }
     ],
     education: {
@@ -59,10 +61,10 @@ export default {
           description: "Formation spécialisée en cybersécurité, tests d'intrusion, forensique numérique et gestion des risques."
         },
         {
-          title: "Bachelor Cybersécurité Python",
+          title: "Bachelor Cybersécurité (Mention Bien)",
           institution: "ESGI", 
           period: "2024 - 2025",
-          description: "Formation en développement sécurisé Python, analyse de vulnérabilités et sécurité applicative."
+          description: "Formation en développement sécurisé Python, analyse de vulnérabilités, sécurité applicative et modules Cloud & application Web (React, bases de données, Azure)."
         },
         {
           title: "Licence de Droit",
@@ -107,7 +109,7 @@ export default {
         description: "Advanced training in cybersecurity, penetration testing and systems security."
       },
       {
-        title: "Bachelor Cybersecurity Python",
+        title: "Bachelor Cybersecurity ",
         issuer: "ESGI Paris",
         date: "2024 - 2025",
         description: "Specialization in secure Python development and vulnerability analysis."
@@ -250,7 +252,7 @@ export default {
           description: "Специализированное обучение по кибербезопасности, тестированию на проникновение, цифровой криминалистике и управлению рисками."
         },
         {
-          title: "Бакалавр Кибербезопасность Python",
+          title: "Бакалавр Кибербезопасность ",
           institution: "Ynov Campus",
           period: "2022 - 2023",
           description: "Обучение безопасной разработке на Python, анализу уязвимостей и безопасности приложений."

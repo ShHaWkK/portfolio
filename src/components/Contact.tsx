@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Mail, MapPin, Send, Terminal, Shield, Wifi } from 'lucide-react'
+import { Mail, MapPin, Send, Terminal, Shield, Wifi, Linkedin } from 'lucide-react'
 import { useTranslation } from '../hooks/useLanguage'
 import sendEmail from '../services/emailService'
 
@@ -146,7 +146,26 @@ const Contact = () => {
                 </div>
               </div>
               
-
+              <div className="terminal-card p-4">
+                <div className="flex items-start">
+                  <div className="w-10 h-10 rounded-full bg-neon-blue bg-opacity-10 flex items-center justify-center mr-4">
+                    <Linkedin className="w-5 h-5 text-neon-blue" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-medium text-white font-code">{content.info.linkedin}</h4>
+                    <a
+                      href="https://linkedin.com/in/alexandre-uzan"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-400 hover:text-neon-blue transition-colors duration-300 font-code"
+                    >
+                      linkedin.com/in/alexandre-uzan
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
+              
               
               <div className="terminal-card p-4">
                 <div className="flex items-start">

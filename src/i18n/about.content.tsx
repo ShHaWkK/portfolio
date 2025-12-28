@@ -4,9 +4,10 @@ export default {
     badge: "PROFIL",
     catProfile: "$ cat profile.txt",
     description: {
-      paragraph1: "Je suis Alexandre Uzan, étudiant passionné par la cybersécurité et spécialisé dans la sécurité offensive. Mon parcours m'a mené à explorer les domaines du pentesting, de l'analyse de malwares et de la sécurité des réseaux.",
-      paragraph2: "Participant actif sur pwn.college, je perfectionne constamment mes compétences en exploitation de vulnérabilités et en techniques d'attaque éthique. Cette plateforme me permet de rester à jour avec les dernières méthodes de sécurité offensive.",
-      paragraph3: "Mes projets sur GitHub (ShHaWkK) reflètent ma passion pour le développement d'outils de sécurité et l'automatisation des tests de pénétration. Je contribue activement à la communauté cybersécurité."
+      paragraph1: "Je suis Alexandre Uzan, étudiant passionné par la cybersécurité et orienté vers la sécurité <strong>défensive</strong>. Mon focus : protection des systèmes, durcissement, détection des menaces et réponse à incident.",
+      paragraph2: "Participant actif sur pwn.college, je renforce mes compétences en <strong>détection</strong>, <strong>analyse</strong> et <strong>mitigation</strong> des vulnérabilités, avec une approche centrée sur la résilience opérationnelle.",
+      paragraph3: "Mes projets sur GitHub (ShHaWkK) reflètent mon intérêt pour le <strong>monitoring</strong>, la <strong>collecte de renseignements techniques</strong> et l'<strong>automatisation</strong> de la défense (alerting, visibilité, intégrité).",
+      paragraph4: "Je réalise aussi du développement web personnalisé et de la maintenance (React/TSX, bases de données, déploiements cloud Azure/Heroku/Render). Besoin d'un site ou d'une maintenance ? Contact par <strong>email</strong> ou <strong>LinkedIn</strong>."
     },
     specialties: {
       ctf: {
@@ -18,15 +19,15 @@ export default {
         description: "Développement de pièges pour analyser les attaques"
       },
       security: {
-        title: "Sécurité Offensive",
-        description: "Tests d'intrusion et exploitation de vulnérabilités"
+        title: "Sécurité Défensive",
+        description: "Protection, durcissement, surveillance, réponse à incident"
       }
     },
     terminal: {
       command: "whoami --detailed",
       name: "Alexandre UZAN",
       role: "Étudiant en Cybersécurité",
-      focus: "Sécurité Offensive & CTF",
+      focus: "Sécurité Défensive & CTF",
       status: "En apprentissage continu"
     }
   },

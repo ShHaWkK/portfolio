@@ -7,7 +7,8 @@ export default {
       email: "Email",
       phone: "Téléphone", 
       location: "Localisation",
-      discord: "Discord"
+      discord: "Discord",
+      linkedin: "LinkedIn"
     },
     form: {
       name: {
@@ -48,7 +49,8 @@ export default {
       email: "Email",
       phone: "Phone",
       location: "Location",
-      discord: "Discord"
+      discord: "Discord",
+      linkedin: "LinkedIn"
     },
     form: {
       name: {
@@ -89,7 +91,8 @@ export default {
       email: "Электронная почта",
       phone: "Телефон",
       location: "Местоположение",
-      discord: "Discord"
+      discord: "Discord",
+      linkedin: "LinkedIn"
     },
     form: {
       name: {
@@ -130,7 +133,8 @@ export default {
       email: "E-Mail",
       phone: "Telefon",
       location: "Standort",
-      discord: "Discord"
+      discord: "Discord",
+      linkedin: "LinkedIn"
     },
     form: {
       name: {
@@ -171,7 +175,8 @@ export default {
       email: "Correo electrónico",
       phone: "Teléfono",
       location: "Ubicación",
-      discord: "Discord"
+      discord: "Discord",
+      linkedin: "LinkedIn"
     },
     form: {
       name: {

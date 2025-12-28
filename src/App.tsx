@@ -14,6 +14,7 @@ import About from './components/About'
 import Skills from './components/Skills'
 import Experience from './components/Experience'
 import Projects from './components/Projects'
+import Showcase from './components/Showcase'
 import Certifications from './components/Certifications'
 import Publications from './components/Publications'
 import Technologies from './components/Technologies'
@@ -71,6 +72,7 @@ function AppContent() {
         <About />
         <Skills />
         <Experience />
+        <Showcase />
         <Projects />
         <Certifications />
         <Technologies />
