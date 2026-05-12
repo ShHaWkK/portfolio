@@ -1,8 +1,8 @@
 /* Styles spécifiques à l'application */
 
-/* Scrollbar personnalisée */
+/* Scrollbar fine et stylisée */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-track {
@@ -10,12 +10,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #333;
-  border-radius: 5px;
+  background: linear-gradient(180deg, #00E5FF, #9A4DFF);
+  border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #444;
+  background: linear-gradient(180deg, #00E5FF, #00FF9D);
 }
 
 /* Animation de gradient pour les boutons */

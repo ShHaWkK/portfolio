@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Github, Linkedin, Terminal, Shield, Code, Server, Cpu } from 'lucide-react'
+import { Github, Linkedin, Terminal, Shield, Code, Server, Cpu, Globe, ExternalLink } from 'lucide-react'
 import { useTranslation } from '../hooks/useLanguage'
 import SocialRing from './SocialRing'
 
@@ -89,15 +89,33 @@ const Footer = () => {
                 <Linkedin className="w-5 h-5" />
               </a>
               
-              <a 
-                href="https://pwn.college/hacker/ShHawk" 
-                target="_blank" 
+              <a
+                href="https://pwn.college/hacker/ShHawk"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="terminal-card w-12 h-12 flex items-center justify-center text-neon-red hover:text-neon-green transition-colors duration-300 hover:border-neon-green"
               >
                 <Terminal className="w-5 h-5" />
               </a>
             </motion.div>
+
+            {/* ajmtech.fr freelance link */}
+            <motion.a
+              href="https://ajmtech.fr"
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.35 }}
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
+              className="flex items-center gap-2 px-4 py-2 border border-neon-purple/50 text-neon-purple hover:border-neon-purple hover:bg-neon-purple/10 transition-all duration-200 font-code text-sm"
+            >
+              <Globe className="w-4 h-4" />
+              ajmtech.fr
+              <ExternalLink className="w-3.5 h-3.5 opacity-60" />
+            </motion.a>
           </div>
         </div>
         
@@ -155,6 +173,28 @@ const Footer = () => {
             </ul>
             <div className="mt-3 text-neon-red">
               <Cpu className="w-4 h-4" />
+            </div>
+          </div>
+
+          {/* Freelance column */}
+          <div className="terminal-card p-4 border-neon-purple/40">
+            <h4 className="text-neon-purple font-code text-sm mb-3">FREELANCE</h4>
+            <a
+              href="https://ajmtech.fr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-neon-purple hover:text-white transition-colors duration-200 font-code text-sm mb-3"
+            >
+              <Globe className="w-3.5 h-3.5" />
+              ajmtech.fr
+            </a>
+            <ul className="space-y-2 text-gray-400 text-sm">
+              <li className="font-code">Web Development</li>
+              <li className="font-code">Security Audit</li>
+              <li className="font-code">System Integration</li>
+            </ul>
+            <div className="mt-3 text-neon-purple">
+              <Globe className="w-4 h-4" />
             </div>
           </div>
         </div>

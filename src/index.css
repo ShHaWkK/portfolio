@@ -12,11 +12,20 @@
   --text-primary: #EAECEF;
 }
 
+/* Typewriter cursor blink */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
 @layer base {
   html {
     @apply scroll-smooth;
   }
-  
+
   body {
     @apply bg-background text-text-primary font-inter;
     position: relative;
