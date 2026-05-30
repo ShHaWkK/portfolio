@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   Flag, AlertTriangle, BookOpen, Calendar,
-  Clock, Tag, ChevronRight, Rss, ShieldAlert,
+  Clock, Tag, ChevronRight, ShieldAlert,
 } from 'lucide-react'
 import { BLOG_POSTS, ALL_CATEGORIES, formatDate } from '../data/blogPosts'
 import type { PostCategory, BlogPost } from '../data/blogPosts'
@@ -187,26 +187,18 @@ const Blog = () => {
         <div className="container relative z-10">
           {/* Header */}
           <motion.div
-            initial={{ opacity: 0, y: 36 }}
+            initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="text-center mb-12"
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="mb-10"
           >
-            <div className="inline-flex items-center gap-2 mb-4 px-4 py-1.5 border border-neon-blue/30 bg-neon-blue/5">
-              <Rss className="w-3.5 h-3.5 text-neon-blue" />
-              <span className="font-code text-sm text-neon-blue">~/blog</span>
-            </div>
-            <h2 className="text-3xl md:text-5xl font-bold mb-3 text-white">
-              Blog &amp;{' '}
-              <span className="text-neon-blue" style={{ textShadow: '0 0 30px rgba(0,229,255,0.35)' }}>
-                Write-Ups
-              </span>
+            <p className="font-code text-xs text-neon-blue mb-2 tracking-widest uppercase">~/blog</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-1">
+              Blog &amp; Write-Ups
             </h2>
-            <div className="w-24 h-[2px] bg-gradient-to-r from-neon-blue to-neon-purple mx-auto mb-4" />
-            <p className="text-gray-600 font-code text-sm max-w-lg mx-auto">
-              <span className="text-neon-green">$</span>{' '}
-              grep -r <span className="text-neon-red">&quot;CVE\|CTF\|writeup&quot;</span> ./blog/ | sort -k date
+            <p className="text-gray-600 text-sm max-w-md">
+              Analyses CVE, write-ups CTF et notes techniques.
             </p>
           </motion.div>
 

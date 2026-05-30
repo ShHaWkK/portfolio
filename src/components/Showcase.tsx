@@ -310,30 +310,29 @@ const ShowcaseCard = ({ item }: { item: ShowcaseItem }) => {
 
 const Showcase = () => {
   return (
-    <section id="showcase" className="section bg-background-alt relative">
-      <div className="absolute inset-0 z-0 opacity-5 pointer-events-none">
-        <div className="absolute inset-0" style={{ backgroundImage: 'url("/backgrounds/circuit-pattern.svg")', backgroundSize: 'cover' }}></div>
-      </div>
+    <section id="showcase" className="section bg-[#080C14] relative">
+      {/* Grid overlay */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none"
+        style={{
+          backgroundImage: 'linear-gradient(to right, rgba(0,229,255,0.02) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,229,255,0.02) 1px, transparent 1px)',
+          backgroundSize: '48px 48px',
+        }}
+      />
       <div className="container relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 36 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-10"
         >
-          <div className="inline-block mb-4 px-4 py-1 border border-neon-blue bg-background">
-            <span className="font-code text-sm text-neon-blue">~/showcase</span>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-2 text-white cyber-text">
-            Sites en ligne
+          <p className="font-code text-xs text-neon-blue mb-2 tracking-widest uppercase">~/showcase</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-1">
+            Réalisations clients
           </h2>
-          <div className="w-32 h-1 bg-neon-blue mx-auto relative">
-            <div className="absolute -top-1 left-0 w-2 h-3 bg-neon-blue"></div>
-            <div className="absolute -top-1 right-0 w-2 h-3 bg-neon-blue"></div>
-          </div>
-          <p className="mt-6 text-gray-300 font-code text-sm">
-            Portfolio visuel avec photos et liens. Remplacez les placeholders par vos images.
+          <p className="text-gray-600 text-sm max-w-md">
+            Plateformes événementielles et e-commerce — Givenchy, L&apos;Oréal, Kenzo, Rabanne.
           </p>
         </motion.div>
 
