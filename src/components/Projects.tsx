@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Github, ExternalLink, Shield, Globe, Wrench, Star, GitFork } from 'lucide-react'
 
-// ── Types ─────────────────────────────────────────────────────────────────────
+//  Types ─
 type Cat    = 'Security' | 'Web' | 'Tools'
 type Status = 'Active' | 'Completed' | 'WIP'
 
@@ -22,7 +22,7 @@ interface Project {
   featured?: boolean
 }
 
-// ── Language colours (GitHub palette) ─────────────────────────────────────────
+//  Language colours (GitHub palette) ─
 const L = {
   Python:     '#3572A5',
   TypeScript: '#3178c6',
@@ -41,7 +41,7 @@ const L = {
   gdb:        '#FF8C00',
 }
 
-// ── Projects data ─────────────────────────────────────────────────────────────
+//  Projects data ─
 const PROJECTS: Project[] = [
   {
     id: 'honeycred',
@@ -149,7 +149,7 @@ const PROJECTS: Project[] = [
   },
 ]
 
-// ── Design tokens per category ────────────────────────────────────────────────
+//  Design tokens per category 
 const CAT_CONFIG: Record<Cat, { border: string; bg: string; text: string; label: string; icon: React.ReactNode }> = {
   Security: {
     border: 'border-l-neon-red/60',
@@ -180,14 +180,14 @@ const STATUS_DOT: Record<Status, string> = {
   WIP:       'bg-cyber-yellow',
 }
 
-// ── Animation ─────────────────────────────────────────────────────────────────
+//  Animation ─
 const grid = { hidden: {}, show: { transition: { staggerChildren: 0.06 } } }
 const card = {
   hidden: { opacity: 0, y: 20 },
   show:   { opacity: 1, y: 0, transition: { duration: 0.38, ease: [0.22, 1, 0.36, 1] } },
 }
 
-// ── Card component ─────────────────────────────────────────────────────────────
+//  Card component ─
 const ProjectCard = ({ p }: { p: Project }) => {
   const cfg = CAT_CONFIG[p.category]
 
@@ -280,7 +280,7 @@ const ProjectCard = ({ p }: { p: Project }) => {
   )
 }
 
-// ── Section ───────────────────────────────────────────────────────────────────
+//  Section ─
 type Filter = Cat | 'All'
 
 const Projects = () => {

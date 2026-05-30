@@ -28,7 +28,7 @@ const DIFFICULTY_COLORS: Record<Difficulty, string> = {
   Insane: 'text-neon-purple  border-neon-purple/40  bg-neon-purple/5',
 }
 
-// ─── Placeholder data — replace with real write-ups ────────────────────────
+// ─ Placeholder data — replace with real write-ups 
 const WRITEUPS: WriteUp[] = [
   {
     id: 'ctf-001',
@@ -50,7 +50,7 @@ const WRITEUPS: WriteUp[] = [
     summary: 'Cette section accueillera bientôt mes analyses de CVE. Fournis-moi les détails et je les intègrerai ici.',
   },
 ]
-// ───────────────────────────────────────────────────────────────────────────
+// ─
 
 const FILTERS: { label: string; value: Category }[] = [
   { label: 'All',  value: 'ALL' },

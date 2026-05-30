@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 
-import Navbar         from './components/Navbar'
+import Sidebar        from './components/Sidebar'
 import Hero           from './components/Hero'
 import About          from './components/About'
 import Skills         from './components/Skills'
@@ -30,24 +30,26 @@ function AppContent() {
   const toggleTheme = () => setTheme(t => (t === 'dark' ? 'light' : 'dark'))
 
   return (
-    <div className="min-h-screen bg-background transition-colors duration-300">
-      <Navbar theme={theme} toggleTheme={toggleTheme} />
+    <div className="flex min-h-screen bg-[#0D1117] transition-colors duration-300">
+      <Sidebar theme={theme} toggleTheme={toggleTheme} />
 
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Experience />
-        <Showcase />
-        <Projects />
-        <Blog />
-        <Certifications />
-        <Technologies />
-        <Publications />
-        <Contact />
-      </main>
-
-      <Footer />
+      {/* Main content — offset by sidebar width on desktop */}
+      <div className="flex-1 md:ml-[220px] min-w-0">
+        <main>
+          <Hero />
+          <About />
+          <Skills />
+          <Experience />
+          <Showcase />
+          <Projects />
+          <Blog />
+          <Certifications />
+          <Technologies />
+          <Publications />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
     </div>
   )
 }

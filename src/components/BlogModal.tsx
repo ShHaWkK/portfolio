@@ -35,7 +35,7 @@ const CVSS_COLOR = (s: number) => {
   return              { hex: '#00FF9D', label: 'LOW',      tw: 'text-neon-green'  }
 }
 
-// ── CVE Info Card ─────────────────────────────────────────────────────────────
+//  CVE Info Card ─
 const CveCard = ({ post }: { post: BlogPost }) => {
   if (!post.cveId) return null
   const cvss  = post.cvssScore ?? 0
@@ -97,7 +97,7 @@ const CveCard = ({ post }: { post: BlogPost }) => {
   )
 }
 
-// ── Inline text formatter ─────────────────────────────────────────────────────
+//  Inline text formatter ─
 function inlineFormat(text: string): string {
   return text
     .replace(/`([^`]+)`/g, '<code class="font-code text-neon-green bg-[#0D1117] border border-gray-800 px-1.5 py-0.5 text-xs rounded-sm">$1</code>')
@@ -105,7 +105,7 @@ function inlineFormat(text: string): string {
     .replace(/\*\*([^*]+)\*\*/g, '<strong class="text-white font-semibold">$1</strong>')
 }
 
-// ── Robust content renderer ───────────────────────────────────────────────────
+//  Robust content renderer ─
 // Parses blocks in one pass, correctly handling multi-line code blocks
 function renderContent(raw: string): React.ReactNode[] {
   const nodes: React.ReactNode[] = []
@@ -115,7 +115,7 @@ function renderContent(raw: string): React.ReactNode[] {
   while (i < lines.length) {
     const line = lines[i]
 
-    // ─ Code block ─────────────────────────────────────────────────────────
+    // ─ Code block ─
     if (line.trimStart().startsWith('```')) {
       const lang = line.trim().slice(3).trim()
       const codeLines: string[] = []
@@ -143,7 +143,7 @@ function renderContent(raw: string): React.ReactNode[] {
       continue
     }
 
-    // ─ H2 ──────────────────────────────────────────────────────────────────
+    // ─ H2 
     if (line.startsWith('## ')) {
       nodes.push(
         <h2 key={`h2-${i}`} className="text-lg font-bold text-neon-blue mt-10 mb-3 font-poppins flex items-center gap-2 border-b border-neon-blue/15 pb-2">
@@ -154,7 +154,7 @@ function renderContent(raw: string): React.ReactNode[] {
       i++; continue
     }
 
-    // ─ H3 ──────────────────────────────────────────────────────────────────
+    // ─ H3 
     if (line.startsWith('### ')) {
       nodes.push(
         <h3 key={`h3-${i}`} className="text-base font-bold text-white mt-7 mb-2 font-poppins">
@@ -164,7 +164,7 @@ function renderContent(raw: string): React.ReactNode[] {
       i++; continue
     }
 
-    // ─ Blockquote ──────────────────────────────────────────────────────────
+    // ─ Blockquote 
     if (line.startsWith('> ')) {
       const quoteLines: string[] = []
       while (i < lines.length && lines[i].startsWith('> ')) {
@@ -187,7 +187,7 @@ function renderContent(raw: string): React.ReactNode[] {
       continue
     }
 
-    // ─ List item ────────────────────────────────────────────────────────────
+    // ─ List item 
     if (line.startsWith('- ')) {
       const items: string[] = []
       while (i < lines.length && lines[i].startsWith('- ')) {
@@ -207,10 +207,10 @@ function renderContent(raw: string): React.ReactNode[] {
       continue
     }
 
-    // ─ Empty line ───────────────────────────────────────────────────────────
+    // ─ Empty line ─
     if (line.trim() === '') { i++; continue }
 
-    // ─ Paragraph (accumulate consecutive non-special lines) ─────────────────
+    // ─ Paragraph (accumulate consecutive non-special lines) ─
     const paraLines: string[] = []
     while (
       i < lines.length &&
@@ -238,7 +238,7 @@ function renderContent(raw: string): React.ReactNode[] {
   return nodes
 }
 
-// ── Modal ─────────────────────────────────────────────────────────────────────
+//  Modal ─
 const BlogModal = ({ post, onClose }: Props) => {
   useEffect(() => {
     document.body.style.overflow = post ? 'hidden' : ''

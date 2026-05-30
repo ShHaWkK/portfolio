@@ -40,7 +40,7 @@ const cardVariant = {
   show:   { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] } },
 }
 
-// ── Blog card ─────────────────────────────────────────────────────────────────
+//  Blog card ─
 const BlogCard = ({ post, onClick }: { post: BlogPost; onClick: () => void }) => {
   const accent = CATEGORY_ACCENT[post.category] ?? '#00E5FF'
 
@@ -165,7 +165,7 @@ const BlogCard = ({ post, onClick }: { post: BlogPost; onClick: () => void }) =>
   )
 }
 
-// ── Main section ──────────────────────────────────────────────────────────────
+//  Main section 
 const Blog = () => {
   const [filter, setFilter]         = useState<PostCategory | 'ALL'>('ALL')
   const [activePost, setActivePost] = useState<BlogPost | null>(null)
