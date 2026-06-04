@@ -33,6 +33,33 @@ const Hero = () => (
       }}
     />
 
+    {/* Photo — desktop only */}
+    <div className="absolute right-14 top-1/2 -translate-y-1/2 hidden xl:block pointer-events-none select-none">
+      <div className="relative w-[280px] h-[360px]">
+        {/* Accent border frame */}
+        <div className="absolute -inset-[1px] bg-gradient-to-b from-neon-blue/30 via-neon-purple/20 to-transparent" />
+        <img
+          src="/images/face.jpg"
+          alt="Alexandre Uzan"
+          className="relative w-full h-full object-cover object-top grayscale"
+          style={{ filter: 'grayscale(1) brightness(0.85) contrast(1.1)' }}
+        />
+        {/* Overlay gradient fade bottom */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0D1117] via-transparent to-transparent" />
+        {/* Scan line effect */}
+        <div
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,229,255,0.8) 3px, rgba(0,229,255,0.8) 4px)',
+          }}
+        />
+      </div>
+      {/* Label below photo */}
+      <div className="mt-2 text-center font-code text-[9px] text-gray-700 tracking-widest uppercase">
+        Alexandre Uzan
+      </div>
+    </div>
+
     {/* Content */}
     <div className="relative z-10 max-w-3xl">
 
@@ -90,6 +117,7 @@ const Hero = () => (
         className="flex flex-wrap gap-3 mb-16"
       >
         <button
+          type="button"
           onClick={() => document.getElementById('showcase')?.scrollIntoView({ behavior: 'smooth' })}
           className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#07090D] font-semibold text-sm hover:bg-gray-100 transition-colors"
         >
@@ -106,6 +134,7 @@ const Hero = () => (
           ajmtech.fr
         </a>
         <button
+          type="button"
           onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
           className="inline-flex items-center gap-2 px-6 py-3 border border-gray-800 text-gray-500 text-sm hover:border-gray-600 hover:text-gray-300 transition-all"
         >
