@@ -355,7 +355,7 @@ const ImageGrid = ({
 
 // ── Project row ───────────────────────────────────────────────────────────────
 
-const ProjectRow = ({ project, index }: { project: ClientProject; index: number }) => {
+const ProjectRow = ({ project }: { project: ClientProject; index?: number }) => {
   const [lightbox, setLightbox] = useState<number | null>(null)
 
   return (

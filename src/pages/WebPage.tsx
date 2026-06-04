@@ -2,9 +2,8 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   ArrowRight, ExternalLink, Mail, Globe, Code2,
-  ShoppingCart, Zap, Shield, Smartphone, Wrench,
+  ShoppingCart, Shield, Smartphone, Wrench,
   ChevronLeft, ChevronRight, X, Maximize2, CheckCircle2,
-  Server, Lock, FileText, BarChart3,
 } from 'lucide-react'
 
 //  Services 
@@ -219,7 +218,7 @@ const Lightbox = ({ images, idx: init, onClose }: { images: string[]; idx: numbe
 
 //  ImageGrid 
 
-const ImageGrid = ({ images, accent, onOpen }: { images: string[]; accent: string; onOpen: (i: number) => void }) => {
+const ImageGrid = ({ images, onOpen }: { images: string[]; accent?: string; onOpen: (i: number) => void }) => {
   const n = images.length
   const cell = (src: string, i: number, cls = '') => (
     <div key={i} className={`overflow-hidden cursor-zoom-in group relative ${cls}`} onClick={() => onOpen(i)}>
