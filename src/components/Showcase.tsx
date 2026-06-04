@@ -109,9 +109,9 @@ const PROJECTS: ClientProject[] = [
     id: 'caudalie',
     number: '06',
     client: 'Caudalie',
-    subtitle: 'Plateforme live & chat',
-    description: 'Plateforme digitale pour Caudalie : espace événementiel avec chat temps réel intégré, modération et gestion des interactions participants.',
-    tags: ['Live', 'Chat temps réel', 'Événementiel'],
+    subtitle: 'Application iOS',
+    description: 'Application iOS native pour Caudalie : interface événementielle, live streaming intégré et chat temps réel pour les équipes et participants.',
+    tags: ['iOS', 'Live', 'Chat temps réel'],
     images: [
       '/images/showcase/caudalie/accueil.png',
       '/images/showcase/caudalie/chat.png',
