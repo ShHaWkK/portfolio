@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 import {
-  Github, ExternalLink, Globe, Sun, Moon, Menu, X,
+  Github, ExternalLink, Globe, Menu, X,
   User, Terminal, Briefcase, Code, BookOpen, Mail,
   Award, Cpu, ChevronRight, Shield, Layers,
 } from 'lucide-react'
@@ -56,8 +56,6 @@ interface InnerProps {
   scrollTo: (id: string) => void
   typedRole: string
   scaleX: ReturnType<typeof useTransform<number, number>>
-  theme: string
-  toggleTheme: () => void
   language: Language
   setLanguage: (l: Language) => void
   onClose?: () => void
@@ -65,7 +63,7 @@ interface InnerProps {
 
 const SidebarInner = ({
   activeSection, scrollTo, typedRole, scaleX,
-  theme, toggleTheme, language, setLanguage, onClose,
+  language, setLanguage, onClose,
 }: InnerProps) => (
   <div className="flex flex-col h-full select-none">
 
@@ -185,14 +183,6 @@ const SidebarInner = ({
         >
           {language === 'fr' ? 'FR → EN' : 'EN → FR'}
         </button>
-        <button
-          type="button"
-          onClick={toggleTheme}
-          className="px-3 py-1.5 border border-gray-800/80 hover:border-gray-700 text-gray-500 hover:text-gray-300 transition-all duration-150 rounded-sm"
-          aria-label="Toggle theme"
-        >
-          {theme === 'dark' ? <Sun className="w-3.5 h-3.5" /> : <Moon className="w-3.5 h-3.5" />}
-        </button>
       </div>
 
       {/* Scroll progress */}
@@ -207,12 +197,7 @@ const SidebarInner = ({
 )
 
 //  Sidebar export ─
-interface SidebarProps {
-  theme: string
-  toggleTheme: () => void
-}
-
-const Sidebar = ({ theme, toggleTheme }: SidebarProps) => {
+const Sidebar = () => {
   const [activeSection, setActiveSection] = useState('hero')
   const [mobileOpen, setMobileOpen]       = useState(false)
   const { language, setLanguage }         = useLanguage()
@@ -242,7 +227,7 @@ const Sidebar = ({ theme, toggleTheme }: SidebarProps) => {
 
   const innerProps: InnerProps = {
     activeSection, scrollTo, typedRole, scaleX,
-    theme, toggleTheme, language, setLanguage,
+    language, setLanguage,
   }
 
   return (

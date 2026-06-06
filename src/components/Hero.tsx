@@ -9,7 +9,7 @@ const STATS = [
 ]
 
 const ROLES = [
-  { icon: Shield,  label: 'Ingénieur Cybersécurité',  sub: 'en formation',           color: '#00FF9D' },
+  { icon: Shield,  label: 'Ingénieur Cybersécurité',  sub: 'Offensive & Défensive',  color: '#00FF9D' },
   { icon: Code2,   label: 'Développeur Fullstack',     sub: '3 ans d\'expérience',    color: '#9A4DFF' },
 ]
 
@@ -87,8 +87,8 @@ const Hero = () => (
           animate="show"
           className="text-gray-400 text-base leading-relaxed max-w-lg mb-4"
         >
-          Ingénieur cybersécurité en formation et développeur fullstack avec{' '}
-          <span className="text-white font-semibold">3 ans d'expérience sérieuse</span>{' '}
+          Ingénieur cybersécurité et développeur fullstack avec{' '}
+          <span className="text-white font-semibold">3 ans d'expérience</span>{' '}
           dans la conception d'applications web complexes — de l'architecture au déploiement.
         </motion.p>
 

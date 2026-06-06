@@ -2,17 +2,17 @@
   "hero": {
     "greeting": "Hi, I'm",
     "name": "Alexandre UZAN",
-    "title": "Cybersecurity Student & CTF Enthusiast",
+    "title": "Cybersecurity Engineer & Fullstack Developer",
     "description": "Specialized in offensive security, honeypot development and malware analysis. Active on CTF platforms like pwn.college.",
     "cta": "Discover my work",
     "terminal": {
-      "whoami": "Cybersecurity Student & CTF Enthusiast",
+      "whoami": "Cybersecurity Engineer & Fullstack Developer",
       "echo": "Security is not a product, but a process"
     }
   },
   "about": {
     "title": "About me",
-    "description": "Passionate cybersecurity student, I specialize in offensive security and infrastructure protection. My journey is marked by an insatiable curiosity to understand system vulnerabilities and develop effective protection solutions.",
+    "description": "Cybersecurity engineer and fullstack developer with 3 years of experience, specialized in offensive security, penetration testing and building complex web applications for major brands.",
     "highlights": {
       "ctf": "CTF Enthusiast",
       "honeypot": "Honeypot Developer",

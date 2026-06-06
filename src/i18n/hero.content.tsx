@@ -2,10 +2,10 @@ export default {
   fr: {
     whoami: "$ whoami",
     name: "Alexandre UZAN",
-    title: "Étudiant en Cybersécurité & Passionné de CTF",
+    title: "Ingénieur Cybersécurité & Développeur Fullstack",
     quote: '$ echo "La sécurité n\'est pas un produit, mais un processus"',
-    badge: "ÉTUDIANT EN CYBERSÉCURITÉ",
-    description: "Passionné par la cybersécurité, je me spécialise dans les tests d'intrusion, l'analyse de malwares et la sécurité offensive. Toujours en quête de nouveaux défis techniques.",
+    badge: "INGÉNIEUR CYBERSÉCURITÉ",
+    description: "Ingénieur cybersécurité et développeur fullstack avec 3 ans d'expérience. Spécialisé en sécurité offensive, pentesting et conception d'applications web complexes pour grandes entreprises.",
     cta: {
       primary: "Voir mes projets",
       secondary: "Me contacter"
@@ -28,10 +28,10 @@ export default {
   en: {
     whoami: "$ whoami",
     name: "Alexandre UZAN",
-    title: "Cybersecurity Student & CTF Enthusiast",
+    title: "Cybersecurity Engineer & Fullstack Developer",
     quote: '$ echo "Security is not a product, but a process"',
-    badge: "CYBERSECURITY STUDENT",
-    description: "Passionate about cybersecurity, I specialize in penetration testing, malware analysis, and offensive security. Always seeking new technical challenges.",
+    badge: "CYBERSECURITY ENGINEER",
+    description: "Cybersecurity engineer and fullstack developer with 3 years of experience. Specialized in offensive security, pentesting and building complex web applications for major brands.",
     cta: {
       primary: "View my projects",
       secondary: "Contact me"

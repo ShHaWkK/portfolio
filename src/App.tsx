@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 import { LanguageProvider } from './hooks/useLanguage'
@@ -20,18 +20,13 @@ import Footer         from './components/Footer'
 import WebPage        from './pages/WebPage'
 
 function PortfolioPage() {
-  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'dark')
-
   useEffect(() => {
-    localStorage.setItem('theme', theme)
-    document.documentElement.classList.toggle('dark', theme === 'dark')
-  }, [theme])
-
-  const toggleTheme = () => setTheme(t => (t === 'dark' ? 'light' : 'dark'))
+    document.documentElement.classList.add('dark')
+  }, [])
 
   return (
     <div className="flex min-h-screen bg-[#0D1117] transition-colors duration-300">
-      <Sidebar theme={theme} toggleTheme={toggleTheme} />
+      <Sidebar />
 
       <div className="flex-1 md:ml-[220px] min-w-0">
         <main>

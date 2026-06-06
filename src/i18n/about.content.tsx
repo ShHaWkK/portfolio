@@ -4,7 +4,7 @@ export default {
     badge: "PROFIL",
     catProfile: "$ cat profile.txt",
     description: {
-      paragraph1: "Je suis Alexandre Uzan, étudiant passionné par la cybersécurité et orienté vers la sécurité <strong>défensive</strong>. Mon focus : protection des systèmes, durcissement, détection des menaces et réponse à incident.",
+      paragraph1: "Je suis Alexandre Uzan, ingénieur cybersécurité et développeur fullstack. Mon focus : sécurité <strong>offensive</strong> et <strong>défensive</strong>, protection des systèmes, analyse de vulnérabilités et réponse à incident.",
       paragraph2: "Participant actif sur pwn.college, je renforce mes compétences en <strong>détection</strong>, <strong>analyse</strong> et <strong>mitigation</strong> des vulnérabilités, avec une approche centrée sur la résilience opérationnelle.",
       paragraph3: "Mes projets sur GitHub (ShHaWkK) reflètent mon intérêt pour le <strong>monitoring</strong>, la <strong>collecte de renseignements techniques</strong> et l'<strong>automatisation</strong> de la défense (alerting, visibilité, intégrité).",
       paragraph4: "Je réalise aussi du développement web personnalisé et de la maintenance (React/TSX, bases de données, déploiements cloud Azure/Heroku/Render). Besoin d'un site ou d'une maintenance ? Contact par <strong>email</strong> ou <strong>LinkedIn</strong>."
@@ -26,7 +26,7 @@ export default {
     terminal: {
       command: "whoami --detailed",
       name: "Alexandre UZAN",
-      role: "Étudiant en Cybersécurité",
+      role: "Ingénieur Cybersécurité",
       focus: "Sécurité Défensive & CTF",
       status: "En apprentissage continu"
     }
@@ -36,9 +36,9 @@ export default {
     badge: "PROFILE",
     catProfile: "$ cat profile.txt",
     description: {
-      paragraph1: "I'm Alexandre Uzan, a student passionate about cybersecurity and specialized in offensive security. My journey has led me to explore the fields of pentesting, malware analysis, and network security.",
-      paragraph2: "Active participant on pwn.college, I constantly improve my skills in vulnerability exploitation and ethical attack techniques. This platform allows me to stay up-to-date with the latest offensive security methods.",
-      paragraph3: "My projects on GitHub (ShHaWkK) reflect my passion for developing security tools and automating penetration tests. I actively contribute to the cybersecurity community."
+      paragraph1: "I'm Alexandre Uzan, cybersecurity engineer and fullstack developer with 3 years of professional experience. Specialized in <strong>offensive security</strong>, penetration testing, and building complex web applications.",
+      paragraph2: "Top 5% on pwn.college, I continuously sharpen my skills in vulnerability exploitation, binary analysis, and advanced attack techniques — from kernel exploitation to web security.",
+      paragraph3: "My projects on GitHub (ShHaWkK) reflect my focus on security tooling and automation. Freelance developer via <strong>ajmtech.fr</strong> — delivering platforms for Givenchy, L'Oréal, Hermès and more."
     },
     specialties: {
       ctf: {
@@ -57,7 +57,7 @@ export default {
     terminal: {
       command: "whoami --detailed",
       name: "Alexandre UZAN",
-      role: "Cybersecurity Student",
+      role: "Cybersecurity Engineer",
       focus: "Offensive Security & CTF",
       status: "Continuous learning"
     }
