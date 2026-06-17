@@ -175,12 +175,7 @@ const PROJECTS: ClientProject[] = [
     subtitle: 'Site vitrine ESN',
     description: "Site vitrine pour First Conseil, ESN spécialisée en Assurance, Banque et Transformation digitale : présentation de l'entreprise, des métiers et expertises, offres d'emploi et candidature spontanée.",
     tags: ['Site vitrine', 'ESN', 'Recrutement'],
-    images: [
-      '/images/showcase/first-conseil/accueil.png',
-      '/images/showcase/first-conseil/qui-sommes-nous.png',
-      '/images/showcase/first-conseil/nos-metiers.png',
-      '/images/showcase/first-conseil/contact.png',
-    ],
+    images: [],
     year: '2026',
     href: 'https://www.first-conseil.com',
     accent: '#E63312',
@@ -301,6 +296,20 @@ const Lightbox = ({
 
 // ── Image grid — shows ALL images, no carousel ────────────────────────────────
 
+const NoScreenshotCard = ({ project }: { project: ClientProject }) => (
+  <a
+    href={project.href}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center justify-center gap-3 py-20 border-y border-white/[0.06] hover:bg-white/[0.02] transition-colors group"
+  >
+    <span className="font-code text-sm" style={{ color: project.accent }}>
+      Voir {project.client} en ligne
+    </span>
+    <ExternalLink className="w-4 h-4 opacity-60 group-hover:opacity-100 transition-opacity" style={{ color: project.accent }} />
+  </a>
+)
+
 const ImageGrid = ({
   project,
   onOpen,
@@ -310,6 +319,8 @@ const ImageGrid = ({
 }) => {
   const imgs = project.images
   const n = imgs.length
+
+  if (n === 0) return <NoScreenshotCard project={project} />
 
   const imgCell = (src: string, i: number, extraClass = '') => (
     <div

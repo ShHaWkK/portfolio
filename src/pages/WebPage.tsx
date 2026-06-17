@@ -184,12 +184,7 @@ const CLIENTS = [
   {
     id: 'first-conseil', label: 'First Conseil', type: 'Site vitrine ESN', accent: '#E63312',
     href: 'https://www.first-conseil.com',
-    images: [
-      '/images/showcase/first-conseil/accueil.png',
-      '/images/showcase/first-conseil/qui-sommes-nous.png',
-      '/images/showcase/first-conseil/nos-metiers.png',
-      '/images/showcase/first-conseil/contact.png',
-    ],
+    images: [],
   },
 ]
 
@@ -238,8 +233,17 @@ const Lightbox = ({ images, idx: init, onClose }: { images: string[]; idx: numbe
 
 //  ImageGrid 
 
-const ImageGrid = ({ images, onOpen }: { images: string[]; accent?: string; onOpen: (i: number) => void }) => {
+const ImageGrid = ({ images, accent, href, label, onOpen }: { images: string[]; accent?: string; href?: string; label?: string; onOpen: (i: number) => void }) => {
   const n = images.length
+
+  if (n === 0) return (
+    <a href={href} target="_blank" rel="noopener noreferrer"
+      className="flex items-center justify-center gap-3 py-16 border-y border-gray-800/60 hover:bg-white/[0.02] transition-colors group">
+      <span className="font-code text-sm" style={{ color: accent }}>Voir {label} en ligne</span>
+      <ExternalLink className="w-4 h-4 opacity-60 group-hover:opacity-100 transition-opacity" style={{ color: accent }} />
+    </a>
+  )
+
   const cell = (src: string, i: number, cls = '') => (
     <div key={i} className={`overflow-hidden cursor-zoom-in group relative ${cls}`} onClick={() => onOpen(i)}>
       <img src={src} alt={`Capture ${i + 1}`}
@@ -481,7 +485,7 @@ const WebPage = () => {
                   <span className="font-code text-[10px] text-gray-600 border border-gray-800 px-2 py-1">Confidentiel</span>
                 )}
               </div>
-              <ImageGrid images={client.images} accent={client.accent}
+              <ImageGrid images={client.images} accent={client.accent} href={client.href} label={client.label}
                 onOpen={i => setLb({ images: client.images, idx: i })} />
             </motion.div>
           </AnimatePresence>
