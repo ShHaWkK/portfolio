@@ -171,6 +171,26 @@ const CLIENTS = [
       '/images/showcase/atee/pdf.png',
     ],
   },
+  {
+    id: 'wallets', label: 'Wallets', type: 'SaaS cartes de fidélité digitales', accent: '#9A4DFF',
+    href: 'https://wallet-poc-tau.vercel.app',
+    images: [
+      '/images/showcase/wallets/accueil.png',
+      '/images/showcase/wallets/besoin.png',
+      '/images/showcase/wallets/dasboard-client.png',
+      '/images/showcase/wallets/subscribe.png',
+    ],
+  },
+  {
+    id: 'first-conseil', label: 'First Conseil', type: 'Site vitrine ESN', accent: '#E63312',
+    href: 'https://www.first-conseil.com',
+    images: [
+      '/images/showcase/first-conseil/accueil.png',
+      '/images/showcase/first-conseil/qui-sommes-nous.png',
+      '/images/showcase/first-conseil/nos-metiers.png',
+      '/images/showcase/first-conseil/contact.png',
+    ],
+  },
 ]
 
 //  Lightbox 
@@ -451,7 +471,15 @@ const WebPage = () => {
                   <h3 className="font-black text-white text-2xl md:text-3xl">{client.label}</h3>
                   <p className="font-code text-xs mt-1" style={{ color: client.accent }}>{client.type}</p>
                 </div>
-                <span className="font-code text-[10px] text-gray-600 border border-gray-800 px-2 py-1">Confidentiel</span>
+                {client.href ? (
+                  <a href={client.href} target="_blank" rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 font-code text-[10px] border px-2 py-1 transition-colors"
+                    style={{ color: client.accent, borderColor: `${client.accent}50` }}>
+                    Voir le site <ExternalLink className="w-3 h-3" />
+                  </a>
+                ) : (
+                  <span className="font-code text-[10px] text-gray-600 border border-gray-800 px-2 py-1">Confidentiel</span>
+                )}
               </div>
               <ImageGrid images={client.images} accent={client.accent}
                 onOpen={i => setLb({ images: client.images, idx: i })} />

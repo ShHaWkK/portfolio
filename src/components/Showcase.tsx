@@ -151,6 +151,40 @@ const PROJECTS: ClientProject[] = [
     year: '2023',
     accent: '#0D9488',
   },
+  {
+    id: 'wallets',
+    number: '09',
+    client: 'Wallets',
+    subtitle: 'SaaS cartes de fidélité digitales',
+    description: 'SaaS de cartes de fidélité digitales compatibles Apple Wallet et Google Wallet, sans application mobile à installer : génération de carte par QR code, scanner intégré, dashboard multi-commerçant et statistiques en temps réel.',
+    tags: ['SaaS', 'Apple Wallet', 'Google Wallet', 'Multi-tenant'],
+    images: [
+      '/images/showcase/wallets/accueil.png',
+      '/images/showcase/wallets/besoin.png',
+      '/images/showcase/wallets/dasboard-client.png',
+      '/images/showcase/wallets/subscribe.png',
+    ],
+    year: '2026',
+    href: 'https://wallet-poc-tau.vercel.app',
+    accent: '#9A4DFF',
+  },
+  {
+    id: 'first-conseil',
+    number: '10',
+    client: 'First Conseil',
+    subtitle: 'Site vitrine ESN',
+    description: "Site vitrine pour First Conseil, ESN spécialisée en Assurance, Banque et Transformation digitale : présentation de l'entreprise, des métiers et expertises, offres d'emploi et candidature spontanée.",
+    tags: ['Site vitrine', 'ESN', 'Recrutement'],
+    images: [
+      '/images/showcase/first-conseil/accueil.png',
+      '/images/showcase/first-conseil/qui-sommes-nous.png',
+      '/images/showcase/first-conseil/nos-metiers.png',
+      '/images/showcase/first-conseil/contact.png',
+    ],
+    year: '2026',
+    href: 'https://www.first-conseil.com',
+    accent: '#E63312',
+  },
 ]
 
 // ── Lightbox ─────────────────────────────────────────────────────────────────
