@@ -180,6 +180,22 @@ const PROJECTS: ClientProject[] = [
     href: 'https://www.first-conseil.com',
     accent: '#E63312',
   },
+  {
+    id: 'prada',
+    number: '11',
+    client: 'Prada',
+    subtitle: 'Plateforme galerie & upload',
+    description: 'Plateforme digitale pour les équipes Prada : galerie de visuels haute définition, espace d\'upload sécurisé et gestion de contenus pour les équipes internes et prestataires.',
+    tags: ['Galerie', 'Upload', 'Gestion de contenus', 'Luxe'],
+    images: [
+      '/images/showcase/prada/home.png',
+      '/images/showcase/prada/gallery.png',
+      '/images/showcase/prada/upload.png',
+    ],
+    year: '2025',
+    confidential: true,
+    accent: '#C8B89A',
+  },
 ]
 
 // ── Lightbox ─────────────────────────────────────────────────────────────────
