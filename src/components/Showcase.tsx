@@ -201,8 +201,8 @@ const PROJECTS: ClientProject[] = [
     number: '12',
     client: 'Valentino',
     subtitle: 'Plateforme événementielle',
-    description: 'Plateforme événementielle sur mesure pour les équipes Valentino : inscription en ligne, confirmation par email, gestion du planning et espace participants sécurisé.',
-    tags: ['Événementiel', 'Inscription', 'Email', 'Planning', 'Luxe'],
+    description: 'Billetterie événementielle type Ticketmaster pour les équipes Valentino : inscription, confirmation email, gestion du planning et espace participants. Architecture AWS production : WAF, reverse proxy, RDS PostgreSQL et déploiement haute disponibilité.',
+    tags: ['Billetterie', 'AWS', 'WAF', 'RDS', 'Événementiel', 'Luxe'],
     images: [
       '/images/showcase/valentino/accueil.png',
       '/images/showcase/valentino/register.png',
