@@ -196,6 +196,24 @@ const PROJECTS: ClientProject[] = [
     confidential: true,
     accent: '#C8B89A',
   },
+  {
+    id: 'valentino',
+    number: '12',
+    client: 'Valentino',
+    subtitle: 'Plateforme événementielle',
+    description: 'Plateforme événementielle sur mesure pour les équipes Valentino : inscription en ligne, confirmation par email, gestion du planning et espace participants sécurisé.',
+    tags: ['Événementiel', 'Inscription', 'Email', 'Planning', 'Luxe'],
+    images: [
+      '/images/showcase/valentino/accueil.png',
+      '/images/showcase/valentino/register.png',
+      '/images/showcase/valentino/planning.png',
+      '/images/showcase/valentino/confrm.png',
+      '/images/showcase/valentino/mail.png',
+    ],
+    year: '2025',
+    confidential: true,
+    accent: '#B5121B',
+  },
 ]
 
 // ── Lightbox ─────────────────────────────────────────────────────────────────
