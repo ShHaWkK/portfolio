@@ -546,6 +546,63 @@ const ProjectRow = ({ project }: { project: ClientProject; index?: number }) => 
   )
 }
 
+// ── Client ticker ────────────────────────────────────────────────────────────
+
+const TICKER_CLIENTS: { name: string; accent: string; logo?: string }[] = [
+  { name: 'Givenchy',         accent: '#C9A96E', logo: '/images/logos/givenchy.svg' },
+  { name: "L'Oréal",          accent: '#FF2D55', logo: '/images/logos/loreal.svg' },
+  { name: 'Rabanne',          accent: '#F5A623', logo: '/images/logos/rabanne.svg' },
+  { name: 'Hermès',           accent: '#E07B39', logo: '/images/logos/hermes.svg' },
+  { name: 'Carolina Herrera', accent: '#DB2777', logo: '/images/logos/carolina-herrera.svg' },
+  { name: 'Caudalie',         accent: '#7C3AED', logo: '/images/logos/caudalie.svg' },
+  { name: 'ISSVA',            accent: '#5E8EFF' },
+  { name: 'ATEE',             accent: '#0D9488' },
+  { name: 'DPGPlay',          accent: '#E8002D' },
+  { name: 'Wallets',          accent: '#9A4DFF' },
+  { name: 'First Conseil',    accent: '#E63312' },
+  { name: 'Prada',            accent: '#C8B89A', logo: '/images/logos/prada.svg' },
+  { name: 'Valentino',        accent: '#B5121B', logo: '/images/logos/valentino.svg' },
+]
+
+const ClientTicker = () => {
+  const doubled = [...TICKER_CLIENTS, ...TICKER_CLIENTS]
+  return (
+    <div className="relative overflow-hidden border-y border-white/[0.04] py-5 bg-[#07090D]">
+      <motion.div
+        className="flex items-center gap-14 whitespace-nowrap"
+        animate={{ x: ['0%', '-50%'] }}
+        transition={{ duration: 32, repeat: Infinity, ease: 'linear' }}
+      >
+        {doubled.map((c, i) => (
+          <span key={i} className="inline-flex items-center gap-14 shrink-0">
+            {c.logo
+              ? (
+                <img
+                  src={c.logo}
+                  alt={c.name}
+                  className="h-6 w-auto object-contain opacity-40 hover:opacity-90 transition-opacity duration-300"
+                  onError={e => { e.currentTarget.style.display = 'none' }}
+                />
+              )
+              : (
+                <span
+                  className="font-black tracking-[0.18em] text-[11px] uppercase opacity-40 hover:opacity-80 transition-opacity duration-300"
+                  style={{ color: c.accent, letterSpacing: '0.2em' }}
+                >
+                  {c.name}
+                </span>
+              )
+            }
+            <span className="text-white/10 text-xs">·</span>
+          </span>
+        ))}
+      </motion.div>
+      <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#07090D] to-transparent pointer-events-none" />
+      <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#07090D] to-transparent pointer-events-none" />
+    </div>
+  )
+}
+
 // ── Section ───────────────────────────────────────────────────────────────────
 
 const Showcase = () => (
@@ -590,6 +647,9 @@ const Showcase = () => (
         </span>
       </div>
     </motion.div>
+
+    {/* Client ticker */}
+    <ClientTicker />
 
     {/* Projects */}
     <div>

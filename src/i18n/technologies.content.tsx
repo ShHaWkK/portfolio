@@ -7,25 +7,27 @@ export default {
         label: "LANGUAGES",
         command: "$ ls -la /usr/bin/languages",
         items: [
-          { name: 'Python', color: 'neon-blue' },
-          { name: 'JavaScript', color: 'cyber-yellow' },
-          { name: 'HTML5', color: 'neon-red' },
-          { name: 'CSS3', color: 'neon-blue' },
-          { name: 'TypeScript', color: 'neon-blue' },
-          { name: 'PHP', color: 'neon-purple' },
-          { name: 'Go', color: 'neon-blue' },
-          { name: 'Rust', color: 'neon-red' },
-          { name: 'C/C++', color: 'neon-green' },
-          { name: 'Bash', color: 'neon-green' },
-          { name: 'SQL', color: 'neon-purple' },
-          { name: 'Assembler', color: 'neon-purple' },
+          { name: 'Python',            color: 'neon-blue' },
+          { name: 'JavaScript',        color: 'cyber-yellow' },
+          { name: 'TypeScript',        color: 'neon-blue' },
+          { name: 'Java',              color: 'cyber-yellow' },
+          { name: 'HTML5',             color: 'neon-red' },
+          { name: 'CSS3',              color: 'neon-blue' },
+          { name: 'PHP',               color: 'neon-purple' },
+          { name: 'Go',                color: 'neon-blue' },
+          { name: 'Rust',              color: 'neon-red' },
+          { name: 'C/C++',             color: 'neon-green' },
+          { name: 'Bash',              color: 'neon-green' },
+          { name: 'Oracle / PL-SQL',   color: 'neon-red' },
+          { name: 'Assembler',         color: 'neon-purple' },
         ]
       },
       frameworks: {
         label: "FRAMEWORKS",
         command: "$ npm ls --depth=0",
         items: [
-          { name: 'React', color: 'cyber-yellow' },
+          { name: 'React',   color: 'cyber-yellow' },
+          { name: 'Angular', color: 'neon-red' },
         ]
       },
       databases: {
@@ -33,22 +35,22 @@ export default {
         command: "$ echo 'psql mysql sqlite'",
         items: [
           { name: 'PostgreSQL', color: 'neon-purple' },
-          { name: 'MySQL', color: 'neon-blue' },
-          { name: 'SQLite', color: 'neon-green' },
+          { name: 'MySQL',      color: 'neon-blue' },
+          { name: 'SQLite',     color: 'neon-green' },
         ]
       },
       software: {
         label: "SOFTWARE",
         command: '$ dpkg -l | grep "security"',
         items: [
-          { name: 'VSCode', color: 'neon-blue' },
-          { name: 'Docker', color: 'neon-blue' },
-          { name: 'Git', color: 'neon-green' },
-          { name: 'Wireshark', color: 'neon-blue' },
-          { name: 'Burp Suite', color: 'neon-purple' },
-          { name: 'Metasploit', color: 'neon-red' },
-          { name: 'Nmap', color: 'neon-green' },
-          { name: 'Ghidra', color: 'cyber-yellow' },
+          { name: 'VSCode',      color: 'neon-blue' },
+          { name: 'Docker',      color: 'neon-blue' },
+          { name: 'Git',         color: 'neon-green' },
+          { name: 'Wireshark',   color: 'neon-blue' },
+          { name: 'Burp Suite',  color: 'neon-purple' },
+          { name: 'Metasploit',  color: 'neon-red' },
+          { name: 'Nmap',        color: 'neon-green' },
+          { name: 'Ghidra',      color: 'cyber-yellow' },
         ]
       },
       os: {
@@ -56,20 +58,22 @@ export default {
         command: "$ uname -a",
         items: [
           { name: 'Arch Linux', color: 'neon-green' },
-          { name: 'Fedora 42', color: 'neon-blue' },
+          { name: 'Fedora 42',  color: 'neon-blue' },
           { name: 'Kali Linux', color: 'neon-purple' },
-          { name: 'macOS', color: 'cyber-yellow' },
-          { name: 'Windows', color: 'neon-blue' },
+          { name: 'macOS',      color: 'cyber-yellow' },
+          { name: 'Windows',    color: 'neon-blue' },
         ]
-      }
-      ,
+      },
       cloud: {
-        label: "CLOUD",
+        label: "CLOUD & INFRA",
         command: "$ cloudctl status",
         items: [
-          { name: 'Azure', color: 'neon-blue' },
-          { name: 'Heroku', color: 'neon-purple' },
-          { name: 'Render', color: 'cyber-yellow' },
+          { name: 'AWS',       color: 'cyber-yellow' },
+          { name: 'Terraform', color: 'neon-purple' },
+          { name: 'Azure',     color: 'neon-blue' },
+          { name: 'Docker',    color: 'neon-blue' },
+          { name: 'Heroku',    color: 'neon-purple' },
+          { name: 'Render',    color: 'cyber-yellow' },
         ]
       }
     },
@@ -91,32 +95,41 @@ export default {
         label: "LANGUAGES",
         command: "$ ls -la /usr/bin/languages",
         items: [
-          { name: 'Python', color: 'neon-blue' },
-          { name: 'JavaScript', color: 'cyber-yellow' },
-          { name: 'HTML5', color: 'neon-red' },
-          { name: 'CSS3', color: 'neon-blue' },
-          { name: 'TypeScript', color: 'neon-blue' },
-          { name: 'PHP', color: 'neon-purple' },
-          { name: 'Go', color: 'neon-blue' },
-          { name: 'Rust', color: 'neon-red' },
-          { name: 'C/C++', color: 'neon-green' },
-          { name: 'Bash', color: 'neon-green' },
-          { name: 'SQL', color: 'neon-purple' },
-          { name: 'Assembler', color: 'neon-purple' },
+          { name: 'Python',            color: 'neon-blue' },
+          { name: 'JavaScript',        color: 'cyber-yellow' },
+          { name: 'TypeScript',        color: 'neon-blue' },
+          { name: 'Java',              color: 'cyber-yellow' },
+          { name: 'HTML5',             color: 'neon-red' },
+          { name: 'CSS3',              color: 'neon-blue' },
+          { name: 'PHP',               color: 'neon-purple' },
+          { name: 'Go',                color: 'neon-blue' },
+          { name: 'Rust',              color: 'neon-red' },
+          { name: 'C/C++',             color: 'neon-green' },
+          { name: 'Bash',              color: 'neon-green' },
+          { name: 'Oracle / PL-SQL',   color: 'neon-red' },
+          { name: 'Assembler',         color: 'neon-purple' },
+        ]
+      },
+      frameworks: {
+        label: "FRAMEWORKS",
+        command: "$ npm ls --depth=0",
+        items: [
+          { name: 'React',   color: 'cyber-yellow' },
+          { name: 'Angular', color: 'neon-red' },
         ]
       },
       software: {
         label: "SOFTWARE",
         command: '$ dpkg -l | grep "security"',
         items: [
-          { name: 'VSCode', color: 'neon-blue' },
-          { name: 'Docker', color: 'neon-blue' },
-          { name: 'Git', color: 'neon-green' },
-          { name: 'Wireshark', color: 'neon-blue' },
-          { name: 'Burp Suite', color: 'neon-purple' },
-          { name: 'Metasploit', color: 'neon-red' },
-          { name: 'Nmap', color: 'neon-green' },
-          { name: 'Ghidra', color: 'cyber-yellow' },
+          { name: 'VSCode',      color: 'neon-blue' },
+          { name: 'Docker',      color: 'neon-blue' },
+          { name: 'Git',         color: 'neon-green' },
+          { name: 'Wireshark',   color: 'neon-blue' },
+          { name: 'Burp Suite',  color: 'neon-purple' },
+          { name: 'Metasploit',  color: 'neon-red' },
+          { name: 'Nmap',        color: 'neon-green' },
+          { name: 'Ghidra',      color: 'cyber-yellow' },
         ]
       },
       os: {
@@ -124,10 +137,22 @@ export default {
         command: "$ uname -a",
         items: [
           { name: 'Arch Linux', color: 'neon-green' },
-          { name: 'Fedora 42', color: 'neon-blue' },
+          { name: 'Fedora 42',  color: 'neon-blue' },
           { name: 'Kali Linux', color: 'neon-purple' },
-          { name: 'macOS', color: 'cyber-yellow' },
-          { name: 'Windows', color: 'neon-blue' },
+          { name: 'macOS',      color: 'cyber-yellow' },
+          { name: 'Windows',    color: 'neon-blue' },
+        ]
+      },
+      cloud: {
+        label: "CLOUD & INFRA",
+        command: "$ cloudctl status",
+        items: [
+          { name: 'AWS',       color: 'cyber-yellow' },
+          { name: 'Terraform', color: 'neon-purple' },
+          { name: 'Azure',     color: 'neon-blue' },
+          { name: 'Docker',    color: 'neon-blue' },
+          { name: 'Heroku',    color: 'neon-purple' },
+          { name: 'Render',    color: 'cyber-yellow' },
         ]
       }
     },

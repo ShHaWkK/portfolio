@@ -30,6 +30,10 @@ import {
   siKalilinux,
   siApple,
   siWindows,
+  siTerraform,
+  siAngular,
+  siAmazonaws,
+  siOracle,
 } from 'simple-icons/icons'
 
 const Technologies = () => {
@@ -108,6 +112,10 @@ const Technologies = () => {
     'Kali Linux': siKalilinux,
     macOS: siApple,
     Windows: siWindows,
+    Terraform: siTerraform,
+    Angular:      { ...siAngular,    hex: 'DD0031' },
+    AWS:          { ...siAmazonaws,  hex: 'FF9900' },
+    'Oracle / PL-SQL': siOracle,
   }
 
   const IconChip: React.FC<{ label: string; color: string }> = ({ label, color }) => {
