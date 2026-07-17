@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Github, ExternalLink, Shield, Globe, Wrench, Star, GitFork } from 'lucide-react'
+import { Github, ExternalLink, Shield, Globe, Wrench, Star, GitFork, Smartphone } from 'lucide-react'
 
 //  Types ─
-type Cat    = 'Security' | 'Web' | 'Tools'
+type Cat    = 'Security' | 'Web' | 'Tools' | 'Mobile'
 type Status = 'Active' | 'Completed' | 'WIP'
 
 interface Project {
@@ -39,29 +39,105 @@ const L = {
   Framer:     '#bb4fff',
   Vite:       '#646cff',
   gdb:        '#FF8C00',
+  Perl:         '#0298c3',
+  FastAPI:      '#009688',
+  SQLite:       '#003b57',
+  PowerShell:   '#5391FE',
+  ReactNative:  '#61dafb',
+  Expo:         '#4B5563',
+  CryptoJS:     '#9A4DFF',
+  C:            '#555555',
+  Shell:        '#89e051',
+  Node:         '#339933',
+  PostgreSQL:   '#336791',
+  Prisma:       '#2D3748',
+  NextJs15:     '#e2e8f0',
+  LiveKit:      '#f84343',
+  Express:      '#68A063',
+  AWS:          '#FF9900',
 }
 
 //  Projects data ─
 const PROJECTS: Project[] = [
   {
-    id: 'honeycred',
-    title: 'HoneyCred',
-    repo: 'ShHaWkK/HoneyCred',
+    id: 'aegislegacy',
+    title: 'AegisLegacy',
+    repo: 'ShHaWkK/AegisLegacy',
     description:
-      'Honeypot multi-protocoles (SSH, FTP, RDP) qui capture les credentials et TTPs des attaquants avec session replay complet et export d\'IoC.',
+      'Plateforme de sécurité runtime pour code legacy Perl/Python : moteur de règles YAML, API FastAPI + SQLite, CLI Typer, et agent Perl autonome, score de risque explicable, pas de boîte noire.',
     category: 'Security',
     stack: [
-      { name: 'Python',   color: L.Python },
-      { name: 'asyncio',  color: L.Python },
-      { name: 'Docker',   color: L.Docker },
-      { name: 'Bash',     color: L.Bash },
+      { name: 'Python',  color: L.Python },
+      { name: 'Perl',    color: L.Perl },
+      { name: 'FastAPI', color: L.FastAPI },
+      { name: 'SQLite',  color: L.SQLite },
     ],
-    github: 'https://github.com/ShHaWkK/HoneyCred',
+    github: 'https://github.com/ShHaWkK/AegisLegacy',
     status: 'Active',
-    year: '2024',
-    stars: 12,
-    forks: 3,
+    year: '2026',
     featured: true,
+  },
+  {
+    id: 'honeyssh',
+    title: 'HoneySSH',
+    repo: 'ShHaWkK/HoneySSH',
+    description:
+      'Honeypot SSH avancé pour capturer les credentials et analyser les TTPs des attaquants : session replay, export d\'IoC, logs structurés.',
+    category: 'Security',
+    stack: [
+      { name: 'Python',  color: L.Python },
+      { name: 'asyncio', color: L.Python },
+      { name: 'Docker',  color: L.Docker },
+    ],
+    github: 'https://github.com/ShHaWkK/HoneySSH',
+    status: 'Active',
+    year: '2025',
+    featured: true,
+  },
+  {
+    id: 'honeyftp',
+    title: 'HoneyFTP',
+    repo: 'ShHaWkK/HoneyFTP',
+    description:
+      'Piège FTP pour capturer les tentatives de connexion et analyser les patterns d\'attaque : brute-force, exfiltration, credentiels.',
+    category: 'Security',
+    stack: [
+      { name: 'Python', color: L.Python },
+      { name: 'Bash',   color: L.Bash },
+    ],
+    github: 'https://github.com/ShHaWkK/HoneyFTP',
+    status: 'Active',
+    year: '2025',
+  },
+  {
+    id: 'honeyhttp',
+    title: 'HoneyHTTP',
+    repo: 'ShHaWkK/HoneyHTTP',
+    description:
+      'Honeypot HTTP pour détecter scans automatisés, injections SQL/XSS et bots malveillants avec fingerprinting des attaquants.',
+    category: 'Security',
+    stack: [
+      { name: 'JavaScript', color: L.JavaScript },
+      { name: 'Docker',     color: L.Docker },
+    ],
+    github: 'https://github.com/ShHaWkK/HoneyHTTP',
+    status: 'Active',
+    year: '2025',
+  },
+  {
+    id: 'honeyrdp',
+    title: 'HoneyRDP',
+    repo: 'ShHaWkK/HoneyRDP',
+    description:
+      'Piège RDP simulant un bureau Windows pour capturer les tentatives de connexion à distance et analyser les outils d\'attaque.',
+    category: 'Security',
+    stack: [
+      { name: 'PowerShell', color: L.PowerShell },
+      { name: 'Python',     color: L.Python },
+    ],
+    github: 'https://github.com/ShHaWkK/HoneyRDP',
+    status: 'Active',
+    year: '2025',
   },
   {
     id: 'portfolio',
@@ -102,7 +178,6 @@ const PROJECTS: Project[] = [
   {
     id: 'ctf-toolkit',
     title: 'CTF Toolkit',
-    repo: 'ShHaWkK/ctf-toolkit',
     description:
       'Scripts Python pour CTF : exploitation web, reverse, crypto classique, pwn et OSINT. Automatise les étapes récurrentes.',
     category: 'Tools',
@@ -111,24 +186,21 @@ const PROJECTS: Project[] = [
       { name: 'pwntools', color: L.pwntools },
       { name: 'Bash',     color: L.Bash },
     ],
-    github: 'https://github.com/ShHaWkK',
     status: 'WIP',
     year: '2024',
   },
   {
     id: 'malware-analyzer',
     title: 'Malware Analyzer',
-    repo: 'ShHaWkK/malware-analyzer',
     description:
       'Sandbox d\'analyse dynamique : logging syscalls, détection comportementale, extraction automatique d\'IoC avec YARA.',
     category: 'Security',
     stack: [
-      { name: 'Python',    color: L.Python },
-      { name: 'YARA',      color: L.YARA },
+      { name: 'Python',     color: L.Python },
+      { name: 'YARA',       color: L.YARA },
       { name: 'Volatility', color: L.Volatility },
-      { name: 'Docker',    color: L.Docker },
+      { name: 'Docker',     color: L.Docker },
     ],
-    github: 'https://github.com/ShHaWkK',
     status: 'WIP',
     year: '2025',
   },
@@ -146,6 +218,188 @@ const PROJECTS: Project[] = [
     demo: 'https://pwn.college/hacker/ShHawk',
     status: 'Active',
     year: '2024',
+  },
+  // ── Security ──────────────────────────────────────────
+  {
+    id: 'ld-preload',
+    title: 'LD_PRELOAD Malware',
+    repo: 'ShHaWkK/LD_PRELOAD_malware',
+    description:
+      'Malware pédagogique Linux : interception syscalls via LD_PRELOAD, capture de credentials SSH, dissimulation de connexions réseau et C2 chiffré SSL/TLS.',
+    category: 'Security',
+    stack: [
+      { name: 'C',      color: L.C },
+      { name: 'Python', color: L.Python },
+    ],
+    github: 'https://github.com/ShHaWkK/LD_PRELOAD_malware',
+    status: 'Completed',
+    year: '2026',
+    featured: true,
+  },
+  {
+    id: 'usblok',
+    title: 'USBlok',
+    repo: 'ShHaWkK/USBlok',
+    description:
+      'Protection Linux contre les attaques USB (badUSB, RubberDucky, PoisonTap) : désactivation automatique des drivers, liste blanche et fenêtre d\'activation de 10 secondes.',
+    category: 'Security',
+    stack: [
+      { name: 'Shell',  color: L.Shell },
+      { name: 'Bash',   color: L.Bash },
+    ],
+    github: 'https://github.com/ShHaWkK/USBlok',
+    status: 'Active',
+    year: '2025',
+  },
+  {
+    id: 'wifi-scanner',
+    title: 'Wifi Scanner',
+    repo: 'ShHaWkK/Wifi_Scanner',
+    description:
+      'Outil d\'audit WiFi : scan SSID/BSSID, capture de paquets, détection WPA2/WPA3, identification de réseaux rogue, déauth detection et rapports HTML/PDF.',
+    category: 'Security',
+    stack: [
+      { name: 'Python', color: L.Python },
+      { name: 'Bash',   color: L.Bash },
+    ],
+    github: 'https://github.com/ShHaWkK/Wifi_Scanner',
+    status: 'Active',
+    year: '2025',
+  },
+  // ── Web ───────────────────────────────────────────────
+  {
+    id: 'atelier-nova',
+    title: 'Atelier Nova',
+    repo: 'ShHaWkK/atelier-nova',
+    description:
+      'Plateforme artisanale complète : site public premium + back-office admin (leads, devis, réservations, blog). Next.js 15 App Router, Prisma ORM, NextAuth v5, Tailwind.',
+    category: 'Web',
+    stack: [
+      { name: 'Next.js',    color: L.NextJs15 },
+      { name: 'TypeScript', color: L.TypeScript },
+      { name: 'Prisma',     color: L.Prisma },
+      { name: 'Tailwind',   color: L.Tailwind },
+    ],
+    github: 'https://github.com/ShHaWkK/atelier-nova',
+    status: 'Active',
+    year: '2026',
+    featured: true,
+  },
+  {
+    id: 'candipilot',
+    title: 'CandiPilot',
+    repo: 'ShHaWkK/CandiPilot',
+    description:
+      'Application web de gestion de candidatures : suivi des candidats, workflow de recrutement et tableau de bord RH. Next.js 15, Prisma ORM, déployé sur Vercel.',
+    category: 'Web',
+    stack: [
+      { name: 'Next.js',    color: L.NextJs15 },
+      { name: 'TypeScript', color: L.TypeScript },
+      { name: 'Prisma',     color: L.Prisma },
+      { name: 'Tailwind',   color: L.Tailwind },
+    ],
+    github: 'https://github.com/ShHaWkK/CandiPilot',
+    status: 'Active',
+    year: '2025',
+  },
+  {
+    id: 'bsrq-viewerhub',
+    title: 'BSRQ ViewerHub',
+    repo: 'ShHaWkK/BSRQ-ViewerHub',
+    description:
+      'Dashboard temps réel pour le monitoring de viewers YouTube lors d\'événements live : React frontend, Node.js/Express backend, PostgreSQL, Docker, export CSV.',
+    category: 'Web',
+    stack: [
+      { name: 'React',      color: L.React },
+      { name: 'Node.js',    color: L.Node },
+      { name: 'Express',    color: L.Express },
+      { name: 'PostgreSQL', color: L.PostgreSQL },
+    ],
+    github: 'https://github.com/ShHaWkK/BSRQ-ViewerHub',
+    status: 'Active',
+    year: '2025',
+  },
+  // ── Tools ─────────────────────────────────────────────
+  {
+    id: 'pve-vm-forge',
+    title: 'PVE VM Forge',
+    repo: 'ShHaWkK/pve-vm-forge',
+    description:
+      'Automatisation de création de VMs Proxmox depuis templates cloud-init (Ubuntu, Debian, Kali). Réduit le provisioning de heures à minutes via scripts Bash.',
+    category: 'Tools',
+    stack: [
+      { name: 'Shell',  color: L.Shell },
+      { name: 'Bash',   color: L.Bash },
+      { name: 'Docker', color: L.Docker },
+    ],
+    github: 'https://github.com/ShHaWkK/pve-vm-forge',
+    status: 'Active',
+    year: '2026',
+  },
+  {
+    id: 'jarvis-os',
+    title: 'Jarvis OS',
+    repo: 'ShHaWkK/jarvis-OS',
+    description:
+      'Assistant IA personnel auto-hébergé : pipeline vocal temps réel STT → LLM → TTS via LiveKit, mémoire conversationnelle et tâches autonomes en arrière-plan.',
+    category: 'Tools',
+    stack: [
+      { name: 'Python',  color: L.Python },
+      { name: 'LiveKit', color: L.LiveKit },
+      { name: 'Docker',  color: L.Docker },
+    ],
+    github: 'https://github.com/ShHaWkK/jarvis-OS',
+    status: 'WIP',
+    year: '2026',
+    featured: true,
+  },
+  // ── Mobile ────────────────────────────────────────────
+  {
+    id: 'securepass',
+    title: 'SecurePass',
+    description:
+      'Gestionnaire de mots de passe mobile — coffre-fort chiffré AES-256, générateur de mots de passe forts, authentification biométrique.',
+    category: 'Mobile',
+    stack: [
+      { name: 'React Native', color: L.ReactNative },
+      { name: 'Expo',         color: L.Expo },
+      { name: 'TypeScript',   color: L.TypeScript },
+      { name: 'CryptoJS',     color: L.CryptoJS },
+    ],
+    demo: '/demos/securepass.html',
+    status: 'Active',
+    year: '2025',
+    featured: true,
+  },
+  {
+    id: 'cipherkit',
+    title: 'CipherKit',
+    description:
+      'Boîte à outils cryptographique mobile : Base64, Hex, SHA-256 natif (SubtleCrypto), ROT-13, URL encode/decode avec historique.',
+    category: 'Mobile',
+    stack: [
+      { name: 'React Native', color: L.ReactNative },
+      { name: 'Expo',         color: L.Expo },
+      { name: 'TypeScript',   color: L.TypeScript },
+    ],
+    demo: '/demos/cipherkit.html',
+    status: 'Active',
+    year: '2025',
+  },
+  {
+    id: 'netpulse',
+    title: 'NetPulse',
+    description:
+      'Diagnostics réseau mobile : ping avec graphe de latence temps réel, IP lookup, scanner de ports et analyse de sécurité réseau.',
+    category: 'Mobile',
+    stack: [
+      { name: 'React Native', color: L.ReactNative },
+      { name: 'Expo',         color: L.Expo },
+      { name: 'TypeScript',   color: L.TypeScript },
+    ],
+    demo: '/demos/netpulse.html',
+    status: 'WIP',
+    year: '2025',
   },
 ]
 
@@ -171,6 +425,13 @@ const CAT_CONFIG: Record<Cat, { border: string; bg: string; text: string; label:
     text:   'text-neon-green',
     label:  'Tools',
     icon:   <Wrench className="w-3 h-3" />,
+  },
+  Mobile: {
+    border: 'border-l-cyan-400/60',
+    bg:     'bg-cyan-400/5',
+    text:   'text-cyan-400',
+    label:  'Mobile',
+    icon:   <Smartphone className="w-3 h-3" />,
   },
 }
 
@@ -287,7 +548,7 @@ const Projects = () => {
   const [filter, setFilter] = useState<Filter>('All')
 
   const visible = filter === 'All' ? PROJECTS : PROJECTS.filter(p => p.category === filter)
-  const tabs: Filter[] = ['All', 'Security', 'Web', 'Tools']
+  const tabs: Filter[] = ['All', 'Security', 'Web', 'Mobile', 'Tools']
   const count = (f: Filter) => f === 'All' ? PROJECTS.length : PROJECTS.filter(p => p.category === f).length
 
   return (

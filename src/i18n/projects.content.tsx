@@ -4,6 +4,14 @@ export default {
     command: "ls -la ~/projects/",
     projects: [
       {
+        title: "AegisLegacy",
+        description: "Plateforme de sécurité runtime pour code legacy Perl/Python : moteur de règles, API FastAPI, CLI et agent Perl autonome",
+        type: "SCANNER",
+        stack: ["Python", "Perl", "FastAPI", "SQLite"],
+        github: "https://github.com/ShHaWkK/AegisLegacy",
+        demo: null
+      },
+      {
         title: "SSH Honeypot",
         description: "Honeypot SSH avancé pour capturer et analyser les tentatives d'intrusion en temps réel",
         type: "HONEYPOT",
@@ -43,13 +51,21 @@ export default {
     terminal: {
       clone: "git clone https://github.com/ShHaWkK/*.git",
       cloning: "Clonage des repositories...",
-      found: "4 projets trouvés - Honeypots, Outils de sécurité"
+      found: "5 projets trouvés - Sécurité, Honeypots, Outils"
     }
   },
   en: {
     title: "My Projects",
     command: "ls -la ~/projects/",
     projects: [
+      {
+        title: "AegisLegacy",
+        description: "Runtime security platform for legacy Perl/Python code: rules engine, FastAPI backend, CLI and a standalone Perl agent",
+        type: "SCANNER",
+        stack: ["Python", "Perl", "FastAPI", "SQLite"],
+        github: "https://github.com/ShHaWkK/AegisLegacy",
+        demo: null
+      },
       {
         title: "SSH Honeypot",
         description: "Advanced SSH honeypot to capture and analyze intrusion attempts in real-time",
@@ -90,13 +106,21 @@ export default {
     terminal: {
       clone: "git clone https://github.com/ShHaWkK/*.git",
       cloning: "Cloning repositories...",
-      found: "4 projects found - Honeypots, Security tools"
+      found: "5 projects found - Security, Honeypots, Tools"
     }
   },
   ru: {
     title: "Мои проекты",
     command: "ls -la ~/projects/",
     projects: [
+      {
+        title: "AegisLegacy",
+        description: "Платформа безопасности для legacy-кода на Perl/Python: движок правил, API на FastAPI, CLI и автономный агент на Perl",
+        type: "SCANNER",
+        stack: ["Python", "Perl", "FastAPI", "SQLite"],
+        github: "https://github.com/ShHaWkK/AegisLegacy",
+        demo: null
+      },
       {
         title: "SSH Honeypot",
         description: "Продвинутый SSH honeypot для захвата и анализа попыток вторжений в реальном времени",
@@ -137,13 +161,21 @@ export default {
     terminal: {
       clone: "git clone https://github.com/ShHaWkK/*.git",
       cloning: "Клонирование репозиториев...",
-      found: "4 проекта найдено - Honeypots, Инструменты безопасности"
+      found: "5 проектов найдено - Безопасность, Honeypots, Инструменты"
     }
   },
   de: {
     title: "Meine Projekte",
     command: "ls -la ~/projects/",
     projects: [
+      {
+        title: "AegisLegacy",
+        description: "Runtime-Sicherheitsplattform für Legacy-Perl/Python-Code: Regel-Engine, FastAPI-Backend, CLI und ein eigenständiger Perl-Agent",
+        type: "SCANNER",
+        stack: ["Python", "Perl", "FastAPI", "SQLite"],
+        github: "https://github.com/ShHaWkK/AegisLegacy",
+        demo: null
+      },
       {
         title: "SSH Honeypot",
         description: "Fortschrittlicher SSH-Honeypot zum Erfassen und Analysieren von Einbruchsversuchen in Echtzeit",
@@ -184,13 +216,21 @@ export default {
     terminal: {
       clone: "git clone https://github.com/ShHaWkK/*.git",
       cloning: "Repositories werden geklont...",
-      found: "4 Projekte gefunden - Honeypots, Sicherheitstools"
+      found: "5 Projekte gefunden - Sicherheit, Honeypots, Tools"
     }
   },
   es: {
     title: "Mis Proyectos",
     command: "ls -la ~/projects/",
     projects: [
+      {
+        title: "AegisLegacy",
+        description: "Plataforma de seguridad runtime para código legacy Perl/Python: motor de reglas, API FastAPI, CLI y un agente Perl autónomo",
+        type: "SCANNER",
+        stack: ["Python", "Perl", "FastAPI", "SQLite"],
+        github: "https://github.com/ShHaWkK/AegisLegacy",
+        demo: null
+      },
       {
         title: "SSH Honeypot",
         description: "Honeypot SSH avanzado para capturar y analizar intentos de intrusión en tiempo real",
@@ -231,7 +271,7 @@ export default {
     terminal: {
       clone: "git clone https://github.com/ShHaWkK/*.git",
       cloning: "Clonando repositorios...",
-      found: "4 proyectos encontrados - Honeypots, Herramientas de seguridad"
+      found: "5 proyectos encontrados - Seguridad, Honeypots, Herramientas"
     }
   },
 };
