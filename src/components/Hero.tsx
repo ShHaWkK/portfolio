@@ -2,15 +2,15 @@ import { motion } from 'framer-motion'
 import { ArrowRight, ExternalLink, Shield, Code2 } from 'lucide-react'
 
 const STATS = [
-  { value: '3 ans',   label: 'exp. fullstack',          color: '#9A4DFF' },
-  { value: 'Top 5%',  label: 'pwn.college',             color: '#00FF9D' },
-  { value: '8+',      label: 'clients grand compte',    color: '#00E5FF' },
-  { value: '6+',      label: 'projets open source',     color: '#FF3E3E' },
+  { value: '3 ans',  label: 'exp. fullstack',        color: '#6366F1' },
+  { value: 'Top 5%', label: 'pwn.college',            color: '#818CF8' },
+  { value: '8+',     label: 'clients grand compte',   color: '#10B981' },
+  { value: '6+',     label: 'projets open source',    color: '#71717A' },
 ]
 
 const ROLES = [
-  { icon: Shield,  label: 'Ingénieur Cybersécurité',  sub: 'Offensive & Défensive',  color: '#00FF9D' },
-  { icon: Code2,   label: 'Développeur Fullstack',     sub: '3 ans d\'expérience',    color: '#9A4DFF' },
+  { icon: Code2,   label: 'Développeur Fullstack',    sub: '3 ans d\'expérience',   color: '#6366F1' },
+  { icon: Shield,  label: 'Ingénieur Cybersécurité',  sub: 'Offensive & Défensive', color: '#818CF8' },
 ]
 
 const fadeUp = (delay = 0) => ({
@@ -21,19 +21,10 @@ const fadeUp = (delay = 0) => ({
 const Hero = () => (
   <section id="hero" className="relative min-h-screen flex flex-col justify-center overflow-hidden py-24">
 
-    {/* Grid background */}
+    {/* Subtle ambient gradient */}
     <div
       className="absolute inset-0 pointer-events-none"
-      style={{
-        backgroundImage: 'linear-gradient(rgba(0,229,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(0,229,255,0.025) 1px, transparent 1px)',
-        backgroundSize: '64px 64px',
-      }}
-    />
-
-    {/* Radial glow */}
-    <div
-      className="absolute inset-0 pointer-events-none"
-      style={{ background: 'radial-gradient(ellipse 80% 60% at 30% 50%, rgba(154,77,255,0.05) 0%, transparent 65%)' }}
+      style={{ background: 'radial-gradient(ellipse 60% 50% at 20% 50%, rgba(99,102,241,0.04) 0%, transparent 70%)' }}
     />
 
     {/* Layout: text left + photo right */}
@@ -53,13 +44,13 @@ const Hero = () => (
             <div
               key={r.label}
               className="inline-flex items-center gap-2.5 px-4 py-2 border text-sm"
-              style={{ borderColor: `${r.color}30`, background: `${r.color}08` }}
+              style={{ borderColor: `${r.color}25`, background: `${r.color}06` }}
             >
               <r.icon className="w-3.5 h-3.5 shrink-0" style={{ color: r.color }} />
               <span className="font-semibold text-white text-xs">{r.label}</span>
               <span
-                className="font-code text-[10px] px-1.5 py-0.5"
-                style={{ color: r.color, background: `${r.color}15` }}
+                className="text-[10px] px-1.5 py-0.5"
+                style={{ color: r.color, background: `${r.color}12` }}
               >
                 {r.sub}
               </span>
@@ -75,9 +66,9 @@ const Hero = () => (
           className="font-black leading-[0.9] tracking-tight text-white mb-8"
           style={{ fontSize: 'clamp(48px, 7.5vw, 96px)' }}
         >
-          Je sécurise.<br />
           Je construis.<br />
-          <span style={{ color: '#00E5FF' }}>Je livre.</span>
+          Je sécurise.<br />
+          <span style={{ color: '#6366F1' }}>Je livre.</span>
         </motion.h1>
 
         {/* Description */}
@@ -85,9 +76,9 @@ const Hero = () => (
           variants={fadeUp(0.2)}
           initial="hidden"
           animate="show"
-          className="text-gray-400 text-base leading-relaxed max-w-lg mb-4"
+          className="text-zinc-400 text-base leading-relaxed max-w-lg mb-4"
         >
-          Ingénieur cybersécurité et développeur fullstack avec{' '}
+          Développeur fullstack et ingénieur cybersécurité avec{' '}
           <span className="text-white font-semibold">3 ans d'expérience</span>{' '}
           dans la conception d'applications web complexes — de l'architecture au déploiement.
         </motion.p>
@@ -96,18 +87,18 @@ const Hero = () => (
           variants={fadeUp(0.22)}
           initial="hidden"
           animate="show"
-          className="text-gray-500 text-sm leading-relaxed max-w-lg mb-10"
+          className="text-zinc-500 text-sm leading-relaxed max-w-lg mb-10"
         >
-          CTF player classé top&nbsp;5% sur pwn.college. Réalisations via{' '}
+          Expertise sécurité offensive · Réalisations via{' '}
           <a
             href="https://ajmtech.fr"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white hover:text-neon-blue transition-colors underline underline-offset-4 decoration-white/20"
+            className="text-white hover:text-indigo-300 transition-colors underline underline-offset-4 decoration-white/20"
           >
             ajmtech.fr
           </a>{' '}
-          pour Givenchy, L'Oréal, Hermès, Rabanne, Caudalie…
+          pour Givenchy, L'Oréal, Hermès, Prada, Caudalie…
         </motion.p>
 
         {/* CTAs */}
@@ -120,7 +111,7 @@ const Hero = () => (
           <button
             type="button"
             onClick={() => document.getElementById('showcase')?.scrollIntoView({ behavior: 'smooth' })}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#07090D] font-semibold text-sm hover:bg-gray-100 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#09090B] font-semibold text-sm hover:bg-gray-100 transition-colors"
           >
             Voir mes réalisations
             <ArrowRight className="w-4 h-4" />
@@ -129,7 +120,7 @@ const Hero = () => (
             href="https://ajmtech.fr"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 border border-neon-purple/40 text-neon-purple text-sm hover:border-neon-purple hover:bg-neon-purple/10 transition-all"
+            className="inline-flex items-center gap-2 px-6 py-3 border border-indigo-500/40 text-indigo-400 text-sm hover:border-indigo-500 hover:bg-indigo-500/10 transition-all"
           >
             <ExternalLink className="w-4 h-4" />
             ajmtech.fr
@@ -137,7 +128,7 @@ const Hero = () => (
           <button
             type="button"
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="inline-flex items-center gap-2 px-6 py-3 border border-gray-800 text-gray-500 text-sm hover:border-gray-600 hover:text-gray-300 transition-all"
+            className="inline-flex items-center gap-2 px-6 py-3 border border-zinc-800 text-zinc-500 text-sm hover:border-zinc-600 hover:text-zinc-300 transition-all"
           >
             Me contacter
           </button>
@@ -148,12 +139,12 @@ const Hero = () => (
           variants={fadeUp(0.4)}
           initial="hidden"
           animate="show"
-          className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-gray-800/30 border border-gray-800/60 overflow-hidden"
+          className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-zinc-800/30 border border-zinc-800/60 overflow-hidden"
         >
           {STATS.map(s => (
-            <div key={s.label} className="bg-[#0D1117] px-5 py-5 hover:bg-[#111827] transition-colors">
+            <div key={s.label} className="bg-[#09090B] px-5 py-5 hover:bg-[#111113] transition-colors">
               <p className="font-black text-2xl mb-1" style={{ color: s.color }}>{s.value}</p>
-              <p className="font-code text-[10px] text-gray-600 leading-snug">{s.label}</p>
+              <p className="text-[10px] text-zinc-600 leading-snug">{s.label}</p>
             </div>
           ))}
         </motion.div>
@@ -167,28 +158,27 @@ const Hero = () => (
         className="hidden lg:flex flex-col items-center shrink-0 ml-16 xl:ml-24"
       >
         <div className="relative" style={{ width: 260, height: 340 }}>
-          {/* Decorative corner accents */}
-          <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-neon-blue/60" />
-          <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-neon-purple/60" />
-          <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-neon-purple/60" />
-          <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-neon-blue/60" />
+          {/* Subtle corner accents */}
+          <div className="absolute top-0 left-0 w-5 h-5 border-t border-l border-zinc-600/50" />
+          <div className="absolute top-0 right-0 w-5 h-5 border-t border-r border-zinc-600/50" />
+          <div className="absolute bottom-0 left-0 w-5 h-5 border-b border-l border-zinc-600/50" />
+          <div className="absolute bottom-0 right-0 w-5 h-5 border-b border-r border-zinc-600/50" />
 
           {/* Photo */}
           <img
             src="/images/face.jpg"
             alt="Alexandre Uzan"
             className="w-full h-full object-cover object-top"
-            style={{ filter: 'grayscale(0.3) brightness(0.9) contrast(1.05)' }}
+            style={{ filter: 'grayscale(0.15) brightness(0.9) contrast(1.05)' }}
           />
 
           {/* Bottom fade */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0D1117]/60 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#09090B]/50 via-transparent to-transparent" />
         </div>
 
-        {/* Name + title below */}
         <div className="mt-4 text-center">
           <p className="font-semibold text-white text-sm">Alexandre Uzan</p>
-          <p className="font-code text-[10px] text-gray-600 mt-0.5 tracking-wider">
+          <p className="text-[10px] text-zinc-600 mt-0.5 tracking-wider">
             ESGI · Paris
           </p>
         </div>

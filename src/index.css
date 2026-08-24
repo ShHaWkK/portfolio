@@ -1,24 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #0D1117;
-  --neon-blue: #00E5FF;
-  --neon-purple: #9A4DFF;
-  --text-primary: #EAECEF;
-}
-
-/* Typewriter cursor blink */
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0; }
-}
-.animate-blink {
-  animation: blink 1s step-end infinite;
+  --background: #09090B;
+  --accent:     #6366F1;
+  --accent-2:   #818CF8;
+  --text-primary: #F8FAFC;
+  --text-muted:   #71717A;
+  --border:       #27272A;
 }
 
 @layer base {
@@ -31,38 +23,9 @@
     position: relative;
     overflow-x: hidden;
   }
-  
-  body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('/backgrounds/circuit-pattern.svg');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.05;
-    z-index: -1;
-    pointer-events: none;
-  }
-  
+
   h1, h2, h3, h4, h5, h6 {
     @apply font-poppins font-bold;
-  }
-  
-  code, .font-code {
-    font-family: 'Fira Code', monospace;
-  }
-  
-  .cyber-text {
-    color: var(--neon-blue);
-    text-shadow: 0 0 5px rgba(0, 229, 255, 0.5), 0 0 10px rgba(0, 229, 255, 0.3);
-  }
-  
-  .matrix-text {
-    color: var(--matrix-green);
-    text-shadow: 0 0 5px rgba(0, 255, 65, 0.5), 0 0 10px rgba(0, 255, 65, 0.3);
   }
 }
 
@@ -72,116 +35,41 @@
     position: relative;
     z-index: 1;
   }
-  
+
   .section {
     @apply py-16 md:py-24;
     position: relative;
   }
-  
-  .section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--neon-blue), transparent);
-    opacity: 0.3;
-  }
-  
+
   .btn {
-    @apply px-6 py-3 font-medium transition-all duration-300;
-    border-radius: 0;
+    @apply px-6 py-3 font-medium transition-all duration-200;
     position: relative;
     overflow: hidden;
-    z-index: 1;
-    clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
   }
-  
+
   .btn-primary {
-    @apply bg-neon-blue text-background;
+    @apply bg-white text-[#09090B] hover:bg-gray-100;
   }
-  
-  .btn-primary:hover {
-    background-color: transparent;
-    color: var(--neon-blue);
-    box-shadow: 0 0 15px rgba(0, 229, 255, 0.5);
-    border: 1px solid var(--neon-blue);
-  }
-  
-  .btn-secondary {
-    @apply bg-neon-purple text-background;
-    clip-path: polygon(5% 0, 95% 0, 100% 100%, 0% 100%);
-  }
-  
-  .btn-secondary:hover {
-    background-color: transparent;
-    color: var(--neon-purple);
-    box-shadow: 0 0 15px rgba(154, 77, 255, 0.5);
-    border: 1px solid var(--neon-purple);
-  }
-  
+
   .btn-outline {
-    @apply border-2 border-neon-blue text-neon-blue;
-    position: relative;
-    overflow: hidden;
+    @apply border border-zinc-700 text-zinc-300 hover:border-zinc-500 hover:text-white;
   }
-  
-  .btn-outline::after {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    width: calc(100% + 4px);
-    height: calc(100% + 4px);
-    background: linear-gradient(45deg, var(--neon-blue), transparent, var(--neon-blue));
-    z-index: -1;
-    animation: border-rotate 3s linear infinite;
-  }
-  
-  @keyframes border-rotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-  
-  .btn-outline:hover {
-    @apply bg-neon-blue text-background;
-    box-shadow: 0 0 15px rgba(0, 229, 255, 0.5);
-  }
-  
+
   .card {
-    @apply bg-background bg-opacity-50 backdrop-blur-sm border border-gray-800 p-6 transition-all duration-300 hover:border-neon-blue;
-    border-radius: 0;
-    position: relative;
-    clip-path: polygon(0 0, 100% 0, 97% 100%, 3% 100%);
-  }
-  
-  .card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, transparent, rgba(0, 229, 255, 0.03), transparent);
-    pointer-events: none;
-  }
-  
-  .cyber-card {
-    background-color: var(--background-alt);
-    border: 1px solid var(--neon-blue);
-    padding: 1.5rem;
-    position: relative;
-    clip-path: polygon(0 0, 100% 0, 97% 97%, 3% 100%);
-    box-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
-    transition: all 0.3s ease;
-  }
-  
-  .terminal-card {
-    background-color: var(--dark-blue);
-    border: 1px solid var(--terminal-green);
-    padding: 1.5rem;
-    font-family: 'Fira Code', monospace;
+    @apply bg-[#111113] border border-zinc-800/60 p-6 transition-all duration-200 hover:border-zinc-700/80;
     position: relative;
   }
 }
+
+/* Subtle scrollbar */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--background); }
+::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #52525b; }
+
+/* Cursor blink for typewriter — kept minimal */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.animate-blink { animation: blink 1s step-end infinite; }

@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Github, ExternalLink, Shield, Globe, Wrench, Star, GitFork, Smartphone } from 'lucide-react'
+import { Github, ExternalLink, Shield, Globe, Wrench, Star, GitFork } from 'lucide-react'
 
 //  Types ─
-type Cat    = 'Security' | 'Web' | 'Tools' | 'Mobile'
+type Cat    = 'Security' | 'Web' | 'Tools'
 type Status = 'Active' | 'Completed' | 'WIP'
 
 interface Project {
@@ -353,54 +353,6 @@ const PROJECTS: Project[] = [
     year: '2026',
     featured: true,
   },
-  // ── Mobile ────────────────────────────────────────────
-  {
-    id: 'securepass',
-    title: 'SecurePass',
-    description:
-      'Gestionnaire de mots de passe mobile — coffre-fort chiffré AES-256, générateur de mots de passe forts, authentification biométrique.',
-    category: 'Mobile',
-    stack: [
-      { name: 'React Native', color: L.ReactNative },
-      { name: 'Expo',         color: L.Expo },
-      { name: 'TypeScript',   color: L.TypeScript },
-      { name: 'CryptoJS',     color: L.CryptoJS },
-    ],
-    demo: '/demos/securepass.html',
-    status: 'Active',
-    year: '2025',
-    featured: true,
-  },
-  {
-    id: 'cipherkit',
-    title: 'CipherKit',
-    description:
-      'Boîte à outils cryptographique mobile : Base64, Hex, SHA-256 natif (SubtleCrypto), ROT-13, URL encode/decode avec historique.',
-    category: 'Mobile',
-    stack: [
-      { name: 'React Native', color: L.ReactNative },
-      { name: 'Expo',         color: L.Expo },
-      { name: 'TypeScript',   color: L.TypeScript },
-    ],
-    demo: '/demos/cipherkit.html',
-    status: 'Active',
-    year: '2025',
-  },
-  {
-    id: 'netpulse',
-    title: 'NetPulse',
-    description:
-      'Diagnostics réseau mobile : ping avec graphe de latence temps réel, IP lookup, scanner de ports et analyse de sécurité réseau.',
-    category: 'Mobile',
-    stack: [
-      { name: 'React Native', color: L.ReactNative },
-      { name: 'Expo',         color: L.Expo },
-      { name: 'TypeScript',   color: L.TypeScript },
-    ],
-    demo: '/demos/netpulse.html',
-    status: 'WIP',
-    year: '2025',
-  },
 ]
 
 //  Design tokens per category 
@@ -425,13 +377,6 @@ const CAT_CONFIG: Record<Cat, { border: string; bg: string; text: string; label:
     text:   'text-neon-green',
     label:  'Tools',
     icon:   <Wrench className="w-3 h-3" />,
-  },
-  Mobile: {
-    border: 'border-l-cyan-400/60',
-    bg:     'bg-cyan-400/5',
-    text:   'text-cyan-400',
-    label:  'Mobile',
-    icon:   <Smartphone className="w-3 h-3" />,
   },
 }
 
@@ -548,7 +493,7 @@ const Projects = () => {
   const [filter, setFilter] = useState<Filter>('All')
 
   const visible = filter === 'All' ? PROJECTS : PROJECTS.filter(p => p.category === filter)
-  const tabs: Filter[] = ['All', 'Security', 'Web', 'Mobile', 'Tools']
+  const tabs: Filter[] = ['All', 'Security', 'Web', 'Tools']
   const count = (f: Filter) => f === 'All' ? PROJECTS.length : PROJECTS.filter(p => p.category === f).length
 
   return (

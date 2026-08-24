@@ -48,7 +48,7 @@ const NAV = [
   { id: 'contact',        label: 'Contact',        icon: Mail },
 ]
 
-const ROLES = ['Ingénieur Cybersécurité', 'Développeur Fullstack', 'CTF Player · Top 5%', 'Pentester']
+const ROLES = ['Développeur Fullstack', 'Ingénieur Cybersécurité', 'Consultant Web']
 
 //  Inner sidebar (shared desktop + mobile) ─
 interface InnerProps {
@@ -94,17 +94,17 @@ const SidebarInner = ({
       </div>
 
       <p className="text-white font-semibold text-sm leading-none mb-1">Alexandre UZAN</p>
-      <p className="font-code text-[11px] text-neon-blue min-h-[15px]">
+      <p className="text-[11px] text-indigo-400 min-h-[15px] font-medium">
         {typedRole}<span className="animate-blink">_</span>
       </p>
-      <p className="font-code text-[9px] text-gray-600 mt-2 tracking-widest uppercase">
+      <p className="text-[9px] text-zinc-600 mt-2 tracking-widest uppercase">
         Paris, France
       </p>
     </div>
 
     {/*  Navigation  */}
     <nav className="flex-1 py-3 overflow-y-auto">
-      <p className="px-5 mb-1 font-code text-[9px] text-gray-700 tracking-widest uppercase">Navigation</p>
+      <p className="px-5 mb-1 text-[9px] text-zinc-700 tracking-widest uppercase font-medium">Navigation</p>
       {NAV.map(({ id, label, icon: Icon }) => {
         const active = activeSection === id
         return (
@@ -112,28 +112,27 @@ const SidebarInner = ({
             key={id}
             type="button"
             onClick={() => scrollTo(id)}
-            className={`relative w-full flex items-center gap-3 px-5 py-2.5 font-code text-[11px] transition-all duration-150 group ${
+            className={`relative w-full flex items-center gap-3 px-5 py-2.5 text-[11px] transition-all duration-150 group ${
               active
-                ? 'text-neon-blue'
-                : 'text-gray-500 hover:text-gray-200'
+                ? 'text-white'
+                : 'text-zinc-500 hover:text-zinc-200'
             }`}
           >
             {active && (
               <motion.div
                 layoutId="sb-active"
-                className="absolute left-0 top-1 bottom-1 w-[2px] bg-neon-blue rounded-r-full"
-                style={{ boxShadow: '2px 0 8px rgba(0,229,255,0.5)' }}
+                className="absolute left-0 top-1 bottom-1 w-[2px] bg-indigo-500 rounded-r-full"
               />
             )}
             <span
               className={`flex items-center justify-center w-5 h-5 rounded-sm transition-all duration-150 ${
-                active ? 'bg-neon-blue/15 text-neon-blue' : 'text-gray-600 group-hover:text-gray-400'
+                active ? 'bg-indigo-500/15 text-indigo-400' : 'text-zinc-600 group-hover:text-zinc-400'
               }`}
             >
               <Icon className="w-3 h-3" />
             </span>
             <span>{label}</span>
-            {active && <ChevronRight className="w-2.5 h-2.5 ml-auto text-neon-blue/40" />}
+            {active && <ChevronRight className="w-2.5 h-2.5 ml-auto text-zinc-500" />}
           </button>
         )
       })}
@@ -147,7 +146,7 @@ const SidebarInner = ({
         href="https://ajmtech.fr"
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center gap-2 px-3 py-2 font-code text-[10px] text-neon-purple border border-neon-purple/25 hover:border-neon-purple/50 hover:bg-neon-purple/8 transition-all duration-150 rounded-sm"
+        className="flex items-center gap-2 px-3 py-2 text-[10px] text-indigo-400 border border-indigo-500/25 hover:border-indigo-500/50 hover:bg-indigo-500/8 transition-all duration-150 rounded-sm"
       >
         <Globe className="w-3 h-3" />
         <span>ajmtech.fr</span>
@@ -160,7 +159,7 @@ const SidebarInner = ({
           href="https://github.com/ShHaWkK"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 flex items-center justify-center gap-1.5 py-1.5 font-code text-[10px] text-gray-500 border border-gray-800/80 hover:border-gray-700 hover:text-white transition-all duration-150 rounded-sm"
+          className="flex-1 flex items-center justify-center gap-1.5 py-1.5 text-[10px] text-zinc-500 border border-zinc-800/80 hover:border-zinc-700 hover:text-white transition-all duration-150 rounded-sm"
         >
           <Github className="w-3 h-3" /> GitHub
         </a>
@@ -168,7 +167,7 @@ const SidebarInner = ({
           href="https://pwn.college/hacker/ShHawk"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 flex items-center justify-center gap-1.5 py-1.5 font-code text-[10px] text-gray-500 border border-gray-800/80 hover:border-neon-green/40 hover:text-neon-green transition-all duration-150 rounded-sm"
+          className="flex-1 flex items-center justify-center gap-1.5 py-1.5 text-[10px] text-zinc-500 border border-zinc-800/80 hover:border-zinc-700 hover:text-white transition-all duration-150 rounded-sm"
         >
           <Terminal className="w-3 h-3" /> pwn
         </a>
@@ -179,7 +178,7 @@ const SidebarInner = ({
         <button
           type="button"
           onClick={() => setLanguage(language === 'fr' ? 'en' : 'fr')}
-          className="flex-1 py-1.5 font-code text-[10px] text-gray-500 border border-gray-800/80 hover:border-gray-700 hover:text-gray-300 transition-all duration-150 rounded-sm"
+          className="flex-1 py-1.5 text-[10px] text-zinc-500 border border-zinc-800/80 hover:border-zinc-700 hover:text-zinc-300 transition-all duration-150 rounded-sm"
         >
           {language === 'fr' ? 'FR → EN' : 'EN → FR'}
         </button>
@@ -188,7 +187,7 @@ const SidebarInner = ({
       {/* Scroll progress */}
       <div className="h-[2px] bg-gray-800/60 rounded-full overflow-hidden">
         <motion.div
-          className="h-full bg-gradient-to-r from-neon-blue via-neon-purple to-neon-green origin-left"
+          className="h-full bg-indigo-500 origin-left"
           style={{ scaleX }}
         />
       </div>

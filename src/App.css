@@ -1,112 +1,16 @@
-/* Styles spécifiques à l'application */
-
-/* Scrollbar fine et stylisée */
-::-webkit-scrollbar {
-  width: 4px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--background);
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #00E5FF, #9A4DFF);
-  border-radius: 2px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #00E5FF, #00FF9D);
-}
-
-/* Animation de gradient pour les boutons */
-.btn-gradient {
-  background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
-  background-size: 200% 100%;
-  animation: gradient-shift 5s ease infinite;
-}
-
-@keyframes gradient-shift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-/* Animation de typing pour le texte */
-.typing-animation {
-  border-right: 2px solid var(--neon-blue);
-  white-space: nowrap;
-  overflow: hidden;
-  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
-}
-
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
-
-@keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: var(--neon-blue) }
-}
-
-/* Effet de glow pour les éléments */
-.glow-effect {
-  box-shadow: 0 0 15px rgba(0, 229, 255, 0.5);
-  transition: box-shadow 0.3s ease;
-}
-
-.glow-effect:hover {
-  box-shadow: 0 0 25px rgba(0, 229, 255, 0.8);
-}
-
-/* Effet de parallaxe pour les sections */
-.parallax {
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-@keyframes rotate-slow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.spin-slow {
-  animation: rotate-slow 8s linear infinite;
-}
-
-@keyframes rotate-subtle {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.spin-subtle {
-  animation: rotate-subtle 16s linear infinite;
-}
-
-@keyframes scan-line {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(100%); }
-}
-
-.animate-scan {
-  animation: scan-line 6s linear infinite;
-}
-
+/* Subtle tile style for glass-like cards */
 .tile-soft {
-  background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
-  border: 1px solid rgba(255,255,255,0.08);
+  background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.06);
   backdrop-filter: blur(6px);
 }
 
 .tile-soft:hover {
-  background: linear-gradient(145deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
-  border-color: rgba(255,255,255,0.15);
+  background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  border-color: rgba(255,255,255,0.10);
+}
+
+/* Gradient accent — now indigo */
+.btn-gradient {
+  background: linear-gradient(90deg, #6366F1, #818CF8);
 }

@@ -7,8 +7,8 @@ const SERVICES = [
     title: 'Site vitrine & Landing page',
     description: 'Design sur mesure, animations fluides, SEO optimisé, formulaire de contact. Livré en 2–3 semaines.',
     features: ['Design custom', 'Responsive mobile', 'SEO & performances', 'Formulaire contact'],
-    price: 'À partir de 1 500 €',
-    color: '#00E5FF',
+    price: 'Sur devis',
+    color: '#6366F1',
   },
   {
     icon: ShoppingCart,
@@ -16,16 +16,16 @@ const SERVICES = [
     description: 'Plateforme événementielle, e-commerce, espace client, live streaming, quiz interactif — comme pour L\'Oréal, Givenchy, Hermès.',
     features: ['Architecture sur mesure', 'Auth & back-office', 'Temps réel (WebSocket)', 'Déploiement inclus'],
     price: 'Sur devis',
-    color: '#9A4DFF',
+    color: '#818CF8',
     featured: true,
   },
   {
     icon: Zap,
     title: 'Maintenance & évolution',
     description: 'Nouvelles fonctionnalités, corrections de bugs, montée de version, optimisations de performance.',
-    features: ['TJM 450 €/jour', 'Réponse < 24h', 'Rapport mensuel', 'Flexible & sans engagement'],
-    price: '450 €/jour',
-    color: '#00FF9D',
+    features: ['Réponse < 24h', 'Rapport mensuel', 'Flexible & sans engagement', 'Suivi dédié'],
+    price: 'Sur devis',
+    color: '#10B981',
   },
 ]
 
@@ -43,7 +43,7 @@ const fade = (delay = 0) => ({
 const WebServices = () => (
   <section id="services" className="bg-[#0D1117] relative">
     {/* Top border accent */}
-    <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-neon-purple/40 to-transparent" />
+    <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-zinc-800 to-transparent" />
 
     <div className="px-8 md:px-14 py-20">
 
@@ -55,8 +55,8 @@ const WebServices = () => (
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         className="mb-14"
       >
-        <p className="font-code text-[11px] text-neon-purple tracking-[0.2em] uppercase mb-3">
-          ~/services
+        <p className="text-[11px] text-indigo-400 tracking-[0.2em] uppercase mb-3 font-medium">
+          Services
         </p>
         <div className="flex items-end justify-between gap-6 flex-wrap">
           <div>
@@ -73,7 +73,7 @@ const WebServices = () => (
           </div>
           <a
             href="/web"
-            className="inline-flex items-center gap-2 font-code text-xs text-neon-blue border border-neon-blue/30 px-4 py-2 hover:bg-neon-blue/10 transition-colors shrink-0"
+            className="inline-flex items-center gap-2 text-xs text-indigo-400 border border-indigo-500/30 px-4 py-2 hover:bg-indigo-500/10 transition-colors shrink-0"
           >
             <Code2 className="w-3.5 h-3.5" />
             Page dédiée clients
@@ -93,8 +93,8 @@ const WebServices = () => (
             viewport={{ once: true }}
             className={`relative flex flex-col p-6 border transition-colors duration-200 ${
               s.featured
-                ? 'border-neon-purple/40 bg-neon-purple/5'
-                : 'border-gray-800/60 bg-[#080B10] hover:border-gray-700'
+                ? 'border-indigo-500/30 bg-indigo-500/5'
+                : 'border-zinc-800/60 bg-[#0C0C0E] hover:border-zinc-700'
             }`}
           >
             {s.featured && (
@@ -140,14 +140,14 @@ const WebServices = () => (
         transition={{ duration: 0.5, delay: 0.2 }}
         className="border border-gray-800/60 p-6 mb-10"
       >
-        <p className="font-code text-[10px] text-gray-600 tracking-widest uppercase mb-5">Stack technique</p>
+        <p className="text-[10px] text-zinc-600 tracking-widest uppercase mb-5 font-medium">Stack technique</p>
         <div className="grid sm:grid-cols-3 gap-6">
           {STACK.map(cat => (
             <div key={cat.label}>
-              <p className="font-code text-[10px] text-neon-blue tracking-widest uppercase mb-3">{cat.label}</p>
+              <p className="text-[10px] text-indigo-400/80 tracking-widest uppercase mb-3 font-medium">{cat.label}</p>
               <div className="flex flex-wrap gap-2">
                 {cat.items.map(item => (
-                  <span key={item} className="font-code text-[10px] text-gray-400 border border-gray-800/80 px-2 py-1">
+                  <span key={item} className="text-[10px] text-zinc-400 border border-zinc-800/80 px-2 py-1">
                     {item}
                   </span>
                 ))}
@@ -179,7 +179,7 @@ const WebServices = () => (
         >
           Voir la page dédiée →
         </a>
-        <span className="font-code text-xs text-gray-700 ml-auto hidden md:block">
+        <span className="text-xs text-zinc-700 ml-auto hidden md:block">
           Disponible · Réponse sous 24h
         </span>
       </motion.div>

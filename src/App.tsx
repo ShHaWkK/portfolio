@@ -8,9 +8,11 @@ import Hero           from './components/Hero'
 import About          from './components/About'
 import Skills         from './components/Skills'
 import Experience     from './components/Experience'
-import WebServices    from './components/WebServices'
-import Showcase       from './components/Showcase'
-import Projects       from './components/Projects'
+import WebServices      from './components/WebServices'
+import LanguageStack    from './components/LanguageStack'
+import WebRealisations  from './components/WebRealisations'
+import Showcase         from './components/Showcase'
+import Projects         from './components/Projects'
 import Blog           from './components/Blog'
 import Certifications from './components/Certifications'
 import Publications   from './components/Publications'
@@ -34,6 +36,8 @@ function PortfolioPage() {
           <About />
           <Skills />
           <Experience />
+          <LanguageStack />
+          <WebRealisations />
           <WebServices />
           <Showcase />
           <Projects />
