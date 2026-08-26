@@ -214,6 +214,23 @@ const PROJECTS: ClientProject[] = [
     confidential: true,
     accent: '#B5121B',
   },
+  {
+    id: 'jpg',
+    number: '13',
+    client: 'Jean Paul Gaultier',
+    subtitle: 'Plateforme événementielle & live',
+    description: 'Plateforme événementielle sur mesure pour les équipes Jean Paul Gaultier : accueil responsive desktop et mobile, live streaming intégré avec chat temps réel et gestion des participants.',
+    tags: ['Événementiel', 'Live', 'Chat temps réel', 'Mobile', 'Luxe'],
+    images: [
+      '/images/showcase/jpg/home.png',
+      '/images/showcase/jpg/home-mobile.png',
+      '/images/showcase/jpg/live-chat.png',
+      '/images/showcase/jpg/live_chat_mobile.png',
+    ],
+    year: '2025',
+    confidential: true,
+    accent: '#C8102E',
+  },
 ]
 
 // ── Lightbox ─────────────────────────────────────────────────────────────────
@@ -548,7 +565,7 @@ const ProjectRow = ({ project }: { project: ClientProject; index?: number }) => 
 
 // ── Client ticker ────────────────────────────────────────────────────────────
 
-const TICKER_CLIENTS: { name: string; accent: string; logo?: string }[] = [
+const TICKER_CLIENTS: { name: string; accent: string; logo?: string; darkLogo?: boolean }[] = [
   { name: 'Givenchy',         accent: '#C9A96E', logo: '/images/logos/givenchy.svg' },
   { name: "L'Oréal",          accent: '#FF2D55', logo: '/images/logos/loreal.svg' },
   { name: 'Rabanne',          accent: '#F5A623', logo: '/images/logos/rabanne.svg' },
@@ -562,6 +579,7 @@ const TICKER_CLIENTS: { name: string; accent: string; logo?: string }[] = [
   { name: 'First Conseil',    accent: '#E63312' },
   { name: 'Prada',            accent: '#C8B89A', logo: '/images/logos/prada.svg' },
   { name: 'Valentino',        accent: '#B5121B', logo: '/images/logos/valentino.svg' },
+  { name: 'Jean Paul Gaultier', accent: '#C8102E', logo: '/images/showcase/jpg/logo.png', darkLogo: true },
 ]
 
 const ClientTicker = () => {
@@ -581,6 +599,7 @@ const ClientTicker = () => {
                   src={c.logo}
                   alt={c.name}
                   className="h-6 w-auto object-contain opacity-40 hover:opacity-90 transition-opacity duration-300"
+                  style={c.darkLogo ? { filter: 'invert(1)' } : undefined}
                   onError={e => { e.currentTarget.style.display = 'none' }}
                 />
               )
